@@ -69,7 +69,12 @@ class TareasModel
       return $sentencia->fetch(PDO::FETCH_ASSOC);
     }
 
-
+ function getCategoria(){
+   $sentencia = $this->db->prepare( "select * from categoria");
+   $sentencia->execute();
+   $categorias = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+   return $categorias;
+ }
 
 }
 
