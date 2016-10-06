@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-10-2016 a las 01:05:43
+-- Tiempo de generación: 07-10-2016 a las 01:22:05
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `maquinarias`
 --
-CREATE DATABASE IF NOT EXISTS `maquinarias` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `maquinarias`;
 
 -- --------------------------------------------------------
 
@@ -36,11 +34,6 @@ CREATE TABLE `caracteristicas` (
   `car_status` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Truncar tablas antes de insertar `caracteristicas`
---
-
-TRUNCATE TABLE `caracteristicas`;
 -- --------------------------------------------------------
 
 --
@@ -54,11 +47,22 @@ CREATE TABLE `categorías` (
   `cat_status` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Truncar tablas antes de insertar `categorías`
+-- Estructura de tabla para la tabla `imágenes`
 --
 
-TRUNCATE TABLE `categorías`;
+CREATE TABLE `imágenes` (
+  `id_imagen` int(11) NOT NULL,
+  `img_producto` int(11) NOT NULL,
+  `img_descripcion` varchar(50) NOT NULL,
+  `img_url` varchar(255) NOT NULL,
+  `img_mime` varchar(20) NOT NULL,
+  `img_destacada` tinyint(1) NOT NULL,
+  `img_status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- --------------------------------------------------------
 
 --
@@ -80,11 +84,6 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Truncar tablas antes de insertar `productos`
---
-
-TRUNCATE TABLE `productos`;
---
 -- Índices para tablas volcadas
 --
 
@@ -100,6 +99,13 @@ ALTER TABLE `caracteristicas`
 --
 ALTER TABLE `categorías`
   ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `imágenes`
+--
+ALTER TABLE `imágenes`
+  ADD PRIMARY KEY (`id_imagen`),
+  ADD KEY `img_producto` (`img_producto`);
 
 --
 -- Indices de la tabla `productos`
@@ -123,6 +129,11 @@ ALTER TABLE `caracteristicas`
 --
 ALTER TABLE `categorías`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `imágenes`
+--
+ALTER TABLE `imágenes`
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
