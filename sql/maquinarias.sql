@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-10-2016 a las 01:22:05
+-- Tiempo de generación: 07-10-2016 a las 01:26:58
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `maquinarias`
 --
+CREATE DATABASE IF NOT EXISTS `maquinarias` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `maquinarias`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `caracteristicas`
 --
 
+DROP TABLE IF EXISTS `caracteristicas`;
 CREATE TABLE `caracteristicas` (
   `id_caracteristica` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
@@ -34,12 +37,18 @@ CREATE TABLE `caracteristicas` (
   `car_status` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncar tablas antes de insertar `caracteristicas`
+--
+
+TRUNCATE TABLE `caracteristicas`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `categorías`
 --
 
+DROP TABLE IF EXISTS `categorías`;
 CREATE TABLE `categorías` (
   `id_categoria` int(11) NOT NULL,
   `cat_nombre` varchar(50) NOT NULL,
@@ -47,12 +56,18 @@ CREATE TABLE `categorías` (
   `cat_status` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncar tablas antes de insertar `categorías`
+--
+
+TRUNCATE TABLE `categorías`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `imágenes`
 --
 
+DROP TABLE IF EXISTS `imágenes`;
 CREATE TABLE `imágenes` (
   `id_imagen` int(11) NOT NULL,
   `img_producto` int(11) NOT NULL,
@@ -63,12 +78,18 @@ CREATE TABLE `imágenes` (
   `img_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncar tablas antes de insertar `imágenes`
+--
+
+TRUNCATE TABLE `imágenes`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `productos`
 --
 
+DROP TABLE IF EXISTS `productos`;
 CREATE TABLE `productos` (
   `id_producto` int(11) NOT NULL,
   `prod_categoria` int(11) NOT NULL,
@@ -83,6 +104,11 @@ CREATE TABLE `productos` (
   `prod_status` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncar tablas antes de insertar `productos`
+--
+
+TRUNCATE TABLE `productos`;
 --
 -- Índices para tablas volcadas
 --
