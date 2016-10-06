@@ -7,12 +7,12 @@ class TareasModel
 
   function __construct()
   {
-    $this->db = new PDO('mysql:host=localhost;dbname=mvclista_tudai;charset=utf8', 'root', '');
+    $this->db = new PDO('mysql:host=localhost;dbname=maquinarias;charset=utf8', 'root', '');
 
     $this->tareas = ['Tarea 11','Tarea 21','Tarea 31'];
   }
 
-  function getImagenes($id_tarea){
+ function getImagenes($id_tarea){
     $sentencia = $this->db->prepare( "select * from imagen where fk_id_tarea=?");
     $sentencia->execute(array($id_tarea));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
