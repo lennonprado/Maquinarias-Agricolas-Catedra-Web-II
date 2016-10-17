@@ -7,7 +7,7 @@
 								<div class="form-group">
 									<label for="name">Nombre y Apellido</label>
 									<input type="text" name="name" id="name" size="25" maxlength="40" value="">
-								</div>
+								</div> 
 								<div class="form-group">
 									<label for="email">Email</label>
 									<input type="text" name="email" id="email" size="30" maxlength="60" value="">

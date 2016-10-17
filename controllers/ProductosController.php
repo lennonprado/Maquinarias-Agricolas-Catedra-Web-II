@@ -1,28 +1,28 @@
 <?php
-require('views/TareasView.php');
-require('models/TareasModel.php');
+require('templates/ProductosView.php');
+require('models/ProductosModel.php');
 
-class TareasController
+class ProductosController
 {
   private $vista;
   private $modelo;
 
   function __construct()
   {
-    $this->modelo = new TareasModel();
-    $this->vista = new TareasView();
+    $this->modelo = new ProductosModel();
+    $this->vista = new ProductosView();
   }
 
   function iniciar(){
-    $tareas = $this->modelo->getTareas();
-    $this->vista->mostrar($tareas);
+    $productos = $this->modelo->getProductos();
+    $this->vista->mostrar($productos);
   }
 
   function getImagenesVerificadas($imagenes){
-    $imagenesVerificadas = [];
+    $imagenesVerificadas = array();
     for ($i=0; $i < count($imagenes['size']); $i++) {
       if($imagenes['size'][$i]>0 && $imagenes['type'][$i]=="image/jpeg"){
-          $imagen_aux = [];
+          $imagen_aux = array();
           $imagen_aux['tmp_name']=$imagenes['tmp_name'][$i];
           $imagen_aux['name']=$imagenes['name'][$i];
           $imagenesVerificadas[]=$imagen_aux;
@@ -33,7 +33,7 @@ class TareasController
   }
 
   function guardar(){
-    $tarea = $_POST['tarea'];
+    $producto = $_POST['prod_nombre'];
     if(isset($_FILES['imagenes'])){
       $imagenesVerificadas = $this->getImagenesVerificadas($_FILES['imagenes']);
       if(count($imagenesVerificadas)>0){
@@ -54,17 +54,12 @@ class TareasController
   }
 
   function eliminar(){
-    $key = $_GET['id_tarea'];
-    $this->modelo->eliminarTarea($key);
-    $tareas = $this->modelo->getTareas();
-    $this->vista->getLista($tareas);
+    $key = $_GET['id_producto'];
+    $this->modelo->eliminarProducto($key);
+    $productos = $this->modelo->getProductos();
+    $this->vista->getLista($productos);
   }
 
-  function realizar(){
-    $key = $_GET['id_tarea'];
-    $this->modelo->toogleTarea($key);
-    $this->iniciar();
-  }
 
   function filtro($tarea){
     return preg_match('/podria/',$tarea);

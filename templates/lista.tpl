@@ -1,16 +1,49 @@
-<ul>
-  {foreach from=$tareas key=index item=tarea}
-  <li>
-    {if $tarea['finalizada']}
-      <s>{$tarea['nombre']}</s>
-    {else}
-      {$tarea['nombre']}
-    {/if}
-      {foreach from=$tarea['imagenes'] key=index item=imagen}
-      <img src="{$imagen['path']}" alt="TareaImagen_{$tarea['nombre']}_{$imagen['id_imagen']}"  class="img-thumbnail">
-      {/foreach}
-      <a class="eliminarTareas" href="#" data-idtarea="{$tarea['id_tarea']}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-      <a href="realizar_tarea/{$tarea['id_tarea']}"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
-  </li>
-  {/foreach}
-</ul>
+
+  <section>
+    <h3>Nuevos y Usados</h3>
+    <div id="ListadoMaquinas">
+      <ul>
+
+         {foreach from=$usados item=usado}
+        <li>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <a href="#" title="{$usado.prod_nombre}" class="jsUnidad">
+                <img src="{$usado.url_img}" alt="{$usado.prod_nombre}" title="{$usado.prod_nombre}" class="img-thumbnail img-responsive">
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-8">
+              <h3>
+                <a href="#" title="{$usado.prod_nombre}" class="jsUnidad">{$usado.prod_nombre}</a>
+              </h3>
+              <ul class="features">
+                  <li><span>Marca</span> : {$usado.mar_nombre}</li>
+                  <li><span>Modelo</span> : {$usado.prod_modelo}</li>
+                  <li><span>Estado</span> : {$usado.prod_estado}</li>
+                  <li><span>Año</span> : {$usado.prod_anio}</li>
+              </ul>
+              <ul class="price">
+                  <li><span>Precio</span> $  {$usado.prod_precio}</li>
+              </ul>
+              <a href="#" class="btn btn-warning jsUnidad">Detalles Ver</a>
+            </div>
+          </div>
+        </li>
+        {/foreach}
+
+
+      </ul>
+    </div>
+  </section>
+
+<nav>
+  <ul class="pagination">
+    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+  </ul>
+</nav>

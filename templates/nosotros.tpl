@@ -16,7 +16,6 @@
     <p class="text-left">
       Carina no es una simple vendedora que convence a sus clientes con su simpatía. A esa figura de empresaria, le suma sus conocimientos sobre el tema y su dinámica para atender en cualquier lugar de la región a quienes confían en sus productos, dándole así a su establecimiento un perfil que lo caracteriza con relación el resto.
     </p>
-
     <figure>
       <img />
       <figcaption></figcaption>
