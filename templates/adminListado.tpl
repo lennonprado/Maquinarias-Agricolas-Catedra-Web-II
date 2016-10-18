@@ -12,7 +12,10 @@
               <div class="caption">
                 <h3>{$item.prod_nombre}</h3>
                 <p>{$item.prod_nombre}</p>
-                <p><a href="#" class="btn btn-primary" role="button">Modificar</a> <a href="#" class="btn btn-default" role="button">Eliminar</a></p>
+                <p>
+                  <a href="modificaProducto/{$item.id_producto}" class="btn btn-primary" role="button">Modificar</a>
+                  <a href="eliminarProducto/{$item.id_producto}" class="btn btn-default" role="button">Eliminar</a>
+                </p> 
               </div>
             </div>
           </div>

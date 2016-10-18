@@ -14,10 +14,6 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
     $controller->iniciar();
     break;
 
-  case ConfigApp::$MODIFICARPRODUCTOS:
-      $controller->modificarProductos();
-    break;
-
   case ConfigApp::$CATEGORIAS:
     $controller->categorias();
     break;
