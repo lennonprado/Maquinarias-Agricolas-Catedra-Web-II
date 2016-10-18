@@ -37,15 +37,24 @@ class AdminView
     $this->smarty->display('adminUnidad.tpl');
   }
 
+  // Lista las categorias
   function categorias($categorias){
     $this->smarty->assign('categorias',$categorias);
     $this->smarty->display('adminListadoCategorias.tpl');
   }
 
+  // Muestra el formulario para modificar una categoria
   function modificarCategorias($categoria){
     $this->smarty->assign('categoria',$categoria);
     $this->smarty->display('adminModificarCategoria.tpl');
   }
+
+  // Muestra el formulario para agregar una categoria
+  function agregarCategorias($categoria){
+    $this->smarty->assign('categoria',$categoria);
+    $this->smarty->display('agregarCategoria.tpl');
+  }
+  
 
   function marcas($marcas){
     $this->smarty->assign('marcas',$marcas);
