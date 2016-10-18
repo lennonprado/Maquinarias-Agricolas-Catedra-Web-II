@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2016-10-18 01:49:38
+  from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/home.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_580563920d7448_25383373',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '957f7e2992aaffd7f4831dfd38a674ef89dd3765' => 
+    array (
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/home.tpl',
+      1 => 1476748174,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_580563920d7448_25383373 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <header>
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -36,14 +60,29 @@
     <h4>Nuevas Maquinarias</h4>
     <div class="row destacados" >
       <ul>
-         {foreach from=$nuevos item=nuevo}
+         <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['nuevos']->value, 'nuevo');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['nuevo']->value) {
+?>
         <li class="col-xs-12 col-md-4">
-          <a href="#" title="{$nuevo.prod_nombre}" class="thumbnail jsUnidad">
-            <img class="img-responsive" src="{$nuevo.url_img}" alt="{$nuevo.prod_nombre}" title="{$nuevo.prod_nombre}">
+          <a href="#" title="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
+" class="thumbnail jsUnidad">
+            <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['url_img'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
+" title="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
+">
           </a>
-          <h5><a href="#" title="{$nuevo.prod_nombre}" class="jsUnidad">{$nuevo.prod_nombre}</a></h5>
+          <h5><a href="#" title="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
+" class="jsUnidad"><?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
+</a></h5>
         </li>
-        {/foreach}
+        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
       </ul>
     </div>
   </div>
@@ -102,14 +141,28 @@
     <h4>destacados Seleccionados</h4>
     <div class="row destacados">
       <ul>
-         {foreach from=$destacados item=destacado}
+         <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['destacados']->value, 'destacado');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['destacado']->value) {
+?>
            <li class="col-xs-12 col-md-3">
-             <a href="#" title="{$destacado.prod_nombre}" class="jsUnidad">
-               <img src="{$destacado.img_url}" class="img-responsive img-thumbnail" alt="{$destacado.prod_nombre}" title="{$destacado.prod_nombre}">
+             <a href="#" title="<?php echo $_smarty_tpl->tpl_vars['destacado']->value['prod_nombre'];?>
+" class="jsUnidad">
+               <img src="<?php echo $_smarty_tpl->tpl_vars['destacado']->value['img_url'];?>
+" class="img-responsive img-thumbnail" alt="<?php echo $_smarty_tpl->tpl_vars['destacado']->value['prod_nombre'];?>
+" title="<?php echo $_smarty_tpl->tpl_vars['destacado']->value['prod_nombre'];?>
+">
              </a>
-             <h6><a href="#">{$destacado.prod_nombre}</a></h6>
+             <h6><a href="#"><?php echo $_smarty_tpl->tpl_vars['destacado']->value['prod_nombre'];?>
+</a></h6>
            </li>
-        {/foreach}
+        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
       </ul>
     </div>
   </div>
@@ -159,3 +212,5 @@
         </div>
       </div>
   </section>
+<?php }
+}

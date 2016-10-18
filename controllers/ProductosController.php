@@ -1,5 +1,5 @@
 <?php
-require('templates/ProductosView.php');
+require('view/ProductosView.php');
 require('models/ProductosModel.php');
 
 class ProductosController
@@ -15,8 +15,36 @@ class ProductosController
 
   function iniciar(){
     $productos = $this->modelo->getProductos();
-    $this->vista->mostrar($productos);
+    $this->vista->inicio();
   }
+
+  function nosotros(){
+    $this->vista->nosotros();
+  }
+
+  function contacto(){
+    $this->vista->contacto();
+  }
+
+  function home(){
+    $marcas = $this->modelo->getCategoria();
+    $destacados = $this->modelo->getProductos("usados");
+    $nuevos = $this->modelo->getProductos("nuevos");
+    $this->vista->home($marcas,$nuevos,$destacados);
+  }
+
+  function listado(){
+    $todos = $this->modelo->getProductos();
+    $this->vista->listado($todos);
+  }
+
+  function unidad(){
+    $imagenes = $this->modelo->getImagenes($_GET['id_producto']);
+    $destacados = $this->modelo->getProductos("usados");
+    $unidad = $this->modelo->getProducto($_GET['id_producto']);
+    $this->vista->unidad($unidad,$imagenes,$destacados);
+  }
+
 
   function getImagenesVerificadas($imagenes){
     $imagenesVerificadas = array();

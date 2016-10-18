@@ -10,18 +10,21 @@ if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
 }
 
 switch ($_REQUEST[ConfigApp::$ACTION]) {
-  case ConfigApp::$ACTION_MOSTRAR_TAREAS:
-    $controller->iniciar();
+  case ConfigApp::$HOME:
+    $controller->home();
     break;
-  case ConfigApp::$ACTION_GUARDAR_TAREA:
-    $controller->guardar();
+  case ConfigApp::$CONTACTO:
+    $controller->contacto();
     break;
-  case ConfigApp::$ACTION_ELIMINAR_TAREA:
-    $controller->eliminar();
+  case ConfigApp::$UNIDAD:
+    $controller->unidad();
     break;
-  case ConfigApp::$ACTION_REALIZAR_TAREA:
-    $controller->realizar();
+  case ConfigApp::$NOSOTROS:
+    $controller->nosotros();
     break;
+    case ConfigApp::$LISTADO:
+      $controller->listado();
+      break;
   default:
     $controller->iniciar();
     break;

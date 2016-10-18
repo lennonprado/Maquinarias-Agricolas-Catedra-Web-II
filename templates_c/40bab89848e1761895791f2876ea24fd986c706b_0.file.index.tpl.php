@@ -1,10 +1,36 @@
-<!DOCTYPE HTML>
+<?php
+/* Smarty version 3.1.30, created on 2016-10-18 01:53:43
+  from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/index.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_58056487292502_16815576',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '40bab89848e1761895791f2876ea24fd986c706b' => 
+    array (
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/index.tpl',
+      1 => 1476748421,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_58056487292502_16815576 (Smarty_Internal_Template $_smarty_tpl) {
+?>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Comercializacion de Maquinarias | Inicio</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <?php echo '<script'; ?>
+ src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"><?php echo '</script'; ?>
+>
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -12,6 +38,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <!-- Nuestra hoja de estilos -->
   <link rel="stylesheet" href="css/style.css" />
+
 </head>
 <body>
   <nav class="navbar" role="navigation" id="header">
@@ -28,7 +55,7 @@
           <a href="#" id="nosotros" >Nosotros</a>
         </li>
         <li>
-          <a href="#" id="lista" >Nuevos y Usados</a>
+          <a href="#" id="listado" >Nuevos y Usados</a>
         </li>
         <li>
           <a href="#" id="contacto" >Contacto</a>
@@ -75,8 +102,15 @@
 		</div>
   </footer>
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <?php echo '<script'; ?>
+ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"><?php echo '</script'; ?>
+>
   <!-- Nuestros Js -->
-  <script src="js/navegacion.js" ></script>
+  <?php echo '<script'; ?>
+ src="js/navegacion.js" ><?php echo '</script'; ?>
+>
+
 </body>
 </html>
+<?php }
+}

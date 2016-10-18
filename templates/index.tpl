@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <!-- Nuestra hoja de estilos -->
   <link rel="stylesheet" href="css/style.css" />
+
 </head>
 <body>
   <nav class="navbar" role="navigation" id="header">
@@ -28,7 +29,7 @@
           <a href="#" id="nosotros" >Nosotros</a>
         </li>
         <li>
-          <a href="#" id="lista" >Nuevos y Usados</a>
+          <a href="#" id="listado" >Nuevos y Usados</a>
         </li>
         <li>
           <a href="#" id="contacto" >Contacto</a>
@@ -77,6 +78,7 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <!-- Nuestros Js -->
-  <script src="../js/navegacion.js" ></script>
+  <script src="js/navegacion.js" ></script>
+
 </body>
 </html>

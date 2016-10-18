@@ -1,6 +1,6 @@
 function navegacion(seccion){
   $('main').html('<div id="onload"><button class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Cargando...</button></div>');
-  var ruta='files/html/'+seccion+'.php';
+  var ruta='http://localhost/maquinarias/'+seccion;
   $.ajax({
     url: ruta,
     method:"GET",
@@ -29,13 +29,16 @@ $(".nav li a").on("click",function(event){
     event.preventDefault();
 });
 
-/*
-$(".jsUnidad").on("click",function(event){
+
+$(".btn-ver-unidad").on("click",function(event){
   var seccion = 'unidad';
-  //alert(seccion);
-  navegacion(seccion);
+  var id = $(this).attr("id");
+  console.log(seccion);
+  navegacion(seccion+'/'+id);
   event.preventDefault();
 });
-*/
 
-$(document).ready(function(){ $("#home").click();});
+
+$(document).ready(function(){
+  $("#home").click();
+});

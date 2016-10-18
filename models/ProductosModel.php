@@ -10,8 +10,11 @@ class ProductosModel
     $this->db = new PDO('mysql:host=localhost;dbname=maquinarias;charset=utf8', 'root', '');
   }
 
-  function getProductos(){
-    $sentencia = $this->db->prepare( "select * from productos");
+  function getProductos($tipo=NULL){
+    if(!is_null($tipo))
+      $sentencia = $this->db->prepare( 'select * from productos where prod_estado = "' . $tipo . '"' );
+    else
+      $sentencia = $this->db->prepare( "select * from productos");
     $sentencia->execute();
     $productos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
     foreach ($productos as $key => $producto) {
@@ -22,7 +25,7 @@ class ProductosModel
 
   function crearProducto($producto, $imagenes){
     //Agrega en la ultima posicion del arreglo
-    $sentencia = $this->db->prepare("INSERT INTO producto(nombre) VALUES(?)");
+    $sentencia = $this->db->prepare("INSERT INTO productos(nombre) VALUES(?)");
     $sentencia->execute(array($producto));
     $id_producto = $this->db->lastInsertId();
 
@@ -43,7 +46,7 @@ class ProductosModel
     //productos[1] = 'producto 21'
     //productos[2] = 'producto 11'
     //unset($this->productos[$id_producto]);
-    $sentencia = $this->db->prepare("delete from producto where id_producto=?");
+    $sentencia = $this->db->prepare("delete from productos where id_producto=?");
     $sentencia->execute(array($id_producto));
     return $sentencia->rowCount();
 
@@ -51,18 +54,18 @@ class ProductosModel
 
     function toogleProducto($id_producto){
       $producto = $this->getproducto($id_producto);
-      $sentencia = $this->db->prepare("update producto set finalizada=? where id_producto=?");
+      $sentencia = $this->db->prepare("update productos set finalizada=? where id_producto=");
       $sentencia->execute(array(!$producto['finalizada'],$id_producto));
     }
 
     function getProducto($id_producto){
-      $sentencia = $this->db->prepare( "select * from producto where id_producto=?");
+      $sentencia = $this->db->prepare( "select * from productos where id_producto=?");
       $sentencia->execute(array($id_producto));
       return $sentencia->fetch(PDO::FETCH_ASSOC);
     }
 
     function getCategoria(){
-      $sentencia = $this->db->prepare( "select * from categoria");
+      $sentencia = $this->db->prepare( "select * from categorias");
       $sentencia->execute();
       $categorias = $sentencia->fetchAll(PDO::FETCH_ASSOC);
       return $categorias;

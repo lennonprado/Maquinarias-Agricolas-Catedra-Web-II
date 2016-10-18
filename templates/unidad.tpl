@@ -1,7 +1,7 @@
 <section>
   <div class="row">
     <div class="col-xs-12 col-md-12">
-      <h4 >Detalles: {$prod_nombre}</h4>
+      <h4 >Detalles: {$unidad.prod_nombre}---</h4>
     </div>
 
 
@@ -20,7 +20,7 @@
     </div>
     {/foreach}
 
- 
+
     <div class="col-md-12">
       <article>
         <h4>Descripción</h4>

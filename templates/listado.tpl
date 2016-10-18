@@ -1,31 +1,31 @@
 
   <section>
-    <h3>Nuevos y Usados</h3>
+    <h3>Nuevos y unidads</h3>
     <div id="ListadoMaquinas">
       <ul>
 
-         {foreach from=$usados item=usado}
+         {foreach from=$todos item=unidad}
         <li>
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4">
-              <a href="#" title="{$usado.prod_nombre}" class="jsUnidad">
-                <img src="{$usado.url_img}" alt="{$usado.prod_nombre}" title="{$usado.prod_nombre}" class="img-thumbnail img-responsive">
+              <a href="#" title="{$unidad.prod_nombre}" class="jsUnidad">
+                <img src="{$unidad.url_img}" alt="{$unidad.prod_nombre}" title="{$unidad.prod_nombre}" class="img-thumbnail img-responsive">
               </a>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-8">
               <h3>
-                <a href="#" title="{$usado.prod_nombre}" class="jsUnidad">{$usado.prod_nombre}</a>
+                <a id="{$unidad.id_producto}" href="#" title="{$unidad.prod_nombre}" class="btn-ver-unidad">{$unidad.prod_nombre}</a>
               </h3>
               <ul class="features">
-                  <li><span>Marca</span> : {$usado.mar_nombre}</li>
-                  <li><span>Modelo</span> : {$usado.prod_modelo}</li>
-                  <li><span>Estado</span> : {$usado.prod_estado}</li>
-                  <li><span>Año</span> : {$usado.prod_anio}</li>
+                  <li><span>Marca</span> : {$unidad.mar_nombre}</li>
+                  <li><span>Modelo</span> : {$unidad.prod_modelo}</li>
+                  <li><span>Estado</span> : {$unidad.prod_estado}</li>
+                  <li><span>Año</span> : {$unidad.prod_anio}</li>
               </ul>
               <ul class="price">
-                  <li><span>Precio</span> $  {$usado.prod_precio}</li>
+                  <li><span>Precio</span> $  {$unidad.prod_precio}</li>
               </ul>
-              <a href="#" class="btn btn-warning jsUnidad">Detalles Ver</a>
+              <a id="{$unidad.id_producto}" href="#" class="btn btn-warning btn-ver-unidad">Detalles Ver</a>
             </div>
           </div>
         </li>

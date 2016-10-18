@@ -2,15 +2,15 @@
 require('templates/ProductosView.php');
 require('models/ProductosModel.php');
 
-class ProductosController
+class AdminController
 {
   private $vista;
   private $modelo;
 
   function __construct()
   {
-    $this->modelo = new ProductosModel();
-    $this->vista = new ProductosView();
+    //$this->modelo = new ProductosModel();
+    //$this->vista = new ProductosView();
   }
 
   function iniciar(){
