@@ -18,6 +18,13 @@ class AdminController
     $this->vista->listado($productos);
   }
 
+  function modificarProductos(){
+    $imagenes = $this->modelo->getImagenes($_GET['id']);
+    $unidad = $this->modelo->getProducto($_GET['id']);
+    $caracteristicas = $this->modelo->getCaracteristicas($_GET['id_producto']);
+    $this->vista->modificarProducto($unidad,$imagenes,$caracteristicas,);
+  }
+
   function categorias(){
     $categorias = $this->modelo->getCategorias();
     $this->vista->categorias($categorias);

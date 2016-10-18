@@ -10,7 +10,7 @@ class ConfigApp{
   public static $CATEGORIAS = 'categorias';
   public static $MARCAS = 'marcas';
   public static $PRODUCTOS = 'productos';
-
+  public static $MODIFICARPRODUCTOS = 'modificarProducto';
 
 
 }
