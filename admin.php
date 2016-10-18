@@ -11,17 +11,74 @@ if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
 
 switch ($_REQUEST[ConfigApp::$ACTION]) {
   case ConfigApp::$PRODUCTOS:
+<<<<<<< HEAD
     $controller->iniciar();
     break;
 
+=======
+  if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
+      $controller->productos();
+  }
+  else {
+    switch ($_REQUEST[ConfigApp::$SECCION]){
+        case ConfigApp::$AGREGAR:
+          $controller->agregarProductos();
+        break;
+        case ConfigApp::$MODIFICAR:
+          $controller->modificarProductos();
+        break;
+        case ConfigApp::$ELIMINAR:
+          $controller->eliminaraProductos();
+        break;
+        default:
+          $controller->productos();
+        break;
+    }
+  }
+  break;
+>>>>>>> 37ad04922daeaa7f966063d0a374ca76b8c894cb
   case ConfigApp::$CATEGORIAS:
-    $controller->categorias();
+    if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
+        $controller->categorias();
+    }
+    else {
+      switch ($_REQUEST[ConfigApp::$SECCION]){
+          case ConfigApp::$AGREGAR:
+            $controller->agregarCategorias();
+          break;
+          case ConfigApp::$MODIFICAR:
+            $controller->modificarCategorias();
+          break;
+          case ConfigApp::$ELIMINAR:
+            $controller->eliminaraCategorias();
+          break;
+          default:
+            $controller->categorias();
+          break;
+      }
+    }
     break;
-
   case ConfigApp::$MARCAS:
-     $controller->marcas();
-    break;
-
+  if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
+      $controller->marcas();
+  }
+  else {
+    switch ($_REQUEST[ConfigApp::$SECCION]){
+        case ConfigApp::$AGREGAR:
+          $controller->agregarMarcas();
+        break;
+        case ConfigApp::$MODIFICAR:
+          $controller->modificarMarcas();
+        break;
+        case ConfigApp::$ELIMINAR:
+          $controller->eliminaraMarcas();
+        break;
+        default:
+          $controller->categorias();
+        break;
+    }
+  }
+  break;
   default:
     $controller->iniciar();
     break;
