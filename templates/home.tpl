@@ -38,10 +38,10 @@
       <ul>
          {foreach from=$nuevos item=nuevo}
         <li class="col-xs-12 col-md-4">
-          <a href="#" title="{$nuevo.prod_nombre}" class="thumbnail jsUnidad">
-            <img class="img-responsive" src="{$nuevo.url_img}" alt="{$nuevo.prod_nombre}" title="{$nuevo.prod_nombre}">
+          <a href="#" title="{$nuevo.prod_nombre}" class="thumbnail jsUnidad" id_producto="{$nuevo.id_producto}">
+            <img class="img-responsive" src="{$nuevo.imagenes_des}" alt="{$nuevo.prod_nombre}" title="{$nuevo.prod_nombre}">
           </a>
-          <h5><a href="#" title="{$nuevo.prod_nombre}" class="jsUnidad">{$nuevo.prod_nombre}</a></h5>
+          <h5><a href="#" title="{$nuevo.prod_nombre}" class="jsUnidad" id_producto="{$nuevo.id_producto}" >{$nuevo.prod_nombre}</a></h5>
         </li>
         {/foreach}
       </ul>
@@ -56,23 +56,17 @@
       <div class="col-sm-6 col-md-6  browser-cat">
         <h5>Rubro</h5>
         <ul>
-          <li><a href="#">cosechadoras</a></li>
-          <li><a href="#">sembradoras</a></li>
-          <li><a href="#">Tractores</a></li>
-          <li><a href="#">Tolvas</a></li>
-          <li><a href="#">implementos</a></li>
-          <li><a href="#">Otros</a></li>
+           {foreach from=$categorias item=item}
+            <li><a href="#">{$item.cat_nombre}</a></li>
+          {/foreach}
         </ul>
       </div>
       <div class="col-sm-6 col-md-6  browser-cat">
-        <h5></h5>
+        <h5>Marcas</h5>
         <ul >
-          <li><a href="#">Baima</a></li>
-          <li><a href="#">Praba</a></li>
-          <li><a href="#">Cestari</a></li>
-          <li><a href="#">Don Roque</a></li>
-          <li><a href="#">de Grande</a></li>
-          <li><a href="#">Otras</a></li>
+           {foreach from=$marcas item=item}
+            <li><a href="#">{$item.marca_nombre}</a></li>
+          {/foreach}
         </ul>
       </div>
     </div>
@@ -89,7 +83,7 @@
             <input name="modelo" id="modelo" type="text" />
           </div>
           <div>
-            <input type="submit" id="homeSearchButton" name="homeSearchButton" value="Buscar" class="jsUnidad" >
+            <input type="submit" id="homeSearchButton" name="homeSearchButton" value="Buscar" class="jsListar" >
           </div>
         </form>
       </div>
@@ -104,10 +98,10 @@
       <ul>
          {foreach from=$destacados item=destacado}
            <li class="col-xs-12 col-md-3">
-             <a href="#" title="{$destacado.prod_nombre}" class="jsUnidad">
-               <img src="{$destacado.img_url}" class="img-responsive img-thumbnail" alt="{$destacado.prod_nombre}" title="{$destacado.prod_nombre}">
+             <a href="#" title="{$destacado.prod_nombre}" class="jsUnidad" id_producto="{$destacado.id_producto}" >
+               <img src="{$destacado.imagenes_des}" class="img-responsive img-thumbnail" alt="{$destacado.prod_nombre}" title="{$destacado.prod_nombre}">
              </a>
-             <h6><a href="#">{$destacado.prod_nombre}</a></h6>
+             <h6><a href="#" class="jsUnidad" id_producto="{$destacado.id_producto}" >{$destacado.prod_nombre}</a></h6>
            </li>
         {/foreach}
       </ul>
@@ -119,43 +113,43 @@
       <h4>Nuestras </h4>
       <div class="row">
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="LECAR"><img src="images/1.png"  class="jsUnidad"  alt="LECAR"></a>
+          <a href="#" title="LECAR"><img src="images/1.png"  class="jsListar" alt="LECAR"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="BERTINI"><img src="images/2.png" class="jsUnidad"  alt="BERTINI"></a>
+          <a href="#" title="BERTINI"><img src="images/2.png" class="jsListar"  alt="BERTINI"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="POZZI"><img src="images/3.png" class="jsUnidad"  alt="POZZI"></a>
+          <a href="#" title="POZZI"><img src="images/3.png" class="jsListar"  alt="POZZI"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="ERCA"><img src="images/5.png" class="jsUnidad"  alt="ERCA"></a>
+          <a href="#" title="ERCA"><img src="images/5.png" class="jsListar"  alt="ERCA"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="PAUNY"><img src="images/6.png" class="jsUnidad"  alt="PAUNY"></a>
+          <a href="#" title="PAUNY"><img src="images/6.png" class="jsListar"  alt="PAUNY"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="BAIMA"><img src="images/7.png" class="jsUnidad"  alt="BAIMA"></a>
+          <a href="#" title="BAIMA"><img src="images/7.png" class="jsListar"  alt="BAIMA"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="PRABA"><img src="images/8.png" class="jsUnidad"  alt="PRABA"></a>
+          <a href="#" title="PRABA"><img src="images/8.png" class="jsListar"  alt="PRABA"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="DON ROQUE"><img src="images/9.png" class="jsUnidad"  alt="DON ROQUE"></a>
+          <a href="#" title="DON ROQUE"><img src="images/9.png" class="jsListar"  alt="DON ROQUE"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="CESTARI"><img src="images/10.png" class="jsUnidad"  alt="CESTARI"></a>
+          <a href="#" title="CESTARI"><img src="images/10.png" class="jsListar"  alt="CESTARI"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="DE GRANDE"><img src="images/11.png" class="jsUnidad"  alt="DE GRANDE" ></a>
+          <a href="#" title="DE GRANDE"><img src="images/11.png" class="jsListar"  alt="DE GRANDE" ></a>
         </div>
       </div>
   </section>

@@ -27,17 +27,19 @@ class ProductosView
     $this->smarty->display('listado.tpl');
   }
 
-  function home($marcas,$nuevos,$destacados){
+  function home($categorias,$marcas,$nuevos,$destacados){
+    $this->smarty->assign('categorias',$categorias);
     $this->smarty->assign('marcas',$marcas);
     $this->smarty->assign('nuevos',$nuevos);
     $this->smarty->assign('destacados',$destacados);
     $this->smarty->display('home.tpl');
   }
 
-  function unidad($unidad,$caracteristicas,$imagenes){
+  function unidad($unidad,$imagenes,$caracteristicas,$destacados){
     $this->smarty->assign('unidad',$unidad);
     $this->smarty->assign('caracteristicas',$caracteristicas);
     $this->smarty->assign('imagenes',$imagenes);
+    $this->smarty->assign('destacados',$destacados);
     $this->smarty->display('unidad.tpl');
   }
 

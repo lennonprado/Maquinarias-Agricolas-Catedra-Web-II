@@ -1,30 +1,30 @@
 <section>
   <div class="row">
     <div class="col-xs-12 col-md-12">
-      <h4 >Detalles: {$unidad.prod_nombre}---</h4>
+      <h4>Detalles: {$unidad.prod_nombre}</h4>
     </div>
-
-
-    <div class="col-xs-12 col-md-8">
-      <a data-toggle="lightbox" href="#">
-        <img src="{$imgen_destacada.url}" class="img-responsive img-thumbnail" >
-      </a>
-    </div>
-
 
     {foreach from=$imagenes item=imagen}
-    <div class="col-xs-4 col-md-4">
-      <a data-toggle="lightbox" href="#">
-        <img src="{$imagen.url}" class="img-responsive img-thumbnail">
-      </a>
-    </div>
+       {if $imagen.img_destacada==0}
+          <div class="col-xs-4 col-md-4">
+            <a data-toggle="lightbox" href="#">
+              <img src="{$imagen.img_url}" class="img-responsive img-thumbnail" width="300" height="200">
+            </a>
+          </div>
+       {else}
+          <div class="col-xs-12 col-md-8">
+            <a data-toggle="lightbox" href="#">
+              <img src="{$imagen.img_url}" class="img-responsive img-thumbnail" width="800" height="600" >
+            </a>
+          </div>
+       {/if}
     {/foreach}
 
 
     <div class="col-md-12">
       <article>
         <h4>Descripción</h4>
-        {$prod_descripcion}
+        {$unidad.prod_descripcion}
       </article>
 
       <h4>Caracteristicas</h4>
@@ -35,28 +35,16 @@
               <th class="text-left">Caracteristica</th>
               <th class="text-right">Detalle</th>
             </tr>
-             <tfoot>
-               <tr>
-                 <td align="left">
-                 	<input type="text" id="nombreCaracteristica" placeholder="Caracteristica" tabindex="1" />
-                 </td>
-                 <td align="right">
-                   <input type="text" id="descripcionCaracteristica" placeholder="Detalle" tabindex="2" />
-                   <input type="button" class="btn-warning btn-xs" value="Agregar" id="nuevaCaracteristica" tabindex="3" />
-                 </td>
-               </tr>
-             </tfoot>
           </thead>
 
           <tbody>
           {foreach from=$caracteristicas item=caracteristca}
             <tr>
                <td align="left">
-                  <input type="text" id="nombreCaracteristica" placeholder="Caracteristica" tabindex="1" />
+                  {$caracteristca.car_nombre}
                </td>
                <td align="right">
-                  <input type="text" id="descripcionCaracteristica" placeholder="Detalle" tabindex="2" />
-                  <input type="button" class="btn-warning btn-xs" value="Agregar" id="nuevaCaracteristica" tabindex="3" />
+                  {$caracteristca.car_detalle}
                </td>
             </tr>
          {/foreach}
@@ -73,16 +61,15 @@
     <h4>Usados Seleccionados</h4>
     <div class="row destacados">
       <ul>
-         {foreach from=$usados item=usado}
+         {foreach from=$destacados item=destacado}
            <li class="col-xs-12 col-md-3">
-             <a href="#" title="{$usado.prod_nombre}" class="jsUnidad">
-               <img src="{$usado.img_url}" class="img-responsive img-thumbnail" alt="{$usado.prod_nombre}" title="{$usado.prod_nombre}">
+             <a href="#" title="{$destacado.prod_nombre}" class="jsUnidad" id_producto="{$destacado.id_producto}">
+               <img src="{$destacado.imagenes_des}" class="img-responsive img-thumbnail" alt="{$destacado.prod_nombre}" title="{$destacado.prod_nombre}">
              </a>
-             <h6><a href="#">{$usado.prod_nombre}</a></h6>
+             <h6><a href="#" class="jsUnidad" id_producto="{$destacado.id_producto}">{$destacado.prod_nombre}</a></h6>
            </li>
         {/foreach}
       </ul>
     </div>
   </div>
 </section>
-<script src="files/js/servicio_rest.js" ></script>

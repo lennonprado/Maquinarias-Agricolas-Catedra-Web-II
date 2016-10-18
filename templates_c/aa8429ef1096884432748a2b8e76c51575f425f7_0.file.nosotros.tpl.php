@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-18 01:24:30
+/* Smarty version 3.1.30, created on 2016-10-18 13:53:15
   from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/nosotros.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58055daebe3173_64082668',
+  'unifunc' => 'content_58060d2b935bf8_12032675',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'aa8429ef1096884432748a2b8e76c51575f425f7' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/nosotros.tpl',
-      1 => 1476740638,
+      1 => 1476791297,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58055daebe3173_64082668 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58060d2b935bf8_12032675 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <article>
   <h3>Nosotros - Los Fierros del Campo</h3>

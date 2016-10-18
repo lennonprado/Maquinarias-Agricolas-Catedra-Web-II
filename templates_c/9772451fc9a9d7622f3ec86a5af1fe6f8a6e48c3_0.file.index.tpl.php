@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-17 23:53:27
-  from "C:\xampp\htdocs\maquinarias\templates\index.tpl" */
+/* Smarty version 3.1.30, created on 2016-10-18 13:52:32
+  from "/Applications/XAMPP/xamppfiles/htdocs/web2/templates/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58054857cbb452_93493340',
+  'unifunc' => 'content_58060d003d1f08_97540770',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '3f8d7a8a169ba02e9bf754ff33e5aa829ef162fa' => 
+    '9772451fc9a9d7622f3ec86a5af1fe6f8a6e48c3' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\maquinarias\\templates\\index.tpl',
-      1 => 1476740893,
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/templates/index.tpl',
+      1 => 1476791297,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58054857cbb452_93493340 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58060d003d1f08_97540770 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,6 +38,7 @@ function content_58054857cbb452_93493340 (Smarty_Internal_Template $_smarty_tpl)
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <!-- Nuestra hoja de estilos -->
   <link rel="stylesheet" href="css/style.css" />
+
 </head>
 <body>
   <nav class="navbar" role="navigation" id="header">
@@ -54,7 +55,7 @@ function content_58054857cbb452_93493340 (Smarty_Internal_Template $_smarty_tpl)
           <a href="#" id="nosotros" >Nosotros</a>
         </li>
         <li>
-          <a href="#" id="lista" >Nuevos y Usados</a>
+          <a href="#" id="listado" >Nuevos y Usados</a>
         </li>
         <li>
           <a href="#" id="contacto" >Contacto</a>
@@ -106,8 +107,9 @@ function content_58054857cbb452_93493340 (Smarty_Internal_Template $_smarty_tpl)
 >
   <!-- Nuestros Js -->
   <?php echo '<script'; ?>
- src="../js/navegacion.js" ><?php echo '</script'; ?>
+ src="js/navegacion.js" ><?php echo '</script'; ?>
 >
+
 </body>
 </html>
 <?php }

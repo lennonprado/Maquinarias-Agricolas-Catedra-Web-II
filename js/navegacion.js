@@ -6,12 +6,17 @@ function navegacion(seccion){
     method:"GET",
     dataType:"html",
     success: function(data){
+
       $('main').fadeIn(20000).html(data);
-      $(".jsUnidad").on("click",function(event){
+
+      $(".jsUnidad").on("click",function(event){         
         var seccion = 'unidad';
-        navegacion(seccion);
+        var id = $(this).attr("id_producto");
+        var sec = seccion + '/' + id;
+        navegacion(sec);
         event.preventDefault();
       });
+
     },
     statusCode: {
       404: function() {
@@ -28,16 +33,6 @@ $(".nav li a").on("click",function(event){
     navegacion(seccion);
     event.preventDefault();
 });
-
-
-$(".btn-ver-unidad").on("click",function(event){
-  var seccion = 'unidad';
-  var id = $(this).attr("id");
-  console.log(seccion);
-  navegacion(seccion+'/'+id);
-  event.preventDefault();
-});
-
 
 $(document).ready(function(){
   $("#home").click();

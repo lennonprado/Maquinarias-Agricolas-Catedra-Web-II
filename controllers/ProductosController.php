@@ -27,22 +27,25 @@ class ProductosController
   }
 
   function home(){
-    $marcas = $this->modelo->getCategoria();
-    $destacados = $this->modelo->getProductos("usados");
-    $nuevos = $this->modelo->getProductos("nuevos");
-    $this->vista->home($marcas,$nuevos,$destacados);
+    $categorias = $this->modelo->getCategorias();
+    $marcas = $this->modelo->getMarcas();
+    $destacados = $this->modelo->getProductos("usado");
+    $nuevos = $this->modelo->getProductos("nuevo");
+   // var_dump($nuevos);
+    $this->vista->home($categorias,$marcas,$nuevos,$destacados);
   }
 
   function listado(){
-    $todos = $this->modelo->getProductos();
+    $todos = $this->modelo->getProductos();    
     $this->vista->listado($todos);
   }
 
   function unidad(){
     $imagenes = $this->modelo->getImagenes($_GET['id_producto']);
-    $destacados = $this->modelo->getProductos("usados");
+    $destacados = $this->modelo->getProductos("usado");
     $unidad = $this->modelo->getProducto($_GET['id_producto']);
-    $this->vista->unidad($unidad,$imagenes,$destacados);
+    $caracteristicas = $this->modelo->getCaracteristicas($_GET['id_producto']);
+    $this->vista->unidad($unidad,$imagenes,$caracteristicas,$destacados);
   }
 
 

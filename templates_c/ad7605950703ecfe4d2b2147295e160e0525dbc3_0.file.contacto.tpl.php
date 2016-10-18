@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-18 01:52:38
+/* Smarty version 3.1.30, created on 2016-10-18 13:53:18
   from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/contacto.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_580564467fdc57_38505453',
+  'unifunc' => 'content_58060d2e55bba4_33947446',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ad7605950703ecfe4d2b2147295e160e0525dbc3' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/contacto.tpl',
-      1 => 1476740638,
+      1 => 1476791297,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_580564467fdc57_38505453 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58060d2e55bba4_33947446 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <section>
   <h3>Contacto</h3>

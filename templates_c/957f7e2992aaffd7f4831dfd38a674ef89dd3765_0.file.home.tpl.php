@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-18 01:49:38
+/* Smarty version 3.1.30, created on 2016-10-18 15:55:06
   from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/home.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_580563920d7448_25383373',
+  'unifunc' => 'content_580629ba50dce7_04494635',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '957f7e2992aaffd7f4831dfd38a674ef89dd3765' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/home.tpl',
-      1 => 1476748174,
+      1 => 1476798901,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_580563920d7448_25383373 (Smarty_Internal_Template $_smarty_tpl) {
+function content_580629ba50dce7_04494635 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <header>
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -67,14 +67,16 @@ foreach ($_from as $_smarty_tpl->tpl_vars['nuevo']->value) {
 ?>
         <li class="col-xs-12 col-md-4">
           <a href="#" title="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
-" class="thumbnail jsUnidad">
-            <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['url_img'];?>
+" class="thumbnail jsUnidad" id_producto="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['id_producto'];?>
+">
+            <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['imagenes_des'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
 " title="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
 ">
           </a>
           <h5><a href="#" title="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
-" class="jsUnidad"><?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
+" class="jsUnidad" id_producto="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['id_producto'];?>
+" ><?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
 </a></h5>
         </li>
         <?php
@@ -95,23 +97,37 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
       <div class="col-sm-6 col-md-6  browser-cat">
         <h5>Rubro</h5>
         <ul>
-          <li><a href="#">cosechadoras</a></li>
-          <li><a href="#">sembradoras</a></li>
-          <li><a href="#">Tractores</a></li>
-          <li><a href="#">Tolvas</a></li>
-          <li><a href="#">implementos</a></li>
-          <li><a href="#">Otros</a></li>
+           <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categorias']->value, 'item');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
+?>
+            <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['item']->value['cat_nombre'];?>
+</a></li>
+          <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
         </ul>
       </div>
       <div class="col-sm-6 col-md-6  browser-cat">
-        <h5></h5>
+        <h5>Marcas</h5>
         <ul >
-          <li><a href="#">Baima</a></li>
-          <li><a href="#">Praba</a></li>
-          <li><a href="#">Cestari</a></li>
-          <li><a href="#">Don Roque</a></li>
-          <li><a href="#">de Grande</a></li>
-          <li><a href="#">Otras</a></li>
+           <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['marcas']->value, 'item');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
+?>
+            <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['item']->value['marca_nombre'];?>
+</a></li>
+          <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
         </ul>
       </div>
     </div>
@@ -128,7 +144,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
             <input name="modelo" id="modelo" type="text" />
           </div>
           <div>
-            <input type="submit" id="homeSearchButton" name="homeSearchButton" value="Buscar" class="jsUnidad" >
+            <input type="submit" id="homeSearchButton" name="homeSearchButton" value="Buscar" class="jsListar" >
           </div>
         </form>
       </div>
@@ -148,13 +164,15 @@ foreach ($_from as $_smarty_tpl->tpl_vars['destacado']->value) {
 ?>
            <li class="col-xs-12 col-md-3">
              <a href="#" title="<?php echo $_smarty_tpl->tpl_vars['destacado']->value['prod_nombre'];?>
-" class="jsUnidad">
-               <img src="<?php echo $_smarty_tpl->tpl_vars['destacado']->value['img_url'];?>
+" class="jsUnidad" id_producto="<?php echo $_smarty_tpl->tpl_vars['destacado']->value['id_producto'];?>
+" >
+               <img src="<?php echo $_smarty_tpl->tpl_vars['destacado']->value['imagenes_des'];?>
 " class="img-responsive img-thumbnail" alt="<?php echo $_smarty_tpl->tpl_vars['destacado']->value['prod_nombre'];?>
 " title="<?php echo $_smarty_tpl->tpl_vars['destacado']->value['prod_nombre'];?>
 ">
              </a>
-             <h6><a href="#"><?php echo $_smarty_tpl->tpl_vars['destacado']->value['prod_nombre'];?>
+             <h6><a href="#" class="jsUnidad" id_producto="<?php echo $_smarty_tpl->tpl_vars['destacado']->value['id_producto'];?>
+" ><?php echo $_smarty_tpl->tpl_vars['destacado']->value['prod_nombre'];?>
 </a></h6>
            </li>
         <?php
@@ -172,43 +190,43 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
       <h4>Nuestras </h4>
       <div class="row">
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="LECAR"><img src="images/1.png"  class="jsUnidad"  alt="LECAR"></a>
+          <a href="#" title="LECAR"><img src="images/1.png"  class="jsListar" alt="LECAR"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="BERTINI"><img src="images/2.png" class="jsUnidad"  alt="BERTINI"></a>
+          <a href="#" title="BERTINI"><img src="images/2.png" class="jsListar"  alt="BERTINI"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="POZZI"><img src="images/3.png" class="jsUnidad"  alt="POZZI"></a>
+          <a href="#" title="POZZI"><img src="images/3.png" class="jsListar"  alt="POZZI"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="ERCA"><img src="images/5.png" class="jsUnidad"  alt="ERCA"></a>
+          <a href="#" title="ERCA"><img src="images/5.png" class="jsListar"  alt="ERCA"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="PAUNY"><img src="images/6.png" class="jsUnidad"  alt="PAUNY"></a>
+          <a href="#" title="PAUNY"><img src="images/6.png" class="jsListar"  alt="PAUNY"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="BAIMA"><img src="images/7.png" class="jsUnidad"  alt="BAIMA"></a>
+          <a href="#" title="BAIMA"><img src="images/7.png" class="jsListar"  alt="BAIMA"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="PRABA"><img src="images/8.png" class="jsUnidad"  alt="PRABA"></a>
+          <a href="#" title="PRABA"><img src="images/8.png" class="jsListar"  alt="PRABA"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="DON ROQUE"><img src="images/9.png" class="jsUnidad"  alt="DON ROQUE"></a>
+          <a href="#" title="DON ROQUE"><img src="images/9.png" class="jsListar"  alt="DON ROQUE"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="CESTARI"><img src="images/10.png" class="jsUnidad"  alt="CESTARI"></a>
+          <a href="#" title="CESTARI"><img src="images/10.png" class="jsListar"  alt="CESTARI"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="DE GRANDE"><img src="images/11.png" class="jsUnidad"  alt="DE GRANDE" ></a>
+          <a href="#" title="DE GRANDE"><img src="images/11.png" class="jsListar"  alt="DE GRANDE" ></a>
         </div>
       </div>
   </section>
