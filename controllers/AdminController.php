@@ -1,5 +1,5 @@
 <?php
-require('templates/ProductosView.php');
+require('view/AdminView.php');
 require('models/ProductosModel.php');
 
 class AdminController
@@ -9,14 +9,26 @@ class AdminController
 
   function __construct()
   {
-    //$this->modelo = new ProductosModel();
-    //$this->vista = new ProductosView();
+    $this->modelo = new ProductosModel();
+    $this->vista = new AdminView();
   }
 
   function iniciar(){
     $productos = $this->modelo->getProductos();
-    $this->vista->mostrar($productos);
+    $this->vista->listado($productos);
   }
+
+  function categorias(){
+    $categorias = $this->modelo->getCategorias();
+    $this->vista->categorias($categorias);
+  }
+
+  function marcas(){
+    $marcas = $this->modelo->getMarcas();
+    $this->vista->marcas($marcas);
+  }
+
+
 
   function getImagenesVerificadas($imagenes){
     $imagenesVerificadas = array();

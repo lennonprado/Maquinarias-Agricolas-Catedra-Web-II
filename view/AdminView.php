@@ -8,6 +8,7 @@ class AdminView
   function __construct()
   {
     $this->smarty = new Smarty();
+    $this->smarty->display('adminMenu.tpl');
   }
 
   function agregarError($error){
@@ -20,8 +21,8 @@ class AdminView
   }
 
   // pagina inicial
-  function listado($usados){
-    $this->smarty->assign('usados',$usados);
+  function listado($productos){
+    $this->smarty->assign('productos',$productos);
     $this->smarty->display('adminListado.tpl');
   }
 
@@ -36,14 +37,21 @@ class AdminView
     $this->smarty->display('adminUnidad.tpl');
   }
 
-  function categorias(){
-    $this->smarty->display('adminCategorias.tpl');
+  function categorias($categorias){
+    $this->smarty->assign('categorias',$categorias);
+    $this->smarty->display('adminListadoCategorias.tpl');
   }
 
   function modificarCategorias($categoria){
     $this->smarty->assign('categoria',$categoria);
     $this->smarty->display('adminModificarCategoria.tpl');
   }
+
+  function marcas($marcas){
+    $this->smarty->assign('marcas',$marcas);
+    $this->smarty->display('adminListadoMarcas.tpl');
+  }
+
 
 
 }

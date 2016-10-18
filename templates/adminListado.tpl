@@ -1,23 +1,23 @@
 
-<section>
+<section class="container">
   <div class="row">
     <h4>Listado de productos</h4>
     <div class="row destacados" >
       <p><button type="button" class="btn btn-success">Agregar nuevo producto</button></p>
-      <ul>
-         {foreach from=$nuevos item=nuevo}
-        <li class="col-xs-12 col-md-4">
-          <a href="#" title="{$nuevo.prod_nombre}" class="thumbnail jsUnidad">
-            <img class="img-responsive" src="{$nuevo.url_img}" alt="{$nuevo.prod_nombre}" title="{$nuevo.prod_nombre}">
-          </a>
-          <h5><a href="#" title="{$nuevo.prod_nombre}" class="jsUnidad">{$nuevo.prod_nombre}</a></h5>
-          <p>
-            <button type="button" class="btn btn-modificar">Modificar</button>
-            <button type="button" class="btn btn-eliminar">Eliminar</button>
-          </p>
-        </li>
+         <div class="row">
+         {foreach from=$productos item=item}
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <img src="../{$item.imagenes_des}" alt="{$item.prod_nombre}" title="{$item.prod_nombre}" height="200" >
+              <div class="caption">
+                <h3>{$item.prod_nombre}</h3>
+                <p>{$item.prod_nombre}</p>
+                <p><a href="#" class="btn btn-primary" role="button">Modificar</a> <a href="#" class="btn btn-default" role="button">Eliminar</a></p>
+              </div>
+            </div>
+          </div>
         {/foreach}
-      </ul>
+      </div>
     </div>
   </div>
 </section>

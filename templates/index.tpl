@@ -69,6 +69,7 @@
 				<li class="tel">(0249) 4567543</li>
 				<li class="email"><a href="mailto:imfo@consecionariademaquinarias.com">info@consecionariademaquinarias.com</a></li>
 				<li class="facebook"><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+            <li class="Administrar Unidades"><a href="admin/" target="_blank">Ingresar</a></li>
 			</ul>
 		</div>
     <div class="col-xs-12 col-md-12" id="footer-bottom">

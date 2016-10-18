@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-18 13:53:03
+/* Smarty version 3.1.30, created on 2016-10-18 17:30:30
   from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58060d1f42e498_54479986',
+  'unifunc' => 'content_58064016224de7_26031551',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '40bab89848e1761895791f2876ea24fd986c706b' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/index.tpl',
-      1 => 1476791297,
+      1 => 1476804627,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58060d1f42e498_54479986 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58064016224de7_26031551 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -95,6 +95,7 @@ function content_58060d1f42e498_54479986 (Smarty_Internal_Template $_smarty_tpl)
 				<li class="tel">(0249) 4567543</li>
 				<li class="email"><a href="mailto:imfo@consecionariademaquinarias.com">info@consecionariademaquinarias.com</a></li>
 				<li class="facebook"><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+            <li class="Administrar Unidades"><a href="admin/" target="_blank">Ingresar</a></li>
 			</ul>
 		</div>
     <div class="col-xs-12 col-md-12" id="footer-bottom">

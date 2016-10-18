@@ -18,6 +18,7 @@ class ProductosView
     $this->smarty->assign('mensaje',$mensaje);
     $this->smarty->assign('tipoMensaje',$tipo);
   }
+  
   function inicio(){
     $this->smarty->display('index.tpl');
   }
