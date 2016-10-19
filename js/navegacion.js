@@ -1,4 +1,6 @@
 function navegacion(seccion){
+  var body = $("html, body");
+  body.stop().animate({scrollTop:0}, '500', 'swing');
   $('main').html('<div id="onload"><button class="btn btn-lg btn-warning"><img src="images/cargando.gif" height="40" width="40" />Cargando...</button></div>');
   var ruta='http://localhost/maquinarias/'+seccion;
   $.ajax({
