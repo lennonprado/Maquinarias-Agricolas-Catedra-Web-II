@@ -2,8 +2,8 @@
 <section class="container">
   <div class="row">
     <h4>Listado de Marcas</h4>
-    <div class="row destacados" >
-      <p><button type="button" class="btn btn-success">Agregar nueva Marca</button></p>
+    <div class="row destacados">
+      <p><a href="http://localhost/maquinarias/admin/marcas/agregar/" class="btn btn-success">Agregar nueva Marca</a></p>
       <ul class="list-group">
          {foreach from=$marcas item=item}
         <li class="list-group-item col-md-4">

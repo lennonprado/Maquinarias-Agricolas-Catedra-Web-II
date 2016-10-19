@@ -102,26 +102,33 @@ class ProductosModel
 
      /* Marcas */
      function getMarcas(){
-       $sentencia = $this->db->prepare("select * from marcas");
+       $sentencia = $this->db->prepare("SELECT * FROM marcas");
        $sentencia->execute();
        $marcas = $sentencia->fetchAll(PDO::FETCH_ASSOC);
        return $marcas;
      }
 
-     function modificarMarca($id_marca,$mar_nombre,$mar_descripcion){
-       $sentencia = $this->db->prepare( 'UPDATE marcas SET mar_nombre = "?",mar_descripcion="?" where id_marca=?');
+     function agregarMarcas($mar_nombre,$mar_descripcion){
+       $sentencia = $this->db->prepare('INSERT INTO marcas ( mar_nombre , mar_descripcion ) VALUES ( ? , ? )');
+       $sentencia->execute(array($mar_nombre,$mar_descripcion));
+       var_dump($this->db);
+       return $this->db->lastInsertId();
+     }
+
+     function modificarMarcas($id_marca,$mar_nombre,$mar_descripcion){
+       $sentencia = $this->db->prepare( 'UPDATE marcas SET mar_nombre = ? , mar_descripcion = ? where id_marca=?');
        $sentencia->execute(array($mar_nombre,$mar_descripcion,$id_marca));
        return $sentencia->fetch(PDO::FETCH_ASSOC);
      }
 
      function getMarca($id_marca){
-       $sentencia = $this->db->prepare( "select * from marcas where id_marca=?");
+       $sentencia = $this->db->prepare( "SELECT * FROM marcas WHERE id_marca=?");
        $sentencia->execute(array($id_marca));
        return $sentencia->fetch(PDO::FETCH_ASSOC);
      }
      // elimino una marca
-     function eliminarMarca($id_marca){
-       $sentencia = $this->db->prepare("delete from marcas where id_marca=?");
+     function eliminarMarcas($id_marca){
+       $sentencia = $this->db->prepare("DELETE FROM marcas WHERE id_marca=?");
        $sentencia->execute(array($id_marca));
        return $sentencia->rowCount();
      }

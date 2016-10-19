@@ -65,10 +65,10 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
           $controller->modificarMarcas();
         break;
         case ConfigApp::$ELIMINAR:
-          $controller->eliminaraMarcas();
+          $controller->eliminarMarcas();
         break;
         default:
-          $controller->categorias();
+          $controller->marcas();
         break;
     }
   }

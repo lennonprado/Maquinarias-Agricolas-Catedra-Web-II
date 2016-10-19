@@ -36,7 +36,7 @@ class AdminView
     $this->smarty->assign('imagenes',$imagenes);
     $this->smarty->display('adminUnidad.tpl');
   }
-
+  /* categorias */
   // Lista las categorias
   function categorias($categorias){
     $this->smarty->assign('categorias',$categorias);
@@ -55,22 +55,22 @@ class AdminView
     $this->smarty->display('adminAgregarCategorias.tpl');
   }
 
+  /* Marcas */
   function marcas($marcas){
     $this->smarty->assign('marcas',$marcas);
     $this->smarty->display('adminListadoMarcas.tpl');
   }
 
-
   // Muestra el formulario para modificar una categoria
-  function modificarMarca($marca){
+  function modificarMarcas($marca){
     $this->smarty->assign('mar_nombre',$marca["mar_nombre"]);
     $this->smarty->assign('mar_descripcion',$marca["mar_descripcion"]);
     $this->smarty->display('adminModificarMarca.tpl');
   }
 
   // Muestra el formulario para agregar una categoria
-  function agregarMarca($marca){
-    $this->smarty->display('agregarCategoria.tpl');
+  function agregarMarcas(){
+    $this->smarty->display('adminAgregarMarca.tpl');
   }
 
 
