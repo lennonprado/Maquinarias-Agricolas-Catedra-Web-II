@@ -22,8 +22,8 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
         case ConfigApp::$MODIFICAR:
           $controller->modificarProductos();
         break;
-        case ConfigApp::$ELIMINAR:
-          $controller->eliminaraProductos();
+        case ConfigApp::$BORRAR:
+          $controller->eliminarProducto();
         break;
         default:
           $controller->productos();

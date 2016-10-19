@@ -65,7 +65,7 @@
         <h5>Marcas</h5>
         <ul >
            {foreach from=$marcas item=item}
-            <li><a href="#">{$item.marca_nombre}</a></li>
+            <li><a href="#">{$item.mar_nombre}</a></li>
           {/foreach}
         </ul>
       </div>

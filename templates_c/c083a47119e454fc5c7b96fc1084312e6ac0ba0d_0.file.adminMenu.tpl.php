@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-18 19:04:51
+/* Smarty version 3.1.30, created on 2016-10-19 18:47:37
   from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/adminMenu.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58065633c87a68_37315112',
+  'unifunc' => 'content_5807a3a9b09056_58702406',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c083a47119e454fc5c7b96fc1084312e6ac0ba0d' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/adminMenu.tpl',
-      1 => 1476810286,
+      1 => 1476895653,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58065633c87a68_37315112 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5807a3a9b09056_58702406 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,7 +29,7 @@ function content_58065633c87a68_37315112 (Smarty_Internal_Template $_smarty_tpl)
   <?php echo '<script'; ?>
  src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"><?php echo '</script'; ?>
 >
-  <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/maquinarias/images/favicon.ico" type="image/x-icon">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <!-- Optional theme -->
@@ -39,18 +39,18 @@ function content_58065633c87a68_37315112 (Smarty_Internal_Template $_smarty_tpl)
      <nav class="navbar" role="navigation">
        <div class="container">
          <div class="navbar-header">
-           <a class="navbar-brand" href="index.html"><img src="../images/logo.png" title="Agencia de maquinarias" /></a>
+           <a class="navbar-brand" href="index.html"><img src="/maquinarias/images/logo.png" title="Agencia de maquinarias" /></a>
          </div>
        <!-- Agrupar los enlaces de navegación, los formularios y cualquier otro elemento que se pueda ocultar al minimizar la barra -->
          <ul class="nav nav-pills pull-right">
            <li>
-             <a href="productos" id="home" >Productos</a>
+             <a href="/maquinarias/admin/productos" id="home" >Productos</a>
            </li>
            <li>
-             <a href="categorias" id="nosotros" >Categorias</a>
+             <a href="/maquinarias/admin/categorias" id="nosotros" >Categorias</a>
            </li>
            <li>
-             <a href="marcas" id="marcas" >Marcas</a>
+             <a href="/maquinarias/admin/marcas" id="marcas" >Marcas</a>
            </li>
          </ul>
        </div>

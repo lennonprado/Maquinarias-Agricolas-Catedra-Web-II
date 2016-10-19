@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-18 17:07:40
+/* Smarty version 3.1.30, created on 2016-10-19 18:44:48
   from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/listado.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58063abc859757_96943745',
+  'unifunc' => 'content_5807a300b8cb42_61383201',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '94f00d59be22c1d99cb5cadc25f49f8ced73cc7c' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/listado.tpl',
-      1 => 1476803239,
+      1 => 1476895474,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58063abc859757_96943745 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5807a300b8cb42_61383201 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
   <section>
@@ -52,7 +52,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['unidad']->value) {
 </a>
               </h3>
               <ul class="features">
-                  <li><span>Marca</span> : <?php echo $_smarty_tpl->tpl_vars['unidad']->value['marca_nombre'];?>
+                  <li><span>Marca</span> : <?php echo $_smarty_tpl->tpl_vars['unidad']->value['mar_nombre'];?>
 </li>
                   <li><span>Modelo</span> : <?php echo $_smarty_tpl->tpl_vars['unidad']->value['prod_modelo'];?>
 </li>

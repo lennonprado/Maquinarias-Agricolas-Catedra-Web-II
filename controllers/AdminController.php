@@ -19,13 +19,85 @@ class AdminController
   }
 
   function modificarProductos(){
-    $imagenes = $this->modelo->getImagenes($_GET['id']);
-    $unidad = $this->modelo->getProducto($_GET['id']);
-    $caracteristicas = $this->modelo->getCaracteristicas($_GET['id']);
-    $marcas = $this->modelo->getMarcas();
-    $categorias = $this->modelo->getCategorias();
-    $this->vista->modificarProducto($unidad,$imagenes,$caracteristicas,$marcas,$categorias);
+
+     if(isset($_POST['modificarProducto']))
+         {
+            $this->modelo->modificarProducto($_GET['id'],$_POST);
+            $this->vista->mostrarMensaje("Producto modificado correctamente!", "success");
+         }
+
+      if(isset($_POST['eliminarCaracteristica']))
+         {
+            $this->modelo->eliminarCaracteristica($_POST['id_eliminar_caracteristica']);
+            $this->vista->mostrarMensaje("Caracteristica eliminada correctamente!", "danger");
+         }
+
+      if(isset($_POST['crearCaracteristica']))
+         {
+            $this->modelo->crearCaracteristica($_GET['id'],$_POST);
+            $this->vista->mostrarMensaje("Caracteristica Creada correctamente!", "success");
+         }
+
+      if(isset($_POST['crearImagen'])){
+         if(isset($_FILES['imagenes'])){
+            $imagenesVerificadas = $this->getImagenesVerificadas($_FILES['imagenes']);
+            if(count($imagenesVerificadas)>0){
+               $this->modelo->crearImagen($_GET['id'],$imagenesVerificadas);
+               $this->vista->mostrarMensaje("La imagen se cargo correctamente!", "success");
+            }
+            else{
+               $this->vista->mostrarMensaje("Error con las imagenes", "danger");
+            }
+         }
+         else{
+              $this->vista->mostrarMensaje("La imagen es requerida","danger");
+          }
+      }
+
+      if(isset($_POST['id_destacar_imagen']))
+         {
+            $this->modelo->destacarImagen($_POST['id_destacar_imagen']);
+            $this->vista->mostrarMensaje("La imagen se destaco correctamente!", "success");
+         }
+
+      if(isset($_POST['id_eliminar_imagen']))
+         {
+            $this->modelo->eliminarImagen($_POST['id_eliminar_imagen']);
+            $this->vista->mostrarMensaje("Imagen eliminada correctamente!", "danger");
+         }
+
+       $imagenes = $this->modelo->getImagenes($_GET['id']);
+       $unidad = $this->modelo->getProducto($_GET['id']);
+       $caracteristicas = $this->modelo->getCaracteristicas($_GET['id']);
+       $marcas = $this->modelo->getMarcas();
+       $categorias = $this->modelo->getCategorias();
+       $this->vista->modificarProducto($unidad,$imagenes,$caracteristicas,$marcas,$categorias);
+
   }
+
+  function agregarProductos(){
+     $marcas = $this->modelo->getMarcas();
+     $categorias = $this->modelo->getCategorias();
+     if(isset($_POST['agregarProducto']))
+         {
+         $id_producto=$this->modelo->agregarProducto($_POST);
+         $this->vista->mostrarMensaje("Producto Creado correctamente!", "success");
+         $imagenes = $this->modelo->getImagenes($id_producto);
+         $unidad = $this->modelo->getProducto($id_producto);
+         $caracteristicas = $this->modelo->getCaracteristicas($id_producto);
+         $this->vista->modificarProducto($unidad,$imagenes,$caracteristicas,$marcas,$categorias);
+         }
+      else
+         {
+         $this->vista->agregarProducto($marcas,$categorias);
+         }
+ }
+
+ function eliminarProducto(){
+      $this->modelo->eliminarProducto($_GET['id']);
+      $this->vista->mostrarMensaje("Producto eliminada correctamente!", "danger");
+      $this->iniciar();
+ }
 
   function categorias(){
     $categorias = $this->modelo->getCategorias();
@@ -52,6 +124,7 @@ class AdminController
 
     return $imagenesVerificadas;
   }
+
 
   function guardar(){
     $producto = $_POST['prod_nombre'];
@@ -80,12 +153,6 @@ class AdminController
     $productos = $this->modelo->getProductos();
     $this->vista->getLista($productos);
   }
-
-
-  function filtro($tarea){
-    return preg_match('/podria/',$tarea);
-  }
-
 
 }
 

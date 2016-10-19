@@ -16,7 +16,7 @@
                 <a id_producto="{$unidad.id_producto}" href="#" title="{$unidad.prod_nombre}" class="jsUnidad">{$unidad.prod_nombre}</a>
               </h3>
               <ul class="features">
-                  <li><span>Marca</span> : {$unidad.marca_nombre}</li>
+                  <li><span>Marca</span> : {$unidad.mar_nombre}</li>
                   <li><span>Modelo</span> : {$unidad.prod_modelo}</li>
                   <li><span>Estado</span> : {$unidad.prod_estado}</li>
                   <li><span>Año</span> : {$unidad.prod_anio}</li>
