@@ -1,11 +1,19 @@
-<form>
+<form action="/maquinarias/admin/productos/modificar/{$unidad.id_producto}">
   <div class="form-group">
-    <label for="prod_nombre">Nombre</label>
-    <input type="email" class="form-control" id="prod_nombre" placeholder="Nombre del producto">
+    <label for="prod_nombre">Categoria</label>
+    <select>
+      {foreach from=$categorias item=categoria}
+        <option>{$categoria.cat_nombre}</option
+      {/foreach}
+    </select>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="prod_nombre">Nombre</label>
+    <input type="text" class="form-control" id="prod_nombre" placeholder="Nombre del producto" value="{$unidad.prod_nombre}" />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">prod_descripcion</label>
+    <textarea></textarea>
   </div>
   <div class="form-group">
     <label for="exampleInputFile">File input</label>
@@ -21,7 +29,7 @@
 </form>
 
 
-<a href="#" title="{$usado.}" class="jsUnidad">{$usado.prod_nombre}</a>
+<a href="#" title="{$usado.prod_nombre}" class="jsUnidad">{$usado.prod_nombre}</a>
 </h3>
 <ul class="features">
   <li><span>Marca</span> : {$usado.mar_nombre}</li>

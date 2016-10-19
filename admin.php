@@ -11,10 +11,10 @@ if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
 
 switch ($_REQUEST[ConfigApp::$ACTION]) {
   case ConfigApp::$PRODUCTOS:
-  if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
-      $controller->productos();
-  }
-  else {
+    if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
+      $controller->iniciar();
+    }
+    else {
     switch ($_REQUEST[ConfigApp::$SECCION]){
         case ConfigApp::$AGREGAR:
           $controller->agregarProductos();
@@ -31,6 +31,7 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
     }
   }
   break;
+
   case ConfigApp::$CATEGORIAS:
     if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
         $controller->categorias();

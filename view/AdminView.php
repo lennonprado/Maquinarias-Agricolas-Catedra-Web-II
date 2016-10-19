@@ -30,14 +30,23 @@ class AdminView
     $this->smarty->display('adminNuevo.tpl');
   }
 
-  function modificar($unidad,$caracteristicas,$imagenes){
+  function modificarProducto($unidad,$imagenes,$caracteristicas,$marcas,$categorias){
     $this->smarty->assign('unidad',$unidad);
     $this->smarty->assign('caracteristicas',$caracteristicas);
     $this->smarty->assign('imagenes',$imagenes);
+    $this->smarty->assign('marcas',$marcas);
+    $this->smarty->assign('categorias',$categorias);
+
     $this->smarty->display('adminUnidad.tpl');
   }
+<<<<<<< HEAD
   /* categorias */
   // Lista las categorias
+=======
+
+
+
+>>>>>>> origin
   function categorias($categorias){
     $this->smarty->assign('categorias',$categorias);
     $this->smarty->display('adminListadoCategorias.tpl');

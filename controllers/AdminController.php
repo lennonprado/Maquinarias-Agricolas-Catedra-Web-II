@@ -18,7 +18,19 @@ class AdminController
     $this->vista->listado($productos);
   }
 
+<<<<<<< HEAD
   // lista las categorias existentes (por defecto)
+
+  function modificarProductos(){
+    $imagenes = $this->modelo->getImagenes($_GET['id']);
+    $unidad = $this->modelo->getProducto($_GET['id']);
+    $caracteristicas = $this->modelo->getCaracteristicas($_GET['id']);
+    $marcas = $this->modelo->getMarcas();
+    $categorias = $this->modelo->getCategorias();
+    $this->vista->modificarProducto($unidad,$imagenes,$caracteristicas,$marcas,$categorias);
+  }
+
+>>>>>>> origin
   function categorias(){
     $categorias = $this->modelo->getCategorias();
     $this->vista->categorias($categorias);
