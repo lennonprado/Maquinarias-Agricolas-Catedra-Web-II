@@ -14,7 +14,7 @@ class ConfigApp{
 
   public static $AGREGAR = 'agregar';
   public static $MODIFICAR = 'modificar';
-  public static $BORRAR = 'borrar';
+  public static $ELIMINAR = 'eliminar';
 
 }
 ?>
