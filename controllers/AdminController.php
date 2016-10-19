@@ -18,7 +18,6 @@ class AdminController
     $this->vista->listado($productos);
   }
 
-<<<<<<< HEAD
   // lista las categorias existentes (por defecto)
 
   function modificarProductos(){
@@ -30,7 +29,6 @@ class AdminController
     $this->vista->modificarProducto($unidad,$imagenes,$caracteristicas,$marcas,$categorias);
   }
 
->>>>>>> origin
   function categorias(){
     $categorias = $this->modelo->getCategorias();
     $this->vista->categorias($categorias);
