@@ -111,7 +111,6 @@ class ProductosModel
      function agregarMarcas($mar_nombre,$mar_descripcion){
        $sentencia = $this->db->prepare('INSERT INTO marcas ( mar_nombre , mar_descripcion ) VALUES ( ? , ? )');
        $sentencia->execute(array($mar_nombre,$mar_descripcion));
-       var_dump($this->db);
        return $this->db->lastInsertId();
      }
 

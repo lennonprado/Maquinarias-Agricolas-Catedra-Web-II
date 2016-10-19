@@ -67,8 +67,6 @@ class AdminController
     if((isset($_POST['mar_nombre']))&&(isset($_POST['mar_descripcion']))){
       // guardo en el modelo
       $resultado = $this->modelo->agregarMarcas($_POST['mar_nombre'],$_POST['mar_descripcion']);
-      var_dump($resultado);
-
       if($resultado > 0) header('Location: http://localhost/maquinarias/admin/marcas/');
     }
     else{
@@ -81,19 +79,19 @@ class AdminController
   function modificarMarcas(){
     if((isset($_POST['mar_nombre']))&&(isset($_POST['mar_descripcion']))){
       // guardo en el modelo
-      $resultado = $this->modelo->modificarMarca($_GET["id"],$_POST['mar_nombre'],$_POST['mar_descripcion']);
+      $resultado = $this->modelo->modificarMarcas($_GET["id"],$_POST['mar_nombre'],$_POST['mar_descripcion']);
       header('Location: http://localhost/maquinarias/admin/marcas/');
     }
     else{
       // muestro el formulario
-      $categoria = $this->modelo->getMarcas($_GET["id"]);
+      $marca = $this->modelo->getMarca($_GET["id"]);
       $this->vista->modificarMarcas($marca);
     }
   }
 
   // Elimino una categoria y redirecciono al inicio de categorias
   function eliminarMarcas(){
-    $this->modelo->eliminarMarca($_GET["id"]);
+    $this->modelo->eliminarMarcas($_GET["id"]);
     header('Location: http://localhost/maquinarias/admin/marcas/');
   }
 

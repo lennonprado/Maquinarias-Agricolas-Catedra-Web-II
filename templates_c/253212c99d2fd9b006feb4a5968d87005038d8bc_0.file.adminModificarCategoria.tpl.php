@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-19 05:29:43
+/* Smarty version 3.1.30, created on 2016-10-19 20:33:03
   from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/adminModificarCategoria.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5806e8a7e4bba8_15150723',
+  'unifunc' => 'content_5807bc5f9c5b91_90910035',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '253212c99d2fd9b006feb4a5968d87005038d8bc' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/adminModificarCategoria.tpl',
-      1 => 1476847778,
+      1 => 1476885969,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5806e8a7e4bba8_15150723 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5807bc5f9c5b91_90910035 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <section class="container">
