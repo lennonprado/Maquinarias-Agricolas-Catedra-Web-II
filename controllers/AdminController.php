@@ -18,9 +18,27 @@ class AdminController
     $this->vista->listado($productos);
   }
 
+  // lista las categorias existentes (por defecto)
   function categorias(){
     $categorias = $this->modelo->getCategorias();
     $this->vista->categorias($categorias);
+  }
+
+  // Muestro el listado de agrego una categoria
+  function agregarCategorias(){
+    $this->vista->agregarCategorias();
+  }
+
+  // modifico una categoria que viene por get
+  function modificarCategorias(){
+    $categoria = $this->modelo->getCategoria($_GET["id"]);
+    $this->vista->modificarCategorias($categoria);
+  }
+
+  // Elimino una categoria y redirecciono al inicio de categorias
+  function eliminarCategorias(){
+    $this->modelo->eliminarCategorias($_GET["id"]);
+    header('Location: /categorias/');
   }
 
   function marcas(){
