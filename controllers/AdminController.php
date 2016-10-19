@@ -46,7 +46,22 @@ class AdminController
     $this->vista->marcas($marcas);
   }
 
+  // Muestro el listado de agrego una categoria
+  function agregarMarcas(){
+    $this->vista->agregarMarcas();
+  }
 
+  // modifico una categoria que viene por get
+  function modificarMarcas(){
+    $marcas = $this->modelo->getMarca($_GET["id"]);
+    $this->vista->modificarMarca($marcas);
+  }
+
+  // Elimino una categoria y redirecciono al inicio de categorias
+  function eliminarMarcas(){
+    $this->modelo->eliminarMarca($_GET["id"]);
+    header('Location: /marcas/');
+  }
 
   function getImagenesVerificadas($imagenes){
     $imagenesVerificadas = array();
