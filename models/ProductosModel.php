@@ -16,7 +16,7 @@ class ProductosModel
       $select .= ' AND P.prod_estado = "' . $tipo . '"';
     if(!is_null($limit))
       $select .= ' LIMIT '.$limit;
-      
+
     $sentencia = $this->db->prepare($select);
     $sentencia->execute();
     $productos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -157,7 +157,7 @@ class ProductosModel
            $insertImagen = $this->db->prepare("INSERT INTO imágenes(img_producto,img_url) VALUES(?,?)");
            $insertImagen->execute(array($id_producto,$path));
            $id_imagen = $this->db->lastInsertId();
-           $this->destacarImagen($id_imagen);
+           //$this->destacarImagen($id_producto,$id_imagen);
         }
     }
 
