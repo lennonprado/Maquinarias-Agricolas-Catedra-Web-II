@@ -4,8 +4,6 @@ require ('config/ConfigApp.php');
 
 $controller = new AdminController();
 
-var_dump($_REQUEST);
-
 if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
   $controller->iniciar();
   die();
@@ -13,13 +11,10 @@ if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
 
 switch ($_REQUEST[ConfigApp::$ACTION]) {
   case ConfigApp::$PRODUCTOS:
-    $controller->iniciar();
-
-
-  if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
-      $controller->productos();
-  }
-  else {
+    if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
+      $controller->iniciar();
+    }
+    else {
     switch ($_REQUEST[ConfigApp::$SECCION]){
         case ConfigApp::$AGREGAR:
           $controller->agregarProductos();
