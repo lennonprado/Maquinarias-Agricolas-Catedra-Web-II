@@ -39,14 +39,7 @@ class AdminView
 
     $this->smarty->display('adminUnidad.tpl');
   }
-<<<<<<< HEAD
-  /* categorias */
-  // Lista las categorias
-=======
 
-
-
->>>>>>> origin
   function categorias($categorias){
     $this->smarty->assign('categorias',$categorias);
     $this->smarty->display('adminListadoCategorias.tpl');
