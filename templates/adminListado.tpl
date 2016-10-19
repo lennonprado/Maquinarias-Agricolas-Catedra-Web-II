@@ -11,12 +11,13 @@
       </p>
          <div class="row">
          {foreach from=$productos item=item}
-          <div class="col-md-4">
-            <div class="thumbnail">
-              <img src="/maquinarias/{$item.imagenes_des}" alt="{$item.prod_nombre}" title="{$item.prod_nombre}" height="200" >
+          <div class="col-md-3">
+            <div class="unidad">
+              <img src="/maquinarias/{$item.imagenes_des}" alt="{$item.prod_nombre}" title="{$item.prod_nombre}" class="img-rounded" width="204" height="136" >
               <div class="caption">
-                <h3>{$item.prod_nombre}</h3>
-                <p>{$item.prod_nombre}</p>
+                <h4>{$item.prod_nombre|truncate:24:"...":true}</h4>
+                <p>Categoria: {$item.cat_nombre}</p>
+                <p>Marca: {$item.mar_nombre}</p>
                 <p>
                   <a href="/maquinarias/admin/productos/modificar/{$item.id_producto}" class="btn btn-primary" role="button">Modificar</a>
                   <a href="/maquinarias/admin/productos/borrar/{$item.id_producto}" class="btn btn-default" role="button">Eliminar</a>

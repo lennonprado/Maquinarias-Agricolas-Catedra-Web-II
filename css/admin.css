@@ -1,0 +1,21 @@
+/*
+Version: 1
+Descripcion: Portal de maquinarias agricolas
+Autores: Eduardo Bravo, Marcelo Prado
+*/
+
+/*---------------------------------------------------------------------------*/
+/* General styles
+/*---------------------------------------------------------------------------*/
+/*body,button,input,label,select,td,textarea{
+	font-family:'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size:11px;
+}*/
+
+.unidad{
+	border: 1px solid;
+	border-color: #ccc;
+  border-radius: 25px;
+	padding: 20px;
+	margin: 10px;
+}
