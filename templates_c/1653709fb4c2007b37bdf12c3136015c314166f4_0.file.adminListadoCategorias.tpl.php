@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-19 16:07:13
-  from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/adminListadoCategorias.tpl" */
+/* Smarty version 3.1.30, created on 2016-10-19 22:53:26
+  from "C:\xampp\htdocs\maquinarias\templates\adminListadoCategorias.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58077e111b2967_04564827',
+  'unifunc' => 'content_5807dd46f3c820_33150183',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'c803ebffe9f52d950d1cf15d0b85ed50e465f3c4' => 
+    '1653709fb4c2007b37bdf12c3136015c314166f4' => 
     array (
-      0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/adminListadoCategorias.tpl',
-      1 => 1476885969,
+      0 => 'C:\\xampp\\htdocs\\maquinarias\\templates\\adminListadoCategorias.tpl',
+      1 => 1476910363,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58077e111b2967_04564827 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5807dd46f3c820_33150183 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <section class="container">
@@ -43,7 +43,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
           <p>
             <a role="button" href="http://localhost/maquinarias/admin/categorias/modificar/<?php echo $_smarty_tpl->tpl_vars['item']->value['id_categoria'];?>
 " class="btn btn-default">Modificar</a>
-            <a role="button" href="http://localhost/maquinarias/admin/categorias/eliminar/<?php echo $_smarty_tpl->tpl_vars['item']->value['id_categoria'];?>
+            <a role="button" href="http://localhost/maquinarias/admin/categorias/borrar/<?php echo $_smarty_tpl->tpl_vars['item']->value['id_categoria'];?>
 " class="btn btn-default">Eliminar</a>
           </p>
         </li>

@@ -42,7 +42,7 @@
             <img class="img-responsive" src="{$nuevo.imagenes_des}" alt="{$nuevo.prod_nombre}" title="{$nuevo.prod_nombre}">
           </a>
           <h5><a href="#" title="{$nuevo.prod_nombre}" class="jsUnidad" id_producto="{$nuevo.id_producto}" >{$nuevo.prod_nombre}</a></h5>
-        </li>
+        </li> 
         {/foreach}
       </ul>
     </div>

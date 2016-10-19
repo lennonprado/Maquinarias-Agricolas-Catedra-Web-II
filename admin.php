@@ -44,8 +44,8 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
           case ConfigApp::$MODIFICAR:
             $controller->modificarCategorias();
           break;
-          case ConfigApp::$ELIMINAR:
-            $controller->eliminaraCategorias();
+          case ConfigApp::$BORRAR:
+            $controller->eliminarCategorias();
           break;
           default:
             $controller->categorias();
@@ -65,11 +65,11 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
         case ConfigApp::$MODIFICAR:
           $controller->modificarMarcas();
         break;
-        case ConfigApp::$ELIMINAR:
-          $controller->eliminaraMarcas();
+        case ConfigApp::$BORRAR:
+          $controller->eliminarMarcas();
         break;
         default:
-          $controller->categorias();
+          $controller->marcas();
         break;
     }
   }

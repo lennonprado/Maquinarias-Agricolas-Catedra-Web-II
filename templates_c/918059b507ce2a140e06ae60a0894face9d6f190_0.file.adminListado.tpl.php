@@ -1,18 +1,30 @@
 <?php
+<<<<<<< HEAD
 /* Smarty version 3.1.30, created on 2016-10-19 18:45:39
+=======
+/* Smarty version 3.1.30, created on 2016-10-19 16:07:14
+>>>>>>> refs/remotes/origin/categorias
   from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/adminListado.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
+<<<<<<< HEAD
   'unifunc' => 'content_5807a3335df619_94442362',
+=======
+  'unifunc' => 'content_58077e121cdfe7_26703597',
+>>>>>>> refs/remotes/origin/categorias
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '918059b507ce2a140e06ae60a0894face9d6f190' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/adminListado.tpl',
+<<<<<<< HEAD
       1 => 1476895536,
+=======
+      1 => 1476885969,
+>>>>>>> refs/remotes/origin/categorias
       2 => 'file',
     ),
   ),
@@ -20,7 +32,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
+<<<<<<< HEAD
 function content_5807a3335df619_94442362 (Smarty_Internal_Template $_smarty_tpl) {
+=======
+function content_58077e121cdfe7_26703597 (Smarty_Internal_Template $_smarty_tpl) {
+>>>>>>> refs/remotes/origin/categorias
 ?>
 
 <section class="container">

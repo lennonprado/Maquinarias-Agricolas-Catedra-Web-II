@@ -39,7 +39,10 @@
   </nav>
   <main class="container">
     <div id="onload">
-      <button class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Cargando...</button>
+      <button class="btn btn-lg btn-warning">
+        <img src="images/cargando.gif" height="40" width="40" />
+         Cargando...
+       </button>
     </div>
   </main>
   <footer class="container">

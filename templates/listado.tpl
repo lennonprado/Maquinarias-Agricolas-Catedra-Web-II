@@ -20,7 +20,7 @@
                   <li><span>Modelo</span> : {$unidad.prod_modelo}</li>
                   <li><span>Estado</span> : {$unidad.prod_estado}</li>
                   <li><span>Año</span> : {$unidad.prod_anio}</li>
-              </ul>
+              </ul> 
               <ul class="price">
                   <li><span>Precio</span> $  {$unidad.prod_precio}</li>
               </ul>

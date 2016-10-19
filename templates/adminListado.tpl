@@ -7,7 +7,7 @@
     <h4>Listado de productos</h4>
     <div class="row destacados" >
       <p>
-         <a href="/maquinarias/admin/productos/agregar" class="btn btn-success" role="button">Agregar nuevo producto</a>
+          <a href="/maquinarias/admin/productos/agregar" class="btn btn-success" role="button">Agregar nuevo producto</a>
       </p>
          <div class="row">
          {foreach from=$productos item=item}

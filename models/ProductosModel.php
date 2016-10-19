@@ -29,7 +29,6 @@ class ProductosModel
   }
 
   function agregarProducto($datos){
-    //Agrega en la ultima posicion del arreglo
     $sentencia = $this->db->prepare("INSERT INTO productos(prod_categoria,prod_nombre,prod_descripcion,prod_marca,prod_modelo,prod_estado,prod_anio,prod_precio,prod_visible) VALUES(?,?,?,?,?,?,?,?,?)");
     $sentencia->execute(array($datos['prod_categoria'],$datos['prod_nombre'],$datos['prod_descripcion'],$datos['prod_marca'],$datos['prod_modelo'],$datos['prod_estado'],$datos['prod_anio'],$datos['prod_precio'],$datos['prod_visible']));
     return $id_producto = $this->db->lastInsertId();
@@ -66,20 +65,66 @@ class ProductosModel
       return $unidad;
     }
 
-     /*Categorias*/
+     /* Funcionalidad para
+        Categorias (ABM)
+     */
      function getCategorias(){
-       $sentencia = $this->db->prepare( "select * from categorías");
+       $sentencia = $this->db->prepare( "SELECT * FROM categorías");
        $sentencia->execute();
        $categorias = $sentencia->fetchAll(PDO::FETCH_ASSOC);
        return $categorias;
      }
+     function getCategoria($id_categoria){
+       $sentencia = $this->db->prepare( "SELECT * FROM categorías WHERE id_categoria=?" );
+       $sentencia->execute(array($id_categoria));
+       return $sentencia->fetch(PDO::FETCH_ASSOC);
+     }
+     function agregarCategoria($cat_nombre,$cat_descripcion){
+       $sentencia = $this->db->prepare('INSERT INTO categorías ( cat_nombre , cat_descripcion ) VALUES ( ? , ? )');
+       $sentencia->execute(array($cat_nombre,$cat_descripcion));
+       return $this->db->lastInsertId();
+     }
+     function modificarCategoria($id_categoria,$cat_nombre,$cat_descripcion){
+       $sentencia = $this->db->prepare( 'UPDATE categorías SET cat_nombre = ? , cat_descripcion = ? WHERE id_categoria=?');
+       $sentencia->execute(array($cat_nombre,$cat_descripcion,$id_categoria));
+       return $sentencia->fetch(PDO::FETCH_ASSOC);
+     }
+     function eliminarCategoria($id_categoria){
+       $sentencia = $this->db->prepare( "DELETE FROM categorías WHERE id_categoria=?" );
+       $sentencia->execute(array($id_categoria));
+       return $sentencia->rowCount();
+     }
 
-     /*Marcas*/
+     /* Marcas */
      function getMarcas(){
-       $sentencia = $this->db->prepare("select * from marcas");
+       $sentencia = $this->db->prepare("SELECT * FROM marcas");
        $sentencia->execute();
        $marcas = $sentencia->fetchAll(PDO::FETCH_ASSOC);
        return $marcas;
+     }
+
+     function agregarMarcas($mar_nombre,$mar_descripcion){
+       $sentencia = $this->db->prepare('INSERT INTO marcas ( mar_nombre , mar_descripcion ) VALUES ( ? , ? )');
+       $sentencia->execute(array($mar_nombre,$mar_descripcion));
+       return $this->db->lastInsertId();
+     }
+
+     function modificarMarcas($id_marca,$mar_nombre,$mar_descripcion){
+       $sentencia = $this->db->prepare( 'UPDATE marcas SET mar_nombre = ? , mar_descripcion = ? where id_marca=?');
+       $sentencia->execute(array($mar_nombre,$mar_descripcion,$id_marca));
+       return $sentencia->fetch(PDO::FETCH_ASSOC);
+     }
+
+     function getMarca($id_marca){
+       $sentencia = $this->db->prepare( "SELECT * FROM marcas WHERE id_marca=?");
+       $sentencia->execute(array($id_marca));
+       return $sentencia->fetch(PDO::FETCH_ASSOC);
+     }
+     // elimino una marca
+     function eliminarMarcas($id_marca){
+       $sentencia = $this->db->prepare("DELETE FROM marcas WHERE id_marca=?");
+       $sentencia->execute(array($id_marca));
+       return $sentencia->rowCount();
      }
 
      /*Caracteristicas*/
@@ -126,9 +171,9 @@ class ProductosModel
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
       }
 
-   function destacarImagen($id_imagen){
-      $sentencia = $this->db->prepare('UPDATE imágenes SET img_destacada=0 WHERE 1');
-      $sentencia->execute();
+   function destacarImagen($id_producto,$id_imagen){
+      $sentencia = $this->db->prepare('UPDATE imágenes SET img_destacada=0 WHERE img_producto=?');
+      $sentencia->execute(array($id_producto));
       $sentencia->fetch(PDO::FETCH_ASSOC);
 
       $sentencia = $this->db->prepare('UPDATE imágenes SET img_destacada=1 WHERE id_imagen=?');

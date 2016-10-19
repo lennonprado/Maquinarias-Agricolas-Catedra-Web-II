@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-19 00:17:13
+/* Smarty version 3.1.30, created on 2016-10-19 22:14:18
   from "C:\xampp\htdocs\maquinarias\templates\listado.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58069f69203583_23605310',
+  'unifunc' => 'content_5807d41a2f68a8_91584965',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd01cd1a685c82cbfba247e28c74939279059df14' => 
     array (
       0 => 'C:\\xampp\\htdocs\\maquinarias\\templates\\listado.tpl',
-      1 => 1476828709,
+      1 => 1476908051,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58069f69203583_23605310 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5807d41a2f68a8_91584965 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
   <section>
@@ -52,7 +52,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['unidad']->value) {
 </a>
               </h3>
               <ul class="features">
-                  <li><span>Marca</span> : <?php echo $_smarty_tpl->tpl_vars['unidad']->value['marca_nombre'];?>
+                  <li><span>Marca</span> : <?php echo $_smarty_tpl->tpl_vars['unidad']->value['mar_nombre'];?>
 </li>
                   <li><span>Modelo</span> : <?php echo $_smarty_tpl->tpl_vars['unidad']->value['prod_modelo'];?>
 </li>
@@ -60,7 +60,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['unidad']->value) {
 </li>
                   <li><span>Año</span> : <?php echo $_smarty_tpl->tpl_vars['unidad']->value['prod_anio'];?>
 </li>
-              </ul>
+              </ul> 
               <ul class="price">
                   <li><span>Precio</span> $  <?php echo $_smarty_tpl->tpl_vars['unidad']->value['prod_precio'];?>
 </li>

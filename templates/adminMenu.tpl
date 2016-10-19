@@ -13,18 +13,18 @@
      <nav class="navbar" role="navigation">
        <div class="container">
          <div class="navbar-header">
-           <a class="navbar-brand" href="index.html"><img src="/maquinarias/images/logo.png" title="Agencia de maquinarias" /></a>
+           <a class="navbar-brand" href="http://localhost/maquinarias/admin/"><img src="http://localhost/maquinarias/images/logo.png" title="Agencia de maquinarias" /></a>
          </div>
        <!-- Agrupar los enlaces de navegación, los formularios y cualquier otro elemento que se pueda ocultar al minimizar la barra -->
          <ul class="nav nav-pills pull-right">
            <li>
-             <a href="/maquinarias/admin/productos" id="home" >Productos</a>
+             <a href="http://localhost/maquinarias/admin/productos" id="productos" >Productos</a>
            </li>
            <li>
-             <a href="/maquinarias/admin/categorias" id="nosotros" >Categorias</a>
+             <a href="http://localhost/maquinarias/admin/categorias/" id="categorias" >Categorias</a>
            </li>
            <li>
-             <a href="/maquinarias/admin/marcas" id="marcas" >Marcas</a>
+             <a href="http://localhost/maquinarias/admin/marcas/" id="marcas" >Marcas</a>
            </li>
          </ul>
        </div>

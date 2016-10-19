@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-19 00:12:06
+/* Smarty version 3.1.30, created on 2016-10-19 23:19:00
   from "C:\xampp\htdocs\maquinarias\templates\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58069e36583396_62475674',
+  'unifunc' => 'content_5807e344e0eb23_43873236',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3f8d7a8a169ba02e9bf754ff33e5aa829ef162fa' => 
     array (
       0 => 'C:\\xampp\\htdocs\\maquinarias\\templates\\index.tpl',
-      1 => 1476828709,
+      1 => 1476911911,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58069e36583396_62475674 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5807e344e0eb23_43873236 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -65,7 +65,10 @@ function content_58069e36583396_62475674 (Smarty_Internal_Template $_smarty_tpl)
   </nav>
   <main class="container">
     <div id="onload">
-      <button class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Cargando...</button>
+      <button class="btn btn-lg btn-warning">
+        <img src="images/cargando.gif" height="40" width="40" />
+         Cargando...
+       </button>
     </div>
   </main>
   <footer class="container">

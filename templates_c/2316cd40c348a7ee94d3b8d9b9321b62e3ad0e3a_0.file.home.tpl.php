@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-19 00:12:08
+/* Smarty version 3.1.30, created on 2016-10-19 22:14:50
   from "C:\xampp\htdocs\maquinarias\templates\home.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58069e38614363_36527453',
+  'unifunc' => 'content_5807d43a01f469_62830853',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2316cd40c348a7ee94d3b8d9b9321b62e3ad0e3a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\maquinarias\\templates\\home.tpl',
-      1 => 1476828709,
+      1 => 1476908081,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58069e38614363_36527453 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5807d43a01f469_62830853 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <header>
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -78,7 +78,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['nuevo']->value) {
 " class="jsUnidad" id_producto="<?php echo $_smarty_tpl->tpl_vars['nuevo']->value['id_producto'];?>
 " ><?php echo $_smarty_tpl->tpl_vars['nuevo']->value['prod_nombre'];?>
 </a></h5>
-        </li>
+        </li> 
         <?php
 }
 }
@@ -120,7 +120,7 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
 ?>
-            <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['item']->value['marca_nombre'];?>
+            <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['item']->value['mar_nombre'];?>
 </a></li>
           <?php
 }

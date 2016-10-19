@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-19 20:15:31
-  from "/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/adminListadoMarcas.tpl" */
+/* Smarty version 3.1.30, created on 2016-10-19 22:53:14
+  from "C:\xampp\htdocs\maquinarias\templates\adminListadoMarcas.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5807b843863c25_14710473',
+  'unifunc' => 'content_5807dd3a2ca0d8_07337123',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'bb351421f27308306982e78e0ed621adab4738a1' => 
+    'b1510a8b95ccd2d486c8e2befc91e08fa90a1d98' => 
     array (
-      0 => '/Applications/XAMPP/xamppfiles/htdocs/maquinarias/templates/adminListadoMarcas.tpl',
-      1 => 1476900928,
+      0 => 'C:\\xampp\\htdocs\\maquinarias\\templates\\adminListadoMarcas.tpl',
+      1 => 1476910352,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5807b843863c25_14710473 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5807dd3a2ca0d8_07337123 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <section class="container">
@@ -43,7 +43,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
           <p>
             <a role="button" href="http://localhost/maquinarias/admin/marcas/modificar/<?php echo $_smarty_tpl->tpl_vars['item']->value['id_marca'];?>
 " class="btn btn-default">Modificar</a>
-            <a role="button" href="http://localhost/maquinarias/admin/marcas/eliminar/<?php echo $_smarty_tpl->tpl_vars['item']->value['id_marca'];?>
+            <a role="button" href="http://localhost/maquinarias/admin/marcas/borrar/<?php echo $_smarty_tpl->tpl_vars['item']->value['id_marca'];?>
 " class="btn btn-default">Eliminar</a>
           </p>
         </li>
