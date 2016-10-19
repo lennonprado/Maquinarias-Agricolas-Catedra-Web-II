@@ -48,8 +48,8 @@
            <div class="form-group">
              <label for="Estado">Estado</label>
              <select class="form-control" id="prod_estado" name="prod_estado" required>
-               <option value="nuevo">Nuevo</option>
-               <option value="usado">Usado</option>
+               <option value="nuevo" {if $unidad.prod_estado=="nuevo"} selected {/if} >Nuevo</option>
+               <option value="usado" {if $unidad.prod_estado=="usado"} selected {/if} >Usado</option>
              </select>
            </div>
 
@@ -61,8 +61,8 @@
            <div class="form-group">
              <label for="Visible">Visible</label>
              <select class="form-control" id="prod_visible" name="prod_visible">
-               <option value="1">Si</option>
-               <option value="0">No</option>
+               <option value="1" {if $unidad.prod_visible==1} selected {/if} >Si</option>
+               <option value="0" {if $unidad.prod_visible==0} selected {/if} >No</option>
              </select>
            </div>
 
