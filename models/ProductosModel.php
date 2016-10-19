@@ -10,12 +10,14 @@ class ProductosModel
     $this->db = new PDO('mysql:host=localhost;dbname=maquinarias;charset=utf8', 'root', '');
   }
 
-  function getProductos($tipo=NULL){
+  function getProductos($tipo=NULL,$limit=NULL){
+    $select='SELECT M.*, C.*, P.* FROM productos as P, marcas as M, categorías as C WHERE P.prod_marca=M.id_marca AND P.prod_categoria=C.id_categoria';
     if(!is_null($tipo))
-      $sentencia = $this->db->prepare('SELECT M.*, C.*, P.* FROM productos as P, marcas as M, categorías as C WHERE P.prod_marca=M.id_marca AND P.prod_categoria=C.id_categoria AND P.prod_estado = "' . $tipo . '"');
-    else
-      $sentencia = $this->db->prepare("SELECT M.*, C.*, P.* FROM productos as P, marcas as M, categorías as C WHERE P.prod_marca=M.id_marca AND P.prod_categoria=C.id_categoria");
-
+      $select .= ' AND P.prod_estado = "' . $tipo . '"';
+    if(!is_null($limit))
+      $select .= ' LIMIT '.$limit;
+      
+    $sentencia = $this->db->prepare($select);
     $sentencia->execute();
     $productos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
     foreach($productos as $key => $producto){

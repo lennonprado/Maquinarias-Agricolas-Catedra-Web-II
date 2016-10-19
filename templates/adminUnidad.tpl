@@ -87,7 +87,7 @@
             <div class="row">
                {foreach from=$imagenes item=imagen}
                <div class="col-md-3">
-                  <img src="/maquinarias/{$imagen.img_url}" width="100" height="100" />
+                  <img src="/maquinarias/{$imagen.img_url}" width="140" height="100" class="img-rounded" />
                   {if !$imagen.img_destacada}
                   <form action="/maquinarias/admin/productos/modificar/{$unidad.id_producto}" method="post" class="form-inline" >
                      <input type="hidden" value="{$imagen.id_imagen}" name="id_destacar_imagen" id="id_destacar_imagen" />

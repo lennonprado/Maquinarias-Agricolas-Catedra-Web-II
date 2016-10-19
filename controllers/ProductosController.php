@@ -30,13 +30,13 @@ class ProductosController
     $categorias = $this->modelo->getCategorias();
     $marcas = $this->modelo->getMarcas();
     $destacados = $this->modelo->getProductos("usado");
-    $nuevos = $this->modelo->getProductos("nuevo");
+    $nuevos = $this->modelo->getProductos("nuevo",3);
    // var_dump($nuevos);
     $this->vista->home($categorias,$marcas,$nuevos,$destacados);
   }
 
   function listado(){
-    $todos = $this->modelo->getProductos();    
+    $todos = $this->modelo->getProductos();
     $this->vista->listado($todos);
   }
 
