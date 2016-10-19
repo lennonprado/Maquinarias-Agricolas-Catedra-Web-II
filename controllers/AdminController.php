@@ -21,8 +21,10 @@ class AdminController
   function modificarProductos(){
     $imagenes = $this->modelo->getImagenes($_GET['id']);
     $unidad = $this->modelo->getProducto($_GET['id']);
-    $caracteristicas = $this->modelo->getCaracteristicas($_GET['id_producto']);
-    $this->vista->modificarProducto($unidad,$imagenes,$caracteristicas,);
+    $caracteristicas = $this->modelo->getCaracteristicas($_GET['id']);
+    $marcas = $this->modelo->getMarcas();
+    $categorias = $this->modelo->getCategorias();
+    $this->vista->modificarProducto($unidad,$imagenes,$caracteristicas,$marcas,$categorias);
   }
 
   function categorias(){
