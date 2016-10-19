@@ -31,7 +31,6 @@ class ProductosModel
     $sentencia = $this->db->prepare("INSERT INTO productos(nombre) VALUES(?)");
     $sentencia->execute(array($producto));
     $id_producto = $this->db->lastInsertId();
-
     //Copiarla del lugar temporal al definitivo.
     foreach ($imagenes as $key => $imagen) {
       $path="images/".uniqid()."_".$imagen["name"];
@@ -40,15 +39,9 @@ class ProductosModel
       $insertImagen->execute(array($path,$id_producto));
     }
     return $id_producto;
-    //$this->productos[] = $producto;
   }
 
   function eliminarProducto($id_producto){
-    //Elimina la '$id_producto' del arreglo
-    //productos[0] = 'producto 11'
-    //productos[1] = 'producto 21'
-    //productos[2] = 'producto 11'
-    //unset($this->productos[$id_producto]);
     $sentencia = $this->db->prepare("delete from productos where id_producto=?");
     $sentencia->execute(array($id_producto));
     return $sentencia->rowCount();
@@ -77,20 +70,60 @@ class ProductosModel
        return $sentencia->fetchAll(PDO::FETCH_ASSOC);
      }
 
-     /*Categorias*/
+     /* Funcionalidad para
+        Categorias (ABM)
+     */
      function getCategorias(){
-       $sentencia = $this->db->prepare( "select * from categorías");
+       $sentencia = $this->db->prepare( "SELECT * FROM categorias");
        $sentencia->execute();
        $categorias = $sentencia->fetchAll(PDO::FETCH_ASSOC);
        return $categorias;
      }
+     function getCategoria($id_categoria){
+       $sentencia = $this->db->prepare( "SELECT * FROM categorias WHERE id_categoria=?" );
+       $sentencia->execute(array($id_categoria));
+       return $sentencia->fetch(PDO::FETCH_ASSOC);
+     }
+     function agregarCategoria($cat_nombre,$cat_descripcion){
+       $sentencia = $this->db->prepare('INSERT INTO categorias ( cat_nombre , cat_descripcion ) VALUES ( ? , ? )');
+       $sentencia->execute(array($cat_nombre,$cat_descripcion));
+       return $this->db->lastInsertId();
+     }
+     function modificarCategoria($id_categoria,$cat_nombre,$cat_descripcion){
+       $sentencia = $this->db->prepare( 'UPDATE categorias SET cat_nombre = ? , cat_descripcion = ? WHERE id_categoria=?');
+       $sentencia->execute(array($cat_nombre,$cat_descripcion,$id_categoria));
+       return $sentencia->fetch(PDO::FETCH_ASSOC);
+     }
+     function eliminarCategoria($id_categoria){
+       $sentencia = $this->db->prepare( "DELETE FROM categorias WHERE id_categoria=?" );
+       $sentencia->execute(array($id_categoria));
+       return $sentencia->rowCount();
+     }
 
-     /*Marcas*/
+     /* Marcas */
      function getMarcas(){
        $sentencia = $this->db->prepare("select * from marcas");
        $sentencia->execute();
        $marcas = $sentencia->fetchAll(PDO::FETCH_ASSOC);
        return $marcas;
+     }
+
+     function modificarMarca($id_marca,$mar_nombre,$mar_descripcion){
+       $sentencia = $this->db->prepare( 'UPDATE marcas SET mar_nombre = "?",mar_descripcion="?" where id_marca=?');
+       $sentencia->execute(array($mar_nombre,$mar_descripcion,$id_marca));
+       return $sentencia->fetch(PDO::FETCH_ASSOC);
+     }
+
+     function getMarca($id_marca){
+       $sentencia = $this->db->prepare( "select * from marcas where id_marca=?");
+       $sentencia->execute(array($id_marca));
+       return $sentencia->fetch(PDO::FETCH_ASSOC);
+     }
+     // elimino una marca
+     function eliminarMarca($id_marca){
+       $sentencia = $this->db->prepare("delete from marcas where id_marca=?");
+       $sentencia->execute(array($id_marca));
+       return $sentencia->rowCount();
      }
 
      /*Caracteristicas*/

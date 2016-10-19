@@ -44,7 +44,7 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
             $controller->modificarCategorias();
           break;
           case ConfigApp::$ELIMINAR:
-            $controller->eliminaraCategorias();
+            $controller->eliminarCategorias();
           break;
           default:
             $controller->categorias();

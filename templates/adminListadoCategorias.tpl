@@ -3,14 +3,15 @@
   <div class="row">
     <h4>Listado de Categorias</h4>
     <div class="row destacados" >
-      <p><a  href="categorias/agregar" class="btn btn-success">Agregar nueva Categoria</a></p>
+      <p><a  href="http://localhost/maquinarias/admin/categorias/agregar" class="btn btn-success">Agregar nueva Categoria</a></p>
       <ul class="list-group">
          {foreach from=$categorias item=item}
         <li class="list-group-item col-md-4">
           <h5><a href="#" title="{$item.prod_nombre}" class="jsUnidad">{$item.cat_nombre}</a></h5>
+          <p><i>{$item.cat_descripcion}</i></p>
           <p>
-            <a href="categorias/modificar/{$item.id_categoria}" class="btn">Modificar</a>
-            <a href="categorias/eliminar/{$item.id_categoria}" class="btn">Eliminar</a>
+            <a role="button" href="http://localhost/maquinarias/admin/categorias/modificar/{$item.id_categoria}" class="btn btn-default">Modificar</a>
+            <a role="button" href="http://localhost/maquinarias/admin/categorias/eliminar/{$item.id_categoria}" class="btn btn-default">Eliminar</a>
           </p>
         </li>
         {/foreach}

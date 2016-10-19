@@ -26,19 +26,35 @@ class AdminController
 
   // Muestro el listado de agrego una categoria
   function agregarCategorias(){
-    $this->vista->agregarCategorias();
+    if((isset($_POST['cat_nombre']))&&(isset($_POST['cat_descripcion']))){
+      // guardo en el modelo
+      $resultado = $this->modelo->agregarCategoria($_POST['cat_nombre'],$_POST['cat_descripcion']);
+      if($resultado > 0) header('Location: http://localhost/maquinarias/admin/categorias/');
+    }
+    else{
+      // muestro el formulario
+      $this->vista->agregarCategorias();
+    }
   }
 
   // modifico una categoria que viene por get
   function modificarCategorias(){
-    $categoria = $this->modelo->getCategoria($_GET["id"]);
-    $this->vista->modificarCategorias($categoria);
+    if((isset($_POST['cat_nombre']))&&(isset($_POST['cat_descripcion']))){
+      // guardo en el modelo
+      $resultado = $this->modelo->modificarCategoria($_GET["id"],$_POST['cat_nombre'],$_POST['cat_descripcion']);
+      header('Location: http://localhost/maquinarias/admin/categorias/');
+    }
+    else{
+      // muestro el formulario
+      $categoria = $this->modelo->getCategoria($_GET["id"]);
+      $this->vista->modificarCategorias($categoria);
+    }
   }
 
   // Elimino una categoria y redirecciono al inicio de categorias
   function eliminarCategorias(){
-    $this->modelo->eliminarCategorias($_GET["id"]);
-    header('Location: /categorias/');
+    $this->modelo->eliminarCategoria($_GET["id"]);
+    header('Location: http://localhost/maquinarias/admin/categorias/');
   }
 
   function marcas(){
@@ -48,19 +64,35 @@ class AdminController
 
   // Muestro el listado de agrego una categoria
   function agregarMarcas(){
-    $this->vista->agregarMarcas();
+    if((isset($_POST['mar_nombre']))&&(isset($_POST['mar_descripcion']))){
+      // guardo en el modelo
+      $resultado = $this->modelo->agregarMarcas($_POST['mar_nombre'],$_POST['mar_descripcion']);
+      if($resultado > 0) header('Location: http://localhost/maquinarias/admin/marcas/');
+    }
+    else{
+      // muestro el formulario
+      $this->vista->agregarMarcas();
+    }
   }
 
   // modifico una categoria que viene por get
   function modificarMarcas(){
-    $marcas = $this->modelo->getMarca($_GET["id"]);
-    $this->vista->modificarMarca($marcas);
+    if((isset($_POST['mar_nombre']))&&(isset($_POST['mar_descripcion']))){
+      // guardo en el modelo
+      $resultado = $this->modelo->modificarMarca($_GET["id"],$_POST['mar_nombre'],$_POST['mar_descripcion']);
+      header('Location: http://localhost/maquinarias/admin/marcas/');
+    }
+    else{
+      // muestro el formulario
+      $categoria = $this->modelo->getMarcas($_GET["id"]);
+      $this->vista->modificarMarcas($marca);
+    }
   }
 
   // Elimino una categoria y redirecciono al inicio de categorias
   function eliminarMarcas(){
     $this->modelo->eliminarMarca($_GET["id"]);
-    header('Location: /marcas/');
+    header('Location: http://localhost/maquinarias/admin/marcas/');
   }
 
   function getImagenesVerificadas($imagenes){

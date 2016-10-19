@@ -45,22 +45,33 @@ class AdminView
 
   // Muestra el formulario para modificar una categoria
   function modificarCategorias($categoria){
-    $this->smarty->assign('categoria',$categoria);
+    $this->smarty->assign('cat_nombre',$categoria["cat_nombre"]);
+    $this->smarty->assign('cat_descripcion',$categoria["cat_descripcion"]);
     $this->smarty->display('adminModificarCategoria.tpl');
   }
 
   // Muestra el formulario para agregar una categoria
-  function agregarCategorias($categoria){
-    $this->smarty->assign('categoria',$categoria);
-    $this->smarty->display('agregarCategoria.tpl');
+  function agregarCategorias(){
+    $this->smarty->display('adminAgregarCategorias.tpl');
   }
-  
 
   function marcas($marcas){
     $this->smarty->assign('marcas',$marcas);
     $this->smarty->display('adminListadoMarcas.tpl');
   }
 
+
+  // Muestra el formulario para modificar una categoria
+  function modificarMarca($marca){
+    $this->smarty->assign('mar_nombre',$marca["mar_nombre"]);
+    $this->smarty->assign('mar_descripcion',$marca["mar_descripcion"]);
+    $this->smarty->display('adminModificarMarca.tpl');
+  }
+
+  // Muestra el formulario para agregar una categoria
+  function agregarMarca($marca){
+    $this->smarty->display('agregarCategoria.tpl');
+  }
 
 
 }
