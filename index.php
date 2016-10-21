@@ -1,8 +1,8 @@
 <?php
-require('controllers/ProductoController.php');
+require('controllers/ProductosController.php');
 require ('config/ConfigApp.php');
 
-$controller = new ProductoController();
+$controller = new ProductosController();
 
 if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
   $controller->iniciar();

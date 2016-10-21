@@ -1,19 +1,19 @@
 <?php
-require('controllers/AdminController.php');
+require('controllers/AdminProductoController.php');
+require('controllers/AdminMarcaController.php');
+require('controllers/AdminCategoriaController.php');
+
 require ('config/ConfigApp.php');
 
-$productoController = new AdminProductoController();
-$marcaController = new AdminMarcaController();
-$categoriaController = new AdminCategoriaController();
-
-
 if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
+  $productoController = new AdminProductoController();
   $productoController->iniciar();
   die();
 }
 
 switch ($_REQUEST[ConfigApp::$ACTION]) {
   case ConfigApp::$PRODUCTOS:
+    $productoController = new AdminProductoController();
     if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
       $productoController->iniciar();
     }
@@ -36,27 +36,29 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   break;
 
   case ConfigApp::$CATEGORIAS:
+    $categoriaController = new AdminCategoriaController();
     if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
-        $categoiraController->categorias();
+        $categoriaController->categorias();
     }
     else {
       switch ($_REQUEST[ConfigApp::$SECCION]){
           case ConfigApp::$AGREGAR:
-            $categoiraController->agregarCategorias();
+            $categoriaController->agregarCategorias();
           break;
           case ConfigApp::$MODIFICAR:
-            $categoiraController->modificarCategorias();
+            $categoriaController->modificarCategorias();
           break;
           case ConfigApp::$BORRAR:
-            $categoiraController->eliminarCategorias();
+            $categoriaController->eliminarCategorias();
           break;
           default:
-            $categoiraController->categorias();
+            $categoriaController->categorias();
           break;
       }
     }
     break;
   case ConfigApp::$MARCAS:
+  $marcaController = new AdminMarcaController();
   if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
       $marcaController->marcas();
   }

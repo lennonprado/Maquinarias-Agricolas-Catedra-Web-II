@@ -1,20 +1,26 @@
 <?php
 require('view/ProductosView.php');
-require('models/ProductosModel.php');
+require('models/ProductoModel.php');
+require('models/MarcaModel.php');
+require('models/CategoriaModel.php');
 
 class ProductosController
 {
   private $vista;
-  private $modelo;
+  private $productoModelo;
+  private $marcaModelo;
+  private $categoriaModelo;
 
   function __construct()
   {
-    $this->modelo = new ProductosModel();
+    $this->productoModelo = new ProductoModel();
+    $this->marcaModelo = new MarcaModel();
+    $this->categoriaModelo = new CategoriaModel();
     $this->vista = new ProductosView();
   }
 
   function iniciar(){
-    $productos = $this->modelo->getProductos();
+    $productos = $this->productoModelo->getProductos();
     $this->vista->inicio();
   }
 
@@ -27,24 +33,24 @@ class ProductosController
   }
 
   function home(){
-    $categorias = $this->modelo->getCategorias();
-    $marcas = $this->modelo->getMarcas();
-    $destacados = $this->modelo->getProductos("usado");
-    $nuevos = $this->modelo->getProductos("nuevo",3);
+    $categorias = $this->categoriaModelo->getCategorias();
+    $marcas = $this->marcaModelo->getMarcas();
+    $destacados = $this->productoModelo->getProductos("usado");
+    $nuevos = $this->productoModelo->getProductos("nuevo",3);
    // var_dump($nuevos);
     $this->vista->home($categorias,$marcas,$nuevos,$destacados);
   }
 
   function listado(){
-    $todos = $this->modelo->getProductos();
+    $todos = $this->productoModelo->getProductos();
     $this->vista->listado($todos);
   }
 
   function unidad(){
-    $imagenes = $this->modelo->getImagenes($_GET['id_producto']);
-    $destacados = $this->modelo->getProductos("usado");
-    $unidad = $this->modelo->getProducto($_GET['id_producto']);
-    $caracteristicas = $this->modelo->getCaracteristicas($_GET['id_producto']);
+    $imagenes = $this->productoModelo->getImagenes($_GET['id_producto']);
+    $destacados = $this->productoModelo->getProductos("usado");
+    $unidad = $this->productoModelo->getProducto($_GET['id_producto']);
+    $caracteristicas = $this->productoModelo->getCaracteristicas($_GET['id_producto']);
     $this->vista->unidad($unidad,$imagenes,$caracteristicas,$destacados);
   }
 
@@ -69,7 +75,7 @@ class ProductosController
       $imagenesVerificadas = $this->getImagenesVerificadas($_FILES['imagenes']);
       if(count($imagenesVerificadas)>0){
         if(!$this->filtro($tarea)){
-          $this->modelo->crearTarea($tarea,$imagenesVerificadas);
+          $this->productoModelo->crearTarea($tarea,$imagenesVerificadas);
           $this->vista->mostrarMensaje("La tarea se creo con imagen y todo!", "success");
         }
       }
@@ -86,8 +92,8 @@ class ProductosController
 
   function eliminar(){
     $key = $_GET['id_producto'];
-    $this->modelo->eliminarProducto($key);
-    $productos = $this->modelo->getProductos();
+    $this->productoModelo->eliminarProducto($key);
+    $productos = $this->productoModelo->getProductos();
     $this->vista->getLista($productos);
   }
 

@@ -1,6 +1,6 @@
 <?php
 require('view/AdminProductoView.php');
-require('models/ProductosModel.php');
+require('models/ProductoModel.php');
 
 class AdminProductoController
 {
@@ -9,7 +9,7 @@ class AdminProductoController
 
   function __construct()
   {
-    $this->modelo = new ProductosModel();
+    $this->modelo = new ProductoModel();
     $this->vista = new AdminProductoView();
   }
 
