@@ -2,31 +2,34 @@
 require('controllers/AdminController.php');
 require ('config/ConfigApp.php');
 
-$controller = new AdminController();
+$productoController = new AdminProductoController();
+$marcaController = new AdminMarcaController();
+$categoriaController = new AdminCategoriaController();
+
 
 if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
-  $controller->iniciar();
+  $productoController->iniciar();
   die();
 }
 
 switch ($_REQUEST[ConfigApp::$ACTION]) {
   case ConfigApp::$PRODUCTOS:
     if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
-      $controller->iniciar();
+      $productoController->iniciar();
     }
     else {
     switch ($_REQUEST[ConfigApp::$SECCION]){
         case ConfigApp::$AGREGAR:
-          $controller->agregarProductos();
+          $productoController->agregarProductos();
         break;
         case ConfigApp::$MODIFICAR:
-          $controller->modificarProductos();
+          $productoController->modificarProductos();
         break;
         case ConfigApp::$BORRAR:
-          $controller->eliminarProducto();
+          $productoController->eliminarProducto();
         break;
         default:
-          $controller->productos();
+          $productoController->productos();
         break;
     }
   }
@@ -34,48 +37,48 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
 
   case ConfigApp::$CATEGORIAS:
     if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
-        $controller->categorias();
+        $categoiraController->categorias();
     }
     else {
       switch ($_REQUEST[ConfigApp::$SECCION]){
           case ConfigApp::$AGREGAR:
-            $controller->agregarCategorias();
+            $categoiraController->agregarCategorias();
           break;
           case ConfigApp::$MODIFICAR:
-            $controller->modificarCategorias();
+            $categoiraController->modificarCategorias();
           break;
           case ConfigApp::$BORRAR:
-            $controller->eliminarCategorias();
+            $categoiraController->eliminarCategorias();
           break;
           default:
-            $controller->categorias();
+            $categoiraController->categorias();
           break;
       }
     }
     break;
   case ConfigApp::$MARCAS:
   if (!array_key_exists(ConfigApp::$SECCION,$_REQUEST)){
-      $controller->marcas();
+      $marcaController->marcas();
   }
   else {
     switch ($_REQUEST[ConfigApp::$SECCION]){
         case ConfigApp::$AGREGAR:
-          $controller->agregarMarcas();
+          $marcaController->agregarMarcas();
         break;
         case ConfigApp::$MODIFICAR:
-          $controller->modificarMarcas();
+          $marcaController->modificarMarcas();
         break;
         case ConfigApp::$BORRAR:
-          $controller->eliminarMarcas();
+          $marcaController->eliminarMarcas();
         break;
         default:
-          $controller->marcas();
+          $marcaController->marcas();
         break;
     }
   }
   break;
   default:
-    $controller->iniciar();
+    $productoController->iniciar();
     break;
 }
 ?>
