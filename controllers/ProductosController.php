@@ -1,8 +1,8 @@
 <?php
-require('view/ProductosView.php');
-require('models/ProductoModel.php');
-require('models/MarcaModel.php');
-require('models/CategoriaModel.php');
+require_once('view/ProductosView.php');
+require_once('models/ProductoModel.php');
+require_once('models/MarcaModel.php');
+require_once('models/CategoriaModel.php');
 
 class ProductosController
 {

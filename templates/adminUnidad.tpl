@@ -1,7 +1,6 @@
 <section class="container">
-   {if isset($mensaje)}
-      <div class="alert alert-{$tipoMensaje}" role="alert">{$mensaje}</div>
-    {/if}
+
+   <div id="alert" class="alert alert-{$tipoMensaje}" {if !isset($mensaje)} style="display:none" {/if} role="alert">{if isset($mensaje)} {$mensaje} {/if}</div>
 
    <div class="row">
       <div class="col-md-6">
@@ -85,26 +84,24 @@
             <br />
             {if $imagenes}
             <div class="row">
+               <form action="/maquinarias/admin/productos/modificar/{$unidad.id_producto}" method="post" class="form-inline" >
                {foreach from=$imagenes item=imagen}
-               <div class="col-md-3">
+               <div class="col-md-3 form-horizontal">
                   <img src="/maquinarias/{$imagen.img_url}" width="140" height="100" class="img-rounded" />
-                  {if !$imagen.img_destacada}
-                  <form action="/maquinarias/admin/productos/modificar/{$unidad.id_producto}" method="post" class="form-inline" >
-                     <input type="hidden" value="{$imagen.id_imagen}" name="id_destacar_imagen" id="id_destacar_imagen" />
-                     <input type="submit" value="Destacar" name="eliminarImagen" class="btn btn-success btn-xs" />
-                  </form>
-                  {/if}
-                  <form action="/maquinarias/admin/productos/modificar/{$unidad.id_producto}" method="post" class="form-inline" >
-                     <input type="hidden" value="{$imagen.id_imagen}" name="id_eliminar_imagen" id="id_eliminar_imagen" />
-                     <input type="submit" value="Eliminar" name="eliminarImagen" class="btn btn-danger btn-xs" />
-                  </form>
-
+                  <label>Eliminar:</label><input type="checkbox" value="{$imagen.id_imagen}" name="idsImagenEliminar[]" />
+                  <input type="button" id="{$imagen.id_imagen}" idPro="{$unidad.id_producto}" value="Destacar" name="DestacarImagen" class="btn btn-success btn-xs jsDestacarImg" {if $imagen.img_destacada} style="display:none" {/if}  />
                </div>
                {/foreach}
+               <div class="col-md-12"><br />
+                  <input type="submit" value="Eliminar Imagen/s" name="eliminarImagen" class="btn btn-danger btn-xs" />
+               </div>
+               </form>
             </div>
+
             {else}
                <h4>Sin imagenes</h4>
             {/if}
+
 
 
          <form action="/maquinarias/admin/productos/modificar/{$unidad.id_producto}" method="post" class="form-inline">
@@ -132,7 +129,7 @@
                Detalle: {$caracteristica.car_detalle}
                <form action="/maquinarias/admin/productos/modificar/{$unidad.id_producto}" method="post" class="form-inline" >
                   <input type="hidden" value="{$caracteristica.id_caracteristica}" name="id_eliminar_caracteristica" id="id_eliminar_caracteristica" />
-                  <input type="submit" value="Eliminar" name="eliminarCaracteristica" class="btn btn-danger btn-xs" />
+                  <input type="submit" value="Eliminar Caracteristica" name="eliminarCaracteristica" class="btn btn-danger btn-xs" />
                </form>
             </div>
             {/foreach}
@@ -140,9 +137,8 @@
             {else}
                <h4>Sin caracteristicas</h4>
             {/if}
-
       </div>
-
    </div>
-
 </section>
+
+<script src="/maquinarias/js/jsAdmin.js"></script>

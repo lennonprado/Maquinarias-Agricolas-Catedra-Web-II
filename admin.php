@@ -80,6 +80,7 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   }
   break;
   default:
+    $productoController = new AdminProductoController();
     $productoController->iniciar();
     break;
 }

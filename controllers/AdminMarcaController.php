@@ -1,6 +1,6 @@
 <?php
-require('view/AdminMarcaView.php');
-require('models/MarcaModel.php');
+require_once('view/AdminMarcaView.php');
+require_once('models/MarcaModel.php');
 
 class AdminMarcaController
 {

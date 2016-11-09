@@ -1,6 +1,6 @@
 <?php
-require('view/AdminCategoriaView.php');
-require('models/CategoriaModel.php');
+require_once('view/AdminCategoriaView.php');
+require_once('models/CategoriaModel.php');
 
 class AdminCategoriaController
 {

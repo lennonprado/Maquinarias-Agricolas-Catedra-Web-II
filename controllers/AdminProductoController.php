@@ -1,20 +1,26 @@
 <?php
-require('view/AdminProductoView.php');
-require('models/ProductoModel.php');
+require_once('view/AdminProductoView.php');
+require_once('models/ProductoModel.php');
+require_once('models/MarcaModel.php');
+require_once('models/CategoriaModel.php');
 
 class AdminProductoController
 {
   private $vista;
-  private $modelo;
+  private $productoModelo;
+  private $marcaModelo;
+  private $categoriaModelo;
 
   function __construct()
   {
-    $this->modelo = new ProductoModel();
+    $this->productoModelo = new ProductoModel();
+    $this->marcaModelo = new MarcaModel();
+    $this->categoriaModelo = new CategoriaModel();
     $this->vista = new AdminProductoView();
   }
 
   function iniciar(){
-    $productos = $this->modelo->getProductos();
+    $productos = $this->productoModelo->getProductos();
     $this->vista->listado($productos);
   }
 
@@ -23,19 +29,19 @@ class AdminProductoController
 
      if(isset($_POST['modificarProducto']))
          {
-            $this->modelo->modificarProducto($_GET['id'],$_POST);
+            $this->productoModelo->modificarProducto($_GET['id'],$_POST);
             $this->vista->mostrarMensaje("Producto modificado correctamente!", "success");
          }
 
       if(isset($_POST['eliminarCaracteristica']))
          {
-            $this->modelo->eliminarCaracteristica($_POST['id_eliminar_caracteristica']);
+            $this->productoModelo->eliminarCaracteristica($_POST['id_eliminar_caracteristica']);
             $this->vista->mostrarMensaje("Caracteristica eliminada correctamente!", "danger");
          }
 
       if(isset($_POST['crearCaracteristica']))
          {
-            $this->modelo->crearCaracteristica($_GET['id'],$_POST);
+            $this->productoModelo->crearCaracteristica($_GET['id'],$_POST);
             $this->vista->mostrarMensaje("Caracteristica Creada correctamente!", "success");
          }
 
@@ -43,7 +49,7 @@ class AdminProductoController
          if(isset($_FILES['imagenes'])){
             $imagenesVerificadas = $this->getImagenesVerificadas($_FILES['imagenes']);
             if(count($imagenesVerificadas)>0){
-               $this->modelo->crearImagen($_GET['id'],$imagenesVerificadas);
+               $this->productoModelo->crearImagen($_GET['id'],$imagenesVerificadas);
                $this->vista->mostrarMensaje("La imagen se cargo correctamente!", "success");
             }
             else{
@@ -57,35 +63,38 @@ class AdminProductoController
 
       if(isset($_POST['id_destacar_imagen']))
          {
-            $this->modelo->destacarImagen($_GET['id'],$_POST['id_destacar_imagen']);
+            $this->productoModelo->destacarImagen($_GET['id'],$_POST['id_destacar_imagen']);
             $this->vista->mostrarMensaje("La imagen se destaco correctamente!", "success");
          }
 
-      if(isset($_POST['id_eliminar_imagen']))
+      if(isset($_POST['idsImagenEliminar']))
          {
-            $this->modelo->eliminarImagen($_POST['id_eliminar_imagen']);
-            $this->vista->mostrarMensaje("Imagen eliminada correctamente!", "danger");
+            $id_elimiar=$_POST['idsImagenEliminar'];
+            for($r=0;$r<count($id_elimiar);$r++){
+               $this->productoModelo->eliminarImagen($id_elimiar[$r]);
+            }
+            $this->vista->mostrarMensaje("Imagen/s eliminada correctamente!", "danger");
          }
 
-       $imagenes = $this->modelo->getImagenes($_GET['id']);
-       $unidad = $this->modelo->getProducto($_GET['id']);
-       $caracteristicas = $this->modelo->getCaracteristicas($_GET['id']);
-       $marcas = $this->modelo->getMarcas();
-       $categorias = $this->modelo->getCategorias();
+       $imagenes = $this->productoModelo->getImagenes($_GET['id']);
+       $unidad = $this->productoModelo->getProducto($_GET['id']);
+       $caracteristicas = $this->productoModelo->getCaracteristicas($_GET['id']);
+       $marcas = $this->marcaModelo->getMarcas();
+       $categorias = $this->categoriaModelo->getCategorias();
        $this->vista->modificarProducto($unidad,$imagenes,$caracteristicas,$marcas,$categorias);
 
   }
 
   function agregarProductos(){
-     $marcas = $this->modelo->getMarcas();
-     $categorias = $this->modelo->getCategorias();
+     $marcas = $this->marcaModelo->getMarcas();
+     $categorias = $this->categoriaModelo->getCategorias();
      if(isset($_POST['agregarProducto']))
          {
-         $id_producto=$this->modelo->agregarProducto($_POST);
+         $id_producto=$this->productoModelo->agregarProducto($_POST);
          $this->vista->mostrarMensaje("Producto Creado correctamente!", "success");
-         $imagenes = $this->modelo->getImagenes($id_producto);
-         $unidad = $this->modelo->getProducto($id_producto);
-         $caracteristicas = $this->modelo->getCaracteristicas($id_producto);
+         $imagenes = $this->productoModelo->getImagenes($id_producto);
+         $unidad = $this->productoModelo->getProducto($id_producto);
+         $caracteristicas = $this->productoModelo->getCaracteristicas($id_producto);
          $this->vista->modificarProducto($unidad,$imagenes,$caracteristicas,$marcas,$categorias);
          }
       else
@@ -95,7 +104,7 @@ class AdminProductoController
  }
 
  function eliminarProducto(){
-      $this->modelo->eliminarProducto($_GET['id']);
+      $this->productoModelo->eliminarProducto($_GET['id']);
       $this->vista->mostrarMensaje("Producto eliminada correctamente!", "danger");
       $this->iniciar();
  }
