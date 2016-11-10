@@ -26,6 +26,9 @@
            <li>
              <a href="http://localhost/maquinarias/admin/marcas/" id="marcas" >Marcas</a>
            </li>
+           <li>
+             <a href="http://localhost/maquinarias/admin/usuarios/" id="usuarios" >Usuarios</a>
+           </li>
          </ul>
        </div>
      </nav>

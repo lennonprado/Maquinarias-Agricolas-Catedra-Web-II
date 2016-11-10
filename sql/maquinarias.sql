@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2016 a las 23:30:16
+-- Servidor: localhost
+-- Tiempo de generación: 10-11-2016 a las 19:58:41
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -53,7 +53,8 @@ INSERT INTO `caracteristicas` (`id_caracteristica`, `id_producto`, `car_nombre`,
 (16, 12, 'asa', 'asas', '2016-10-19 16:46:46'),
 (19, 15, 'sxasxas', 'asxasxas', '2016-10-19 16:52:08'),
 (20, 12, 'pppp', 'pp', '2016-10-19 20:31:56'),
-(22, 19, 'op', 'op', '2016-10-19 20:54:57');
+(22, 19, 'op', 'op', '2016-10-19 20:54:57'),
+(23, 11, 'ssss', 'ssss', '2016-11-09 17:38:15');
 
 -- --------------------------------------------------------
 
@@ -89,6 +90,26 @@ INSERT INTO `categorías` (`id_categoria`, `cat_nombre`, `cat_descripcion`, `cat
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+DROP TABLE IF EXISTS `comentarios`;
+CREATE TABLE `comentarios` (
+  `id_comentario` int(11) NOT NULL,
+  `com_id_producto` int(11) NOT NULL,
+  `com_id_usuario` int(11) NOT NULL,
+  `com_mensaje` text NOT NULL,
+  `com_puntuacion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Truncar tablas antes de insertar `comentarios`
+--
+
+TRUNCATE TABLE `comentarios`;
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `imágenes`
 --
 
@@ -117,22 +138,21 @@ INSERT INTO `imágenes` (`id_imagen`, `img_producto`, `img_descripcion`, `img_ur
 (2, 1, 'imagen', 'images/1448111173684775796_300x200.jpg', '', 0, 1),
 (10, 1, '', 'images/58078ddb009e9_1411672801837801533_300x200.jpg', '', 0, 0),
 (13, 7, '', 'images/5807973ce50e2_1406810280478763949_300x200.jpg', '', 1, 0),
-(34, 11, '', 'images/5807a08fc4e34_14481199712125912013_300x200.jpg', '', 1, 1),
-(35, 11, '', 'images/5807a08fc513b_14606435931001989488_300x200.jpg', '', 0, 1),
+(34, 11, '', 'images/5807a08fc4e34_14481199712125912013_300x200.jpg', '', 0, 1),
+(35, 11, '', 'images/5807a08fc513b_14606435931001989488_300x200.jpg', '', 1, 1),
 (36, 11, '', 'images/5807a08fceeb5_14606446331713399153_300x200.jpg', '', 0, 1),
 (37, 11, '', 'images/5807a08fcf1f7_14607233461695415642_300x200.jpg', '', 0, 1),
 (38, 11, '', 'images/5807a08fcf66f_14608122721950416615_300x200.jpg', '', 0, 1),
 (39, 11, '', 'images/5807a08fcf9a3_14608169931673304909_300x200.jpg', '', 0, 1),
-(40, 12, '', 'images/5807a16455b6f_1389219498749239910_300x200.jpg', '', 1, 1),
-(41, 12, '', 'images/5807a1645ffff_1397565255722570050_300x200.jpg', '', 0, 1),
-(42, 12, '', 'images/5807a372a8499_14608169931673304909_300x200.jpg', '', 0, 1),
-(43, 12, '', 'images/5807a372abadc_14608169931673304909_800x600.jpg', '', 0, 1),
 (44, 12, '', 'images/5807a372abe36_14608170881842605740_300x200.jpg', '', 0, 1),
-(49, 15, '', 'images/5807a4b36c37e_14608169931673304909_300x200.jpg', '', 1, 1),
-(50, 15, '', 'images/5807a4b37a40f_14608169931673304909_800x600.jpg', '', 0, 1),
-(51, 15, '', 'images/5807a4b37ad49_14608170881842605740_300x200.jpg', '', 0, 1),
-(52, 15, '', 'images/5807a4b37b55f_14608171081137479452_300x200.jpg', '', 0, 1),
-(57, 19, '', 'images/5807dd9ba84de_5807a08fceeb5_14606446331713399153_300x200.jpg', '', 1, 1);
+(57, 19, '', 'images/5807dd9ba84de_5807a08fceeb5_14606446331713399153_300x200.jpg', '', 1, 1),
+(60, 12, '', 'images/582370f6c2aed_58078ddb009e9_1411672801837801533_300x200.jpg', '', 0, 1),
+(61, 12, '', 'images/582370f6c4f79_580797fe16178_1417262481566743770_300x200.jpg', '', 0, 1),
+(63, 12, '', 'images/582370f6cdc98_5807974ba091c_1432212125824062698_300x200.jpg', '', 0, 1),
+(76, 15, '', 'images/58237286ad026_5807a08fcf1f7_14607233461695415642_300x200.jpg', '', 0, 1),
+(78, 15, '', 'images/58237286b2b4e_5807a08fcf66f_14608122721950416615_300x200.jpg', '', 0, 1),
+(82, 15, '', 'images/582372e4b39be_13982033061840700110_300x200.jpg', '', 0, 1),
+(87, 15, '', 'images/582372e4c7bcf_14375809701926290309_300x200.jpg', '', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -207,6 +227,26 @@ INSERT INTO `productos` (`id_producto`, `prod_categoria`, `prod_nombre`, `prod_d
 (15, 3, 'TRactor Pauny 790', 'qwdqwd', 3, '66666', 'usado', 222, 122.00, 1, '2016-10-19 16:51:51'),
 (19, 1, 'prakkkao', 'pepeepep', 1, '', 'nuevo', 0, 0.00, 1, '2016-10-19 21:22:17');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `user_name` varchar(250) NOT NULL,
+  `user_pass` varchar(500) NOT NULL,
+  `user_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_permisos` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Truncar tablas antes de insertar `usuarios`
+--
+
+TRUNCATE TABLE `usuarios`;
 --
 -- Índices para tablas volcadas
 --
@@ -223,6 +263,14 @@ ALTER TABLE `caracteristicas`
 --
 ALTER TABLE `categorías`
   ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `com_id_producto` (`com_id_producto`),
+  ADD KEY `com_id_usuario` (`com_id_usuario`);
 
 --
 -- Indices de la tabla `imágenes`
@@ -246,6 +294,12 @@ ALTER TABLE `productos`
   ADD KEY `mac_marca` (`prod_marca`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -253,27 +307,37 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `caracteristicas`
 --
 ALTER TABLE `caracteristicas`
-  MODIFY `id_caracteristica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_caracteristica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT de la tabla `categorías`
 --
 ALTER TABLE `categorías`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `imágenes`
 --
 ALTER TABLE `imágenes`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Restricciones para tablas volcadas
 --
@@ -283,6 +347,13 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `caracteristicas`
   ADD CONSTRAINT `img_pro` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `comentarioProducto` FOREIGN KEY (`com_id_producto`) REFERENCES `productos` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comentarioUsuario` FOREIGN KEY (`com_id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `imágenes`
