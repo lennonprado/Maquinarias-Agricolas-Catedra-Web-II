@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-11-2016 a las 19:58:41
+-- Tiempo de generación: 14-11-2016 a las 20:08:07
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -138,12 +138,10 @@ INSERT INTO `imágenes` (`id_imagen`, `img_producto`, `img_descripcion`, `img_ur
 (2, 1, 'imagen', 'images/1448111173684775796_300x200.jpg', '', 0, 1),
 (10, 1, '', 'images/58078ddb009e9_1411672801837801533_300x200.jpg', '', 0, 0),
 (13, 7, '', 'images/5807973ce50e2_1406810280478763949_300x200.jpg', '', 1, 0),
-(34, 11, '', 'images/5807a08fc4e34_14481199712125912013_300x200.jpg', '', 0, 1),
 (35, 11, '', 'images/5807a08fc513b_14606435931001989488_300x200.jpg', '', 1, 1),
 (36, 11, '', 'images/5807a08fceeb5_14606446331713399153_300x200.jpg', '', 0, 1),
 (37, 11, '', 'images/5807a08fcf1f7_14607233461695415642_300x200.jpg', '', 0, 1),
 (38, 11, '', 'images/5807a08fcf66f_14608122721950416615_300x200.jpg', '', 0, 1),
-(39, 11, '', 'images/5807a08fcf9a3_14608169931673304909_300x200.jpg', '', 0, 1),
 (44, 12, '', 'images/5807a372abe36_14608170881842605740_300x200.jpg', '', 0, 1),
 (57, 19, '', 'images/5807dd9ba84de_5807a08fceeb5_14606446331713399153_300x200.jpg', '', 1, 1),
 (60, 12, '', 'images/582370f6c2aed_58078ddb009e9_1411672801837801533_300x200.jpg', '', 0, 1),
@@ -248,6 +246,13 @@ CREATE TABLE `usuarios` (
 
 TRUNCATE TABLE `usuarios`;
 --
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `user_name`, `user_pass`, `user_alta`, `user_permisos`) VALUES
+(1, 'super', '$2y$10$cEIe02v46X9BDvm2XzygpuvF.Yf38HJvhPLXqYWWcMWFuxvessoqK', '2016-11-14 19:06:46', 'super');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -337,7 +342,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Restricciones para tablas volcadas
 --

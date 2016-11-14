@@ -23,6 +23,7 @@ class AdminUsuarioController
   function agregarUsuarios(){
     if((isset($_POST['mar_nombre']))&&(isset($_POST['mar_descripcion']))){
       // guardo en el modelo
+      //$hash = password_hash($password, PASSWORD_DEFAULT);
       $resultado = $this->modelo->agregarUsuarios($_POST['mar_nombre'],$_POST['mar_descripcion']);
       if($resultado > 0) header('Location: http://localhost/maquinarias/admin/usuarios/');
     }
