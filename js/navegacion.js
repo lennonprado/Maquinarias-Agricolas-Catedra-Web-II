@@ -18,6 +18,20 @@ function navegacion(seccion){
           navegacion(sec);
           event.preventDefault();
         });
+
+        $('.jsFiltrar').on("click",function(){
+           $('main').html('<div id="onload"><button class="btn btn-lg btn-warning"><img src="images/cargando.gif" height="40" width="40" />Cargando...</button></div>');
+           var ruta = "http://localhost/maquinarias/listado";
+           var tipo = $(this).attr('tipo');
+           var filtro = $(this).attr('filtro');
+           $.post(ruta, {tipo: tipo, filtro:filtro}, function(result){
+              setTimeout(function(){
+                 $('main').html(result);
+                 $("html, body").animate({ scrollTop: 0 }, "slow");
+                 }, 1200);
+            });
+        });
+
       }, 1200);
 
     },

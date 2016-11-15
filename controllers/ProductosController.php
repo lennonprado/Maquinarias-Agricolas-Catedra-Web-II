@@ -42,8 +42,28 @@ class ProductosController
   }
 
   function listado(){
-    $todos = $this->productoModelo->getProductos();
-    $this->vista->listado($todos);
+     if(isset($_POST['tipo'])){
+        switch($_POST['tipo']){
+          case 'categoria':
+            $todos = $this->productoModelo->getProductos(NULL,NULL,$_POST['filtro']);
+            $cat = $this->categoriaModelo->getCategoria($_POST['filtro']);
+            $filtro='Categoria: '.$cat['cat_nombre'];
+            break;
+          case 'marca':
+            $todos = $this->productoModelo->getProductos(NULL,NULL,NULL,$_POST['filtro']);
+            $mar = $this->marcaModelo->getMarca($_POST['filtro']);
+            $filtro='Marca: '.$mar["mar_nombre"];
+            break;
+          default:
+           $todos = $this->productoModelo->getProductos();
+           break;
+        }
+        $this->vista->listado($todos,$filtro);
+     }
+     else{
+        $todos = $this->productoModelo->getProductos();
+        $this->vista->listado($todos);
+     }
   }
 
   function unidad(){

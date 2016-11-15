@@ -10,10 +10,17 @@ class ProductoModel
     $this->db = new PDO('mysql:host=localhost;dbname=maquinarias;charset=utf8', 'root', '');
   }
 
-  function getProductos($tipo=NULL,$limit=NULL){
+  function getProductos($tipo=NULL,$limit=NULL,$categoria=NULL,$marca=NULL){
     $select='SELECT M.*, C.*, P.* FROM productos as P, marcas as M, categorías as C WHERE P.prod_marca=M.id_marca AND P.prod_categoria=C.id_categoria';
     if(!is_null($tipo))
       $select .= ' AND P.prod_estado = "' . $tipo . '"';
+
+    if(!is_null($categoria))
+      $select .= ' AND P.prod_categoria = "' . $categoria . '"';
+
+    if(!is_null($marca))
+      $select .= ' AND P.prod_marca = "' . $marca . '"';
+
     if(!is_null($limit))
       $select .= ' LIMIT '.$limit;
 

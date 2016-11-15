@@ -42,7 +42,7 @@
             <img class="img-responsive" src="{$nuevo.imagenes_des}" alt="{$nuevo.prod_nombre}" title="{$nuevo.prod_nombre}">
           </a>
           <h5><a href="#" title="{$nuevo.prod_nombre}" class="jsUnidad" id_producto="{$nuevo.id_producto}" >{$nuevo.prod_nombre}</a></h5>
-        </li> 
+        </li>
         {/foreach}
       </ul>
     </div>
@@ -54,10 +54,10 @@
     <div class="col-sm-4 col-md-8">
       <h4>Maquinarias</h4>
       <div class="col-sm-6 col-md-6  browser-cat">
-        <h5>Rubro</h5>
+        <h5>Categoria</h5>
         <ul>
            {foreach from=$categorias item=item}
-            <li><a href="#">{$item.cat_nombre}</a></li>
+            <li><a href="#" class="jsFiltrar" tipo="categoria" filtro="{$item.id_categoria}">{$item.cat_nombre}</a></li>
           {/foreach}
         </ul>
       </div>
@@ -65,7 +65,7 @@
         <h5>Marcas</h5>
         <ul >
            {foreach from=$marcas item=item}
-            <li><a href="#">{$item.mar_nombre}</a></li>
+            <li><a href="#" class="jsFiltrar" tipo="marca" filtro="{$item.id_marca}">{$item.mar_nombre}</a></li>
           {/foreach}
         </ul>
       </div>
@@ -75,15 +75,15 @@
       <div id="homeSearch">
         <form action="#" method="get">
           <div>
-            <label for="marca">Marca</label>
-            <input name="modelo" id="modelo" type="text">
+            <label for="marca">Año</label>
+            <input name="marca" id="anio" type="number">
           </div>
           <div>
             <label for="make_modelsub">Modelo</label>
             <input name="modelo" id="modelo" type="text" />
           </div>
           <div>
-            <input type="submit" id="homeSearchButton" name="homeSearchButton" value="Buscar" class="jsListar" >
+            <input type="button" id="homeSearchButton" name="homeSearchButton" value="Buscar" class="jsFiltrar" >
           </div>
         </form>
       </div>
@@ -113,43 +113,43 @@
       <h4>Nuestras </h4>
       <div class="row">
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="LECAR"><img src="images/1.png"  class="jsListar" alt="LECAR"></a>
+          <a href="#" title="LECAR" class="jsFiltrar" tipo="marca" filtro="1" ><img src="images/1.png"  class="jsListar" alt="LECAR"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="BERTINI"><img src="images/2.png" class="jsListar"  alt="BERTINI"></a>
+          <a href="#" title="BERTINI" class="jsFiltrar" tipo="marca" filtro="6"><img src="images/2.png" class="jsListar"  alt="BERTINI"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="POZZI"><img src="images/3.png" class="jsListar"  alt="POZZI"></a>
+          <a href="#" title="POZZI" class="jsFiltrar" tipo="marca" filtro="12"><img src="images/3.png" class="jsListar"  alt="POZZI"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="ERCA"><img src="images/5.png" class="jsListar"  alt="ERCA"></a>
+          <a href="#" title="ERCA" class="jsFiltrar" tipo="marca" filtro="7"><img src="images/5.png" class="jsListar"  alt="ERCA"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="PAUNY"><img src="images/6.png" class="jsListar"  alt="PAUNY"></a>
+          <a href="#" title="PAUNY" class="jsFiltrar" tipo="marca" filtro="3"><img src="images/6.png" class="jsListar"  alt="PAUNY"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="BAIMA"><img src="images/7.png" class="jsListar"  alt="BAIMA"></a>
+          <a href="#" title="BAIMA" class="jsFiltrar" tipo="marca" filtro="8"><img src="images/7.png" class="jsListar"  alt="BAIMA"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="PRABA"><img src="images/8.png" class="jsListar"  alt="PRABA"></a>
+          <a href="#" title="PRABA" class="jsFiltrar" tipo="marca" filtro="4"><img src="images/8.png" class="jsListar"  alt="PRABA"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="DON ROQUE"><img src="images/9.png" class="jsListar"  alt="DON ROQUE"></a>
+          <a href="#" title="DON ROQUE" class="jsFiltrar" tipo="marca" filtro="5"><img src="images/9.png" class="jsListar"  alt="DON ROQUE"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="CESTARI"><img src="images/10.png" class="jsListar"  alt="CESTARI"></a>
+          <a href="#" title="CESTARI" class="jsFiltrar" tipo="marca" filtro="9"><img src="images/10.png" class="jsListar"  alt="CESTARI"></a>
         </div>
 
         <div class="col-xs-3 col-md-1 " >
-          <a href="#" title="DE GRANDE"><img src="images/11.png" class="jsListar"  alt="DE GRANDE" ></a>
+          <a href="#" title="DE GRANDE" class="jsFiltrar" tipo="marca" filtro="10"><img src="images/11.png" class="jsListar"  alt="DE GRANDE" ></a>
         </div>
       </div>
   </section>

@@ -18,12 +18,13 @@ class ProductosView
     $this->smarty->assign('mensaje',$mensaje);
     $this->smarty->assign('tipoMensaje',$tipo);
   }
-  
+
   function inicio(){
     $this->smarty->display('index.tpl');
   }
 
-  function listado($todos){
+  function listado($todos,$filtro=NULL){
+    $this->smarty->assign('filtro',$filtro);
     $this->smarty->assign('todos',$todos);
     $this->smarty->display('listado.tpl');
   }
