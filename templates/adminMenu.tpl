@@ -9,6 +9,7 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <link rel="stylesheet" href="/maquinarias/css/admin.css" />
+  <script src="/maquinarias/js/jsAdmin.js"></script>
   <header>
      <nav class="navbar" role="navigation">
        <div class="container">
@@ -18,19 +19,22 @@
        <!-- Agrupar los enlaces de navegación, los formularios y cualquier otro elemento que se pueda ocultar al minimizar la barra -->
          <ul class="nav nav-pills pull-right">
            <li>
-             <a href="http://localhost/maquinarias/admin/productos" id="productos" >Productos</a>
+             <a href="http://localhost/maquinarias/admin/productos" id="productos" ><button type="button" class="btn btn-success">Productos</button></a>
            </li>
            <li>
-             <a href="http://localhost/maquinarias/admin/categorias/" id="categorias" >Categorias</a>
+             <a href="http://localhost/maquinarias/admin/categorias/" id="categorias" ><button type="button" class="btn btn-success">Categorias</button></a>
            </li>
            <li>
-             <a href="http://localhost/maquinarias/admin/marcas/" id="marcas" >Marcas</a>
+             <a href="http://localhost/maquinarias/admin/marcas/" id="marcas" ><button type="button" class="btn btn-success">Marcas</button></a>
            </li>
            <li>
-             <a href="http://localhost/maquinarias/admin/comentarios/" id="usuarios" >Comentarios</a>
+             <a href="http://localhost/maquinarias/admin/comentarios/" id="comentarios" ><button type="button" class="btn btn-success">Comentarios</button></a>
            </li>
            <li>
-             <a href="http://localhost/maquinarias/admin/usuarios/" id="usuarios" >Usuarios</a>
+             <a href="http://localhost/maquinarias/admin/usuarios/" id="usuarios" ><button type="button" class="btn btn-success">Usuarios</button></a>
+           </li>
+           <li>
+             <a href="http://localhost/maquinarias/admin/usuarios/salir" id="salir" ><button type="button" class="btn btn-danger">Salir</button></a>
            </li>
          </ul>
        </div>

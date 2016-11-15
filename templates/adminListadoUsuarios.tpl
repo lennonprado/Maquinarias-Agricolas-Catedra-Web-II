@@ -1,7 +1,9 @@
-
 <section class="container">
   <div class="row">
     <h4>Listado de Usuarios</h4>
+    {if isset($mensaje)}
+      <div id="alert" class="alert alert-{$tipoMensaje}" role="alert">{$mensaje}</div>
+    {/if}
     <div class="row destacados" >
       <p><a  href="http://localhost/maquinarias/admin/usuarios/agregar" class="btn btn-success">Agregar nuevo usuario</a></p>
       <ul class="list-group">

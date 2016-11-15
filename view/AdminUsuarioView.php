@@ -10,7 +10,7 @@ class AdminUsuarioView
     $this->smarty = new Smarty();
     if(isset($_SESSION["user_name"])){
       $this->smarty->display('adminMenu.tpl');
-    } 
+    }
   }
 
   function agregarError($error){
@@ -29,8 +29,9 @@ class AdminUsuarioView
 
   // Muestra el formulario para modificar una categoria
   function modificarUsuarios($usuario){
-    $this->smarty->assign('mar_nombre',$usuario["mar_nombre"]);
-    $this->smarty->assign('mar_descripcion',$usuario["mar_descripcion"]);
+    $this->smarty->assign('user_name',$usuario["user_name"]);
+    $this->smarty->assign('user_pass',$usuario["user_pass"]);
+    $this->smarty->assign('user_permisos',$usuario["user_permisos"]);    
     $this->smarty->display('adminModificarUsuario.tpl');
   }
 
@@ -39,7 +40,8 @@ class AdminUsuarioView
     $this->smarty->display('adminAgregarUsuario.tpl');
   }
 
-  function login(){
+  function login($msj=NULL){
+    if(!is_null($msj)){$this->smarty->assign('mensaje',$msj);}
     $this->smarty->display('adminLogin.tpl');
   }
 

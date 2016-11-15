@@ -12,6 +12,9 @@
   <div class="container">
         <div class="row">
 			<div class="col-md-6 col-md-offset-3">
+            {if isset($mensaje)}
+               <div id="alert" class="alert alert-danger fade in">{$mensaje}</div>
+             {/if}
 				<div class="panel panel-login">
 					<div class="panel-heading">
 						<div class="row">
@@ -27,7 +30,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="ingresar" method="post" role="form" style="display: block;">
+								<form id="login-form" action="http://localhost/maquinarias/admin/" action="ingresar" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario" value="" required="">
 									</div>

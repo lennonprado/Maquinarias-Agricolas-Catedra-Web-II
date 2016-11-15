@@ -15,47 +15,72 @@ class AdminUsuarioController
 
   // Listado de Usuarios
   function Usuarios(){
+
     $usuarios = $this->modelo->getUsuarios();
     $this->vista->usuarios($usuarios);
   }
 
   // Muestro el listado de agrego una categoria
   function agregarUsuarios(){
-    if((isset($_POST['mar_nombre']))&&(isset($_POST['mar_descripcion']))){
-      // guardo en el modelo
-      //$hash = password_hash($password, PASSWORD_DEFAULT);
-      $resultado = $this->modelo->agregarUsuarios($_POST['mar_nombre'],$_POST['mar_descripcion']);
-      if($resultado > 0) header('Location: http://localhost/maquinarias/admin/usuarios/');
+    if((isset($_POST['user_name']))&&(isset($_POST['user_pass']))){
+      $hash = password_hash($_POST['user_pass'], PASSWORD_DEFAULT);
+      $resultado = $this->modelo->agregarUsuarios($_POST['user_name'],$hash,$_POST['user_permisos']);
+      if($resultado)
+         $this->vista->mostrarMensaje("Usuario creado correctamente!", "success");
+      else
+         $this->vista->mostrarMensaje("Error al crear el Usuario, nombre de usuario incorrecto", "danger");
     }
-    else{
-      // muestro el formulario
-      $this->vista->agregarUsuarios();
-    }
+   $this->vista->agregarUsuarios();
+
   }
 
   // modifico una categoria que viene por get
   function modificarUsuarios(){
-    if((isset($_POST['mar_nombre']))&&(isset($_POST['mar_descripcion']))){
+    if(isset($_POST['user_name'])){
       // guardo en el modelo
-      $resultado = $this->modelo->modificarUsuarios($_GET["id"],$_POST['mar_nombre'],$_POST['mar_descripcion']);
-      header('Location: http://localhost/maquinarias/admin/usuarios/');
+      $resultado = $this->modelo->modificarUsuarios($_GET["id"],$_POST['user_name'],$_POST['user_permisos']);
+      $this->vista->mostrarMensaje("Usuario modificado correctamente!", "success");      
     }
-    else{
-      // muestro el formulario
-      $usuario = $this->modelo->getUsuario($_GET["id"]);
-      $this->vista->modificarUsuarios($usuario);
-    }
+   // muestro el formulario
+   $usuario = $this->modelo->getUsuario($_GET["id"]);
+   $this->vista->modificarUsuarios($usuario);
   }
 
   // Elimino una categoria y redirecciono al inicio de categorias
   function eliminarUsuarios(){
     $this->modelo->eliminarUsuarios($_GET["id"]);
-    header('Location: http://localhost/maquinarias/admin/usuarios/');
+    $this->vista->mostrarMensaje("Cliente elimiando correctamente", "success");
+    $this->Usuarios();
   }
 
   function login(){
+     if(isset($_POST['username'])){
+       $resultado = $this->modelo->getUsuario(NULL,$_POST['username']);
+       $hash=$resultado['user_pass'];
+       $password=$_POST['password'];
+       if(password_verify($password, $hash)){
+          //Credenciales válidas
+          session_start();
+          $_SESSION["user_name"]=$_POST['username'];
+          if($resultado['user_permisos']=='usuario')
+            header('Location: http://localhost/maquinarias/');
+          else
+            header('Location: http://localhost/maquinarias/admin/');
+       }
+       else{
+          $error="Usuario o contraseña incorrectos";
+          $this->vista->login($error);
+       }
+    }else{
      $this->vista->login();
+   }
   }
+
+function salir(){
+   session_start();
+   session_destroy();
+   header('Location: http://localhost/maquinarias/admin/');
+}
 
 }
 

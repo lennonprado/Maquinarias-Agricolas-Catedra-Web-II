@@ -1,4 +1,4 @@
-
+//manejo de imagenes
 $('.jsDestacarImg').on('click',function(){
    var idImg=$(this).attr('id');
    var idPro=$(this).attr('idPro');
@@ -13,13 +13,8 @@ $('.jsDestacarImg').on('click',function(){
    });
 });
 
-$(document).ready(function(){
-   if($('#alert').is(":visible"))
-      {setTimeout(function(){ $('#alert').hide(300);}, 1600);}
-});
-
+//login
 $(function() {
-
     $('#login-form-link').click(function(e) {
     	$("#login-form").delay(100).fadeIn(100);
  		$("#register-form").fadeOut(100);
@@ -39,15 +34,17 @@ $(function() {
    $('.forgot-password').click(function(e) {
 		$("#register-form").fadeOut(100);
  		$("#login-form").fadeOut(100);
-
       $("#remember-form").delay(100).fadeIn(100);
-
       $('#login-form-link').removeClass('active');
       $('#register-form-link').removeClass('active');
-
 		$(this).addClass('active');
 		e.preventDefault();
 	});
+});
 
 
+$(document).ready(function(){
+   if($('#alert').is(":visible")){
+      setTimeout(function(){ $('#alert').hide(300);}, 1600);
+   }
 });

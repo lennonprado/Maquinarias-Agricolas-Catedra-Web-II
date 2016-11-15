@@ -13,10 +13,11 @@ class ConfigApp{
   public static $PRODUCTOS = 'productos';
   public static $USUARIOS = 'usuarios';
   public static $COMENTARIOS = 'comentarios';
-  
+
   public static $AGREGAR = 'agregar';
   public static $MODIFICAR = 'modificar';
   public static $BORRAR = 'borrar';
+  public static $SALIR = 'salir';
 
 }
 ?>

@@ -1,6 +1,6 @@
 <section class="container">
    {if isset($mensaje)}
-      <div class="alert alert-{$tipoMensaje}" role="alert">{$mensaje}</div>
+      <div id="alert" class="alert alert-{$tipoMensaje}" role="alert">{$mensaje}</div>
     {/if}
 
    <div class="row">
@@ -14,7 +14,7 @@
                  <option value="{$categoria.id_categoria}" >{$categoria.cat_nombre}</option>
                {/foreach}
              </select>
-           </div> 
+           </div>
 
            <div class="form-group" >
              <label for="prod_nombre">Marca</label>

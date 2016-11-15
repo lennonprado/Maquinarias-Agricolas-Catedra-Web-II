@@ -140,5 +140,3 @@
       </div>
    </div>
 </section>
-
-<script src="/maquinarias/js/jsAdmin.js"></script>

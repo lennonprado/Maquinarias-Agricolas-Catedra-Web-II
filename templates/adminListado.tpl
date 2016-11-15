@@ -1,7 +1,7 @@
 
 <section class="container">
    {if isset($mensaje)}
-      <div class="alert alert-{$tipoMensaje}" role="alert">{$mensaje}</div>
+      <div id="alert" class="alert alert-{$tipoMensaje}" role="alert">{$mensaje}</div>
     {/if}
   <div class="row">
     <h4>Listado de productos</h4>

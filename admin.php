@@ -104,6 +104,9 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
         case ConfigApp::$BORRAR:
           $usuarioController->eliminarUsuarios();
         break;
+        case ConfigApp::$SALIR:
+          $usuarioController->salir();
+        break;
         default:
           $usuarioController->usuarios();
         break;
