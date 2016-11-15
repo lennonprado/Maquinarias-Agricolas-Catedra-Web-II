@@ -3,7 +3,7 @@ $('.jsDestacarImg').on('click',function(){
    var idImg=$(this).attr('id');
    var idPro=$(this).attr('idPro');
    var url = "/maquinarias/admin/productos/modificar/"+idPro;
-   $.post( url, {id_destacar_imagen:idImg}, function(data) {
+   $.post( url, {id_destacar_imagen:idImg}, function(data){
      $('.jsDestacarImg').show();
      $('#'+idImg).hide();
      $('#alert').addClass('alert-success');

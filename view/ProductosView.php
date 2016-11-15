@@ -37,11 +37,12 @@ class ProductosView
     $this->smarty->display('home.tpl');
   }
 
-  function unidad($unidad,$imagenes,$caracteristicas,$destacados){
+  function unidad($unidad,$imagenes,$caracteristicas,$destacados,$usuario){
     $this->smarty->assign('unidad',$unidad);
     $this->smarty->assign('caracteristicas',$caracteristicas);
     $this->smarty->assign('imagenes',$imagenes);
     $this->smarty->assign('destacados',$destacados);
+    $this->smarty->assign('usuario',$usuario);
     $this->smarty->display('unidad.tpl');
   }
 

@@ -39,7 +39,7 @@ class AdminUsuarioController
     if(isset($_POST['user_name'])){
       // guardo en el modelo
       $resultado = $this->modelo->modificarUsuarios($_GET["id"],$_POST['user_name'],$_POST['user_permisos']);
-      $this->vista->mostrarMensaje("Usuario modificado correctamente!", "success");      
+      $this->vista->mostrarMensaje("Usuario modificado correctamente!", "success");
     }
    // muestro el formulario
    $usuario = $this->modelo->getUsuario($_GET["id"]);
@@ -62,6 +62,7 @@ class AdminUsuarioController
           //Credenciales válidas
           session_start();
           $_SESSION["user_name"]=$_POST['username'];
+          $_SESSION["user_permisos"]=$resultado['user_permisos'];
           if($resultado['user_permisos']=='usuario')
             header('Location: http://localhost/maquinarias/');
           else

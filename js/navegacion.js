@@ -1,6 +1,5 @@
 function navegacion(seccion){
-  var body = $("html, body");
-  body.stop().animate({scrollTop:0}, '500', 'swing');
+  $("html, body").animate({ scrollTop: 0 }, "slow");
   $('main').html('<div id="onload"><button class="btn btn-lg btn-warning"><img src="images/cargando.gif" height="40" width="40" />Cargando...</button></div>');
   var ruta='http://localhost/maquinarias/'+seccion;
   $.ajax({
@@ -11,6 +10,7 @@ function navegacion(seccion){
 
       setTimeout(function() {
         $('main').html(data);
+
         $(".jsUnidad").on("click",function(event){
           var seccion = 'unidad';
           var id = $(this).attr("id_producto");
@@ -27,13 +27,18 @@ function navegacion(seccion){
            $.post(ruta, {tipo: tipo, filtro:filtro}, function(result){
               setTimeout(function(){
                  $('main').html(result);
+                 $(".jsUnidad").on("click",function(event){
+                   var seccion = 'unidad';
+                   var id = $(this).attr("id_producto");
+                   var sec = seccion + '/' + id;
+                   navegacion(sec);
+                   event.preventDefault();
+                 });
                  $("html, body").animate({ scrollTop: 0 }, "slow");
-                 }, 1200);
+               }, 1200);
             });
         });
-
       }, 1200);
-
     },
     statusCode: {
       404: function() {
@@ -49,6 +54,12 @@ $(".nav li a").on("click",function(event){
     var seccion = $(this).attr('id');
     navegacion(seccion);
     event.preventDefault();
+});
+
+$('.jsIngresar').on('click',function(){
+   var idpro=$(this).attr('idPro');
+   document.cookie = "producto=idpro";
+   location.reload("http://localhost/maquinarias/admin/");
 });
 
 $(document).ready(function(){

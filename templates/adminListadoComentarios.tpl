@@ -12,7 +12,7 @@
           <p><i>{$item.com_mensaje}</i></p>
           <p><i>{$item.com_puntuacion}</i></p>
           <p>
-            <a role="button" href="http://localhost/maquinarias/admin/comentarios/borrar/{$item.id_comentario}" class="btn btn-default">Eliminar</a>
+            <a role="button" href="http://localhost/maquinarias/admin/comentarios/borrar/{$item.id_comentario}" class="btn btn-danger">Eliminar</a>
           </p>
         </li>
         {/foreach}

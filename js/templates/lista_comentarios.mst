@@ -1,0 +1,5 @@
+<ul>
+{{#comentarios}}
+   <li>Usuario: {{usuario}} Comentario: {{mensaje}} Puntuacion: {{puntuacion}}</li>
+{{/comentarios}}
+</ul>

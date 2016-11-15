@@ -11,8 +11,8 @@
           <h5><a href="#" title="{$item.mar_nombre}" class="jsUnidad">{$item.mar_nombre}</a></h5>
           <p><i>{$item.mar_descripcion}</i></p>
           <p>
-            <a role="button" href="http://localhost/maquinarias/admin/marcas/modificar/{$item.id_marca}" class="btn btn-default">Modificar</a>
-            <a role="button" href="http://localhost/maquinarias/admin/marcas/borrar/{$item.id_marca}" class="btn btn-default">Eliminar</a>
+            <a role="button" href="http://localhost/maquinarias/admin/marcas/modificar/{$item.id_marca}" class="btn btn-primary">Modificar</a>
+            <a role="button" href="http://localhost/maquinarias/admin/marcas/borrar/{$item.id_marca}" class="btn btn-danger">Eliminar</a>
           </p>
         </li>
         {/foreach}

@@ -20,7 +20,7 @@
                 <p>Marca: {$item.mar_nombre}</p>
                 <p>
                   <a href="/maquinarias/admin/productos/modificar/{$item.id_producto}" class="btn btn-primary" role="button">Modificar</a>
-                  <a href="/maquinarias/admin/productos/borrar/{$item.id_producto}" class="btn btn-default" role="button">Eliminar</a>
+                  <a href="/maquinarias/admin/productos/borrar/{$item.id_producto}" class="btn btn-danger" role="button">Eliminar</a>
                 </p>
               </div>
             </div>

@@ -14,8 +14,8 @@
           <p><i>{$item.user_alta}</i></p>
           <p><i>{$item.user_permisos}</i></p>
           <p>
-            <a role="button" href="http://localhost/maquinarias/admin/usuarios/modificar/{$item.id_usuario}" class="btn btn-default">Modificar</a>
-            <a role="button" href="http://localhost/maquinarias/admin/usuarios/borrar/{$item.id_usuario}" class="btn btn-default">Eliminar</a>
+            <a role="button" href="http://localhost/maquinarias/admin/usuarios/modificar/{$item.id_usuario}" class="btn btn-primary">Modificar</a>
+            <a role="button" href="http://localhost/maquinarias/admin/usuarios/borrar/{$item.id_usuario}" class="btn btn-danger">Eliminar</a>
           </p>
         </li>
         {/foreach}
