@@ -85,10 +85,9 @@
             </div>
          </form>
          {else}
-            <p>Debes <a href="#" id="jsIngresar" idPro="{$unidad.id_producto}">Ingresar y/o registrarte</a> para dejar un comentario</p>
+            <div class="alert alert-warning">Debes <a href="#" class="jsIngresar" idPro="{$unidad.id_producto}">Ingresar y/o registrarte</a> para dejar un comentario</div>
          {/if}
       </div>
-
    </div>
 </section>
 
@@ -109,3 +108,4 @@
       </div>
    </div>
 </section>
+<script src="js/comentarios_rest.js" ></script>

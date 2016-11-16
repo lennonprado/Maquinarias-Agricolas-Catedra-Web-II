@@ -12,6 +12,17 @@ if(!isset($_SESSION["user_name"])){
    $usuarioController->login();
    die;
 }
+else{
+   if($_SESSION['user_permisos']=='Usuario')
+   {
+      //session_destroy();
+      if($_REQUEST['action']=='salir')
+         {session_destroy();
+          $location='Location: http://localhost/maquinarias/';
+         }      
+      header('Location: http://localhost/maquinarias/');
+   }
+}
 
 if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
   $productoController = new AdminProductoController();

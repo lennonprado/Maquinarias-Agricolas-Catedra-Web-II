@@ -73,7 +73,12 @@ function listarComentarios(){
 
 listarComentarios();
 
+$('.jsIngresar').on('click',function(){
+   var idpro=$(this).attr('idPro');
+   $.cookie("seccion", "unidad/"+idpro, { path: '/' });
+   location.href="http://localhost/maquinarias/admin/";
+});
+
 $(document).ready(function() {
     // show the alert
-
 });

@@ -31,7 +31,6 @@ class AdminUsuarioController
          $this->vista->mostrarMensaje("Error al crear el Usuario, nombre de usuario incorrecto", "danger");
     }
    $this->vista->agregarUsuarios();
-
   }
 
   // modifico una categoria que viene por get
@@ -61,8 +60,15 @@ class AdminUsuarioController
        if(password_verify($password, $hash)){
           //Credenciales válidas
           session_start();
+
           $_SESSION["user_name"]=$_POST['username'];
           $_SESSION["user_permisos"]=$resultado['user_permisos'];
+          $_SESSION["login_time"]=date('h:i:s');
+
+          setcookie("name", $_POST['username'], time()+3600);
+          setcookie("user_permisos", 'Usuario', time()+3600);
+          //var_dump($_COOKIE); die;
+
           if($resultado['user_permisos']=='usuario')
             header('Location: http://localhost/maquinarias/');
           else

@@ -42,9 +42,13 @@ $(function() {
 	});
 });
 
-
 $(document).ready(function(){
    if($('#alert').is(":visible")){
       setTimeout(function(){ $('#alert').hide(300);}, 1600);
    }
+
+   $("#login-form").submit(function(){
+      $.cookie("usuario", "usuario", { path: '/' });
+   });
+
 });

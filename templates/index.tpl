@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Comercializacion de Maquinarias | Inicio</title>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.3/mustache.js"></script>
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <!-- Latest compiled and minified CSS -->
@@ -73,7 +74,7 @@
 				<li class="tel">(0249) 4567543</li>
 				<li class="email"><a href="mailto:imfo@consecionariademaquinarias.com">info@consecionariademaquinarias.com</a></li>
 				<li class="facebook"><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
-            <li class="Administrar Unidades"><a href="admin/" target="_blank">Ingresar</a></li>
+            <li class="Administrar Unidades" id="login"><a href="admin/" target="_blank" >Ingresar</a></li>
 			</ul>
 		</div>
     <div class="col-xs-12 col-md-12" id="footer-bottom">

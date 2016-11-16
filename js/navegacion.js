@@ -1,3 +1,8 @@
+var config = {
+  salir: '<a href="#" id="salir" >Salir</a>',
+  ingresar: '<a href="admin/" >Ingresar</a>'
+};
+
 function navegacion(seccion){
   $("html, body").animate({ scrollTop: 0 }, "slow");
   $('main').html('<div id="onload"><button class="btn btn-lg btn-warning"><img src="images/cargando.gif" height="40" width="40" />Cargando...</button></div>');
@@ -47,7 +52,9 @@ function navegacion(seccion){
     }
   });
   $(".nav li a").removeClass('active');
-  $("#"+seccion).addClass('active');
+  if (document.getElementById(seccion)) {
+     $("#"+seccion).addClass('active');
+  }
 }
 
 $(".nav li a").on("click",function(event){
@@ -56,12 +63,44 @@ $(".nav li a").on("click",function(event){
     event.preventDefault();
 });
 
-$('.jsIngresar').on('click',function(){
-   var idpro=$(this).attr('idPro');
-   document.cookie = "producto=idpro";
-   location.reload("http://localhost/maquinarias/admin/");
-});
+function getCookie(cname){
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}
+
+function eraseCookie(name) {
+    createCookie(name,"",-1);
+}
 
 $(document).ready(function(){
-  $("#home").click();
+   $("#home").click();
+   var seccion = $.cookie("seccion");
+
+   if((seccion)&&(seccion!=1)){
+      navegacion(seccion);
+      $.cookie("seccion", 1, { path: '/' });
+      }
+   var usuario = $.cookie("usuario");
+
+   if((usuario)&&(usuario!=1)){
+      $('#login').html(config.salir);
+   }
+   else{
+      $('#login').html(config.ingresar);
+   }
+   $('#salir').on("click",function(){
+      $.cookie("seccion", 1, { path: '/' });
+      $.cookie("usuario", 1, { path: '/' });
+      location.href="http://localhost/maquinarias/admin/salir";
+   });
 });
