@@ -15,22 +15,29 @@ class AdminUsuarioController
 
   // Listado de Usuarios
   function Usuarios(){
-
     $usuarios = $this->modelo->getUsuarios();
     $this->vista->usuarios($usuarios);
   }
 
   // Muestro el listado de agrego una categoria
-  function agregarUsuarios(){
-    if((isset($_POST['user_name']))&&(isset($_POST['user_pass']))){
+  function agregar(){
+     if((isset($_POST['user_name']))&&(isset($_POST['user_pass']))){
       $hash = password_hash($_POST['user_pass'], PASSWORD_DEFAULT);
       $resultado = $this->modelo->agregarUsuarios($_POST['user_name'],$hash,$_POST['user_permisos']);
       if($resultado)
-         $this->vista->mostrarMensaje("Usuario creado correctamente!", "success");
+          $this->vista->mostrarMensaje("Usuario creado correctamente!", "success");
       else
-         $this->vista->mostrarMensaje("Error al crear el Usuario, nombre de usuario incorrecto", "danger");
-    }
+          $this->vista->mostrarMensaje("Error al crear el Usuario, nombre de usuario incorrecto", "danger");
+     }
+ }
+
+  function agregarUsuarios(){
+   $this->agregar();
    $this->vista->agregarUsuarios();
+  }
+
+  function agregarUsuariosWeb(){
+     $this->agregar();
   }
 
   // modifico una categoria que viene por get

@@ -14,7 +14,7 @@
      <nav class="navbar" role="navigation">
        <div class="container">
          <div class="navbar-header">
-           <a class="navbar-brand" href="http://localhost/maquinarias/admin/"><img src="http://localhost/maquinarias/images/logo.png" title="Agencia de maquinarias" /></a>
+           <a class="navbar-brand" target="_blank" href="http://localhost/maquinarias/" title="Ir a la web"><img src="http://localhost/maquinarias/images/logo.png" title="Agencia de maquinarias" /></a>
          </div>
        <!-- Agrupar los enlaces de navegación, los formularios y cualquier otro elemento que se pueda ocultar al minimizar la barra -->
          <ul class="nav nav-pills pull-right">

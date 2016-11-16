@@ -6,7 +6,7 @@ class ComentarioModel
   private $db;
 
   function __construct()
-  { 
+  {
     $this->db = new PDO('mysql:host=localhost;dbname=maquinarias;charset=utf8', 'root', '');
   }
      /* Comentarios */
@@ -34,6 +34,13 @@ class ComentarioModel
        $sentencia->execute(array($id_comentario));
        return $sentencia->fetch(PDO::FETCH_ASSOC);
      }
+
+     function getComentariosProducto($id_producto){
+       $sentencia = $this->db->prepare( "SELECT * FROM comentarios WHERE com_id_producto=?");
+       $sentencia->execute(array($id_producto));
+       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+     }
+
      // elimino una comentario
      function eliminarComentarios($id_comentario){
        $sentencia = $this->db->prepare("DELETE FROM comentarios WHERE id_comentario=?");

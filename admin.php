@@ -9,6 +9,11 @@ require ('config/ConfigApp.php');
 
 if(!isset($_SESSION["user_name"])){
    $usuarioController = new AdminUsuarioController();
+   if($_REQUEST['action']=='registrar')
+      {
+         $_POST['user_permisos']='Usuario';
+         $usuarioController->agregarUsuariosWeb();
+      }
    $usuarioController->login();
    die;
 }
@@ -19,8 +24,9 @@ else{
       if($_REQUEST['action']=='salir')
          {session_destroy();
           $location='Location: http://localhost/maquinarias/';
-         }      
+         }
       header('Location: http://localhost/maquinarias/');
+      die;
    }
 }
 

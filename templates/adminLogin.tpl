@@ -9,7 +9,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <link rel="stylesheet" href="/maquinarias/css/style.css" />
   <link rel="stylesheet" href="/maquinarias/css/login.css" />
+
+  <nav class="navbar" role="navigation" id="header">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="http://localhost/maquinarias/"><img src="/maquinarias/images/logo.png" title="Agencia de maquinarias" /></a>
+      </div>
+    <!-- Agrupar los enlaces de navegación, los formularios y cualquier otro elemento que se pueda ocultar al minimizar la barra -->
+    </div>
+  </nav>
+
   <div class="container">
         <div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -38,11 +49,7 @@
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña" required="">
 									</div>
-									<div class="form-group text-center">
-										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-										<label for="remember"> Recuerdame</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              <a href="http://localhost/maquinarias/">SITIO WEB</a>
-									</div>
+
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
@@ -62,10 +69,10 @@
 								</form>
 								<form id="register-form" action="registrar" method="post" role="form" style="display: none;">
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Usuario Email" value="" required="">
+										<input type="email" name="user_name" id="user_name" tabindex="1" class="form-control" placeholder="Usuario Email" value="" required="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña" required="">
+										<input type="password" name="user_pass" id="user_pass" tabindex="2" class="form-control" placeholder="Contraseña" required="">
 									</div>
 									<div class="form-group">
 										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar Contrseña" required="">
@@ -73,7 +80,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrarse">
+												<input type="buttom" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrarse">
 											</div>
 										</div>
 									</div>

@@ -51,4 +51,14 @@ $(document).ready(function(){
       $.cookie("usuario", "usuario", { path: '/' });
    });
 
+   $('#register-submit').on('click',function(){
+      if($('#user_pass').val()!=$('#confirm-password').val())
+         {alert('Error: la contraseñas no coiciden');
+         $('#user_pass').val('');
+         $('#confirm-password').val('');
+          return false;}
+      else
+         $("#register-form").submit();
+   });
+
 });
