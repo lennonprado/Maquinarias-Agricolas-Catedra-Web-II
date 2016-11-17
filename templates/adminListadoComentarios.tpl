@@ -2,15 +2,17 @@
 <section class="container">
   <div class="row">
     <h4>Listado de Comentarios</h4>
+    {if isset($mensaje)}
+      <div id="alert" class="alert alert-{$tipoMensaje}" role="alert">{$mensaje}</div>
+    {/if}
     <div class="row destacados" >
-
       <ul class="list-group">
       {if $comentarios}
          {foreach from=$comentarios item=item}
         <li class="list-group-item col-md-4">
-          <h5><a href="#" title="{$item.user_name}" class="jsUnidad">{$item.user_name}</a></h5>
-          <p><i>{$item.com_mensaje}</i></p>
-          <p><i>{$item.com_puntuacion}</i></p>
+          <h5>Usuario: <a href="#" title="{$item.user_name}" class="jsUnidad">{$item.user_name}</a></h5>
+          <p>Cometario: <i>{$item.com_mensaje}</i></p>
+          <p>Puntuacion: <i>{$item.com_puntuacion}</i></p>
           <p>
             <a role="button" href="http://localhost/maquinarias/admin/comentarios/borrar/{$item.id_comentario}" class="btn btn-danger">Eliminar</a>
           </p>

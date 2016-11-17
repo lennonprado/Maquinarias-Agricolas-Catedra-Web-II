@@ -68,6 +68,7 @@ class AdminUsuarioController
           //Credenciales válidas
           session_start();
 
+          $_SESSION["id_usuario"]=$resultado['id_usuario'];
           $_SESSION["user_name"]=$_POST['username'];
           $_SESSION["user_permisos"]=$resultado['user_permisos'];
           $_SESSION["login_time"]=date('h:i:s');

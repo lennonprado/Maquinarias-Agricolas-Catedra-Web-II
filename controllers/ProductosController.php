@@ -72,9 +72,9 @@ class ProductosController
     $unidad = $this->productoModelo->getProducto($_GET['id_producto']);
     $caracteristicas = $this->productoModelo->getCaracteristicas($_GET['id_producto']);
     session_start();
-    $usuario=NULL; 
+    $usuario=NULL;
     if(isset($_SESSION['user_name']))
-      $usuario=$_SESSION['user_name'];
+      $usuario=$_SESSION['id_usuario'];
     $this->vista->unidad($unidad,$imagenes,$caracteristicas,$destacados,$usuario);
   }
 

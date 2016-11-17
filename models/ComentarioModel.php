@@ -11,15 +11,15 @@ class ComentarioModel
   }
      /* Comentarios */
      function getComentarios(){
-       $sentencia = $this->db->prepare("SELECT * FROM comentarios");
+       $sentencia = $this->db->prepare("SELECT C.*, P.prod_nombre, U.user_name FROM comentarios as C, productos as P, usuarios as U WHERE C.com_id_producto=P.id_producto AND C.com_id_usuario=U.id_usuario");
        $sentencia->execute();
        $comentarios = $sentencia->fetchAll(PDO::FETCH_ASSOC);
        return $comentarios;
      }
 
-     function agregarComentarios($mar_nombre,$mar_descripcion){
-       $sentencia = $this->db->prepare('INSERT INTO comentarios ( mar_nombre , mar_descripcion ) VALUES ( ? , ? )');
-       $sentencia->execute(array($mar_nombre,$mar_descripcion));
+     function agregarComentarios($datos){
+       $sentencia = $this->db->prepare('INSERT INTO comentarios ( com_id_producto , com_id_usuario, com_mensaje, com_puntuacion ) VALUES ( ? , ?, ?, ? )');
+       $sentencia->execute(array($datos['com_id_producto'],$datos['com_id_usuario'],$datos['com_mensaje'],$datos['com_puntuacion']));
        return $this->db->lastInsertId();
      }
 
@@ -36,7 +36,7 @@ class ComentarioModel
      }
 
      function getComentariosProducto($id_producto){
-       $sentencia = $this->db->prepare( "SELECT * FROM comentarios WHERE com_id_producto=?");
+       $sentencia = $this->db->prepare( "SELECT C.*, U.user_name FROM comentarios as C, usuarios as U WHERE C.com_id_usuario=U.id_usuario AND C.com_id_producto=?");
        $sentencia->execute(array($id_producto));
        return $sentencia->fetchAll(PDO::FETCH_ASSOC);
      }

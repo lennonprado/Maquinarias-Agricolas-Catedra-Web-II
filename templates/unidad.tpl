@@ -65,17 +65,19 @@
             <div class="form-group">
                <label class="control-label col-xs-3">Cometario:</label>
                <div class="col-xs-9">
-                  <textarea></textarea>
+                  <textarea id="com_mensaje" name="com_mensaje"></textarea>
+                  <input type="hidden" value="{$usuario}" name="com_id_usuario" />
+                  <input type="hidden" value="{$unidad.id_producto}" name="com_id_producto" />
                </div>
             </div>
             <div class="form-group">
                <label class="control-label col-xs-3">Puntuacion:</label>
                <div class="col-xs-9">
-                  <input type="radio" name="puntuacion" value="1" checked>1
-                  <input type="radio" name="puntuacion" value="2" checked>2
-                  <input type="radio" name="puntuacion" value="3" checked>3
-                  <input type="radio" name="puntuacion" value="4" checked>4
-                  <input type="radio" name="puntuacion" value="5" checked>5
+                  <input type="radio" name="com_puntuacion" value="1" checked>1
+                  <input type="radio" name="com_puntuacion" value="2" checked>2
+                  <input type="radio" name="com_puntuacion" value="3" checked>3
+                  <input type="radio" name="com_puntuacion" value="4" checked>4
+                  <input type="radio" name="com_puntuacion" value="5" checked>5
                </div>
             </div>
             <div class="form-group">
