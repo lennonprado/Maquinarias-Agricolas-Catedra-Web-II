@@ -21,7 +21,9 @@ class ComentarioApi extends Api
             $error['Error'] = "No hay comentarios";
             return ($comentario) ? $comentario : $error;
           }else{
-            return $error['Error'] = "Error: No selecionaste el producto";
+            $comentario = $this->model->getComentarios();
+            $error['Error'] = "No hay comentarios";
+            return ($comentario) ? $comentario : $error;
           }
       break;
 

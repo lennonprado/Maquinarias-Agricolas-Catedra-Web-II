@@ -7,7 +7,7 @@
       <ul class="list-group">
          {if $marcas}
          {foreach from=$marcas item=item}
-        <li class="list-group-item col-md-4">
+        <li class="list-group-item col-md-4 unidad">
           <h5><a href="#" title="{$item.mar_nombre}" class="jsUnidad">{$item.mar_nombre}</a></h5>
           <p><i>{$item.mar_descripcion}</i></p>
           <p>

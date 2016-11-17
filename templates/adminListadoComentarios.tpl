@@ -1,27 +1,12 @@
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.3/mustache.js"></script>
 <section class="container">
   <div class="row">
     <h4>Listado de Comentarios</h4>
-    {if isset($mensaje)}
-      <div id="alert" class="alert alert-{$tipoMensaje}" role="alert">{$mensaje}</div>
-    {/if}
-    <div class="row destacados" >
-      <ul class="list-group">
-      {if $comentarios}
-         {foreach from=$comentarios item=item}
-        <li class="list-group-item col-md-4">
-          <h5>Usuario: <a href="#" title="{$item.user_name}" class="jsUnidad">{$item.user_name}</a></h5>
-          <p>Cometario: <i>{$item.com_mensaje}</i></p>
-          <p>Puntuacion: <i>{$item.com_puntuacion}</i></p>
-          <p>
-            <a role="button" href="http://localhost/maquinarias/admin/comentarios/borrar/{$item.id_comentario}" class="btn btn-danger">Eliminar</a>
-          </p>
-        </li>
-        {/foreach}
-      {else}
-         <div id="alert" class="alert alert-danger" role="alert" >Sin Comentarios</div>
-      {/if}
+    <div class="alert" role="alert"></div>
+    <div class="row" >
+      <ul class="list-group" id="jsComentarios">
       </ul>
     </div>
   </div>
 </section>
+<script src="http://localhost/maquinarias/js/admincomentarios_rest.js" ></script>

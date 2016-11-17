@@ -9,7 +9,7 @@
       <ul class="list-group">
       {if $usuarios}
          {foreach from=$usuarios item=item}
-        <li class="list-group-item col-md-4">
+        <li class="list-group-item col-md-4 unidad">
           <h5><a href="#" title="{$item.user_name}" class="jsUnidad">{$item.user_name}</a></h5>
           <p><i>{$item.user_alta}</i></p>
           <p><i>{$item.user_permisos}</i></p>

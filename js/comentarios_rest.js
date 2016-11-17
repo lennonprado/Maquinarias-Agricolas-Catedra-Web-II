@@ -38,7 +38,7 @@ function guardarComentario(data){
           listarComentarios();
           var msj =  Mustache.render(mensaje,{msj:'Comentario creado correctamente'});
            $(".alert").html(msj); $(".alert").show(800);
-           var scrollPos =  $(".alert").offset().top;
+           var scrollPos =  $("#listaComentarios").offset().top;
            $(window).scrollTop(scrollPos);
           setTimeout(function(){$(".alert").hide(800);}, 2000);
        }, 2000);

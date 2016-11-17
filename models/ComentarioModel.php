@@ -11,7 +11,7 @@ class ComentarioModel
   }
      /* Comentarios */
      function getComentarios(){
-       $sentencia = $this->db->prepare("SELECT C.*, P.prod_nombre, U.user_name FROM comentarios as C, productos as P, usuarios as U WHERE C.com_id_producto=P.id_producto AND C.com_id_usuario=U.id_usuario");
+       $sentencia = $this->db->prepare("SELECT C.*, P.prod_nombre, U.user_name, DATE_FORMAT(C.com_alta,'%d/%m/%Y - %H:%i:%s') AS fecha FROM comentarios as C, productos as P, usuarios as U WHERE C.com_id_producto=P.id_producto AND C.com_id_usuario=U.id_usuario");
        $sentencia->execute();
        $comentarios = $sentencia->fetchAll(PDO::FETCH_ASSOC);
        return $comentarios;
