@@ -23,23 +23,25 @@ class ComentarioApi extends Api
           }else{
             return $error['Error'] = "Error: No selecionaste el producto";
           }
-        break;
+      break;
 
       case 'DELETE':
           if(count($argumentos)>0){
             $error['Error'] = "El comentario no existe";
             $success['Success'] = "El comentario se borro";
-            $filasAfectadas = $this->model->eliminarComentario($argumentos[0]);
+            $filasAfectadas = $this->model->eliminarComentarios($argumentos[0]);
             return ($filasAfectadas == 1) ? $success : $error;
           }
-        break;
-        case 'POST':
-            if(count($argumentos)==0){
-              $error['Error'] = "El comentario no se creo";
-              $id_comentario = $this->model->agregarComentarios($_POST['tarea'],[]);
-              return ($id_comentario > 0) ? $this->model->getComentario($id_comentario) : $error;
-            }
-          break;
+      break;
+
+      case 'POST':
+         if(count($argumentos)>0){
+            $error['Error'] = "El comentario no se creo";
+            $id_comentario = $this->model->agregarComentarios($_REQUEST);
+            return ($id_comentario > 0) ? $this->model->getComentario($id_comentario) : $error;
+         }
+      break;
+
       default:
            return "Only accepts GET";
         break;

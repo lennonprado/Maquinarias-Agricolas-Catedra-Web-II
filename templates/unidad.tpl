@@ -52,40 +52,41 @@
                   </tr>
                   {/foreach}
                </tbody>
-
             </table>
          </div>
          </div>
       </div>
 
-      <div class="col-md-12">
+      <div class="col-md-12" id="listaComentarios">
          <h4>Comentarios</h4>
+         <div id="jsComentarios" ></div>
+         <input type="hidden" value="{$unidad.id_producto}" name="com_id_producto" id="com_id_producto" />
+         <div class="alert"></div>
          {if $usuario}
-         <form class="form-horizontal" >
-            <div class="form-group">
-               <label class="control-label col-xs-3">Cometario:</label>
-               <div class="col-xs-9">
-                  <textarea id="com_mensaje" name="com_mensaje"></textarea>
-                  <input type="hidden" value="{$usuario}" name="com_id_usuario" />
-                  <input type="hidden" value="{$unidad.id_producto}" name="com_id_producto" />
+            <form class="form-horizontal" >
+               <div class="form-group">
+                  <label class="control-label col-xs-3">Cometario:</label>
+                  <div class="col-xs-9">
+                     <textarea id="com_mensaje" name="com_mensaje"></textarea>
+                     <input type="hidden" value="{$usuario}" name="com_id_usuario" id="com_id_usuario" />
+                  </div>
                </div>
-            </div>
-            <div class="form-group">
-               <label class="control-label col-xs-3">Puntuacion:</label>
-               <div class="col-xs-9">
-                  <input type="radio" name="com_puntuacion" value="1" checked>1
-                  <input type="radio" name="com_puntuacion" value="2" checked>2
-                  <input type="radio" name="com_puntuacion" value="3" checked>3
-                  <input type="radio" name="com_puntuacion" value="4" checked>4
-                  <input type="radio" name="com_puntuacion" value="5" checked>5
+               <div class="form-group">
+                  <label class="control-label col-xs-3">Puntuacion:</label>
+                  <div class="col-xs-9">
+                     <input type="radio" name="com_puntuacion" value="1" checked>1
+                     <input type="radio" name="com_puntuacion" value="2" checked>2
+                     <input type="radio" name="com_puntuacion" value="3" checked>3
+                     <input type="radio" name="com_puntuacion" value="4" checked>4
+                     <input type="radio" name="com_puntuacion" value="5" checked>5
+                  </div>
                </div>
-            </div>
-            <div class="form-group">
-               <div class="col-xs-offset-3 col-xs-9">
-                  <input type="button" class="btn btn-primary" value="Comentar">
+               <div class="form-group">
+                  <div class="col-xs-offset-3 col-xs-9">
+                     <input type="button" class="btn btn-primary" id="nuevoComentario" value="Comentar">
+                  </div>
                </div>
-            </div>
-         </form>
+            </form>
          {else}
             <div class="alert alert-warning">Debes <a href="#" class="jsIngresar" idPro="{$unidad.id_producto}">Ingresar y/o registrarte</a> para dejar un comentario</div>
          {/if}

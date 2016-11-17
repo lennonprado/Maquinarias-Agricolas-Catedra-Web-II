@@ -1,0 +1,12 @@
+{{#comentarios}}
+   {{#com_mensaje}}
+   <div class="panel panel-success">
+      <div class="panel-heading">Usuario: {{user_name}}</div>
+      <div class="panel-body">
+         Comentario: {{com_mensaje}} <br/>
+         Puntuacion: {{com_puntuacion}} <br/>
+         Fecha: {{fecha}}
+      </div>
+   </div>
+   {{/com_mensaje}}
+{{/comentarios}}

@@ -3,9 +3,14 @@ var config = {
   ingresar: '<a href="admin/" >Ingresar</a>'
 };
 
+var reload;
+$.ajax({ url: 'js/templates/cargando.mst',
+   success: function(templateReceived){reload = templateReceived;}
+});
+
 function navegacion(seccion){
   $("html, body").animate({ scrollTop: 0 }, "slow");
-  $('main').html('<div id="onload"><button class="btn btn-lg btn-warning"><img src="images/cargando.gif" height="40" width="40" />Cargando...</button></div>');
+  $('main').html(reload);
   var ruta='http://localhost/maquinarias/'+seccion;
   $.ajax({
     url: ruta,
@@ -25,7 +30,7 @@ function navegacion(seccion){
         });
 
         $('.jsFiltrar').on("click",function(){
-           $('main').html('<div id="onload"><button class="btn btn-lg btn-warning"><img src="images/cargando.gif" height="40" width="40" />Cargando...</button></div>');
+           $('main').html(reload);
            var ruta = "http://localhost/maquinarias/listado";
            var tipo = $(this).attr('tipo');
            var filtro = $(this).attr('filtro');

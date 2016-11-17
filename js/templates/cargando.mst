@@ -1,0 +1,5 @@
+<div id="onload">
+   <button class="btn btn-lg btn-warning">
+      <img src="images/cargando.gif" height="40" width="40" />Cargando...
+   </button>
+</div>

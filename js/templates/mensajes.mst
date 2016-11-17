@@ -1,0 +1,10 @@
+<ul>
+{{#msj}}
+   <div class="alert alert-success alert-dismissible" role="alert">
+      <a class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+      </a>
+      {{msj}}
+   </div>
+{{/msj}}
+</ul>
