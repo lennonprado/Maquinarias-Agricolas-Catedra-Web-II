@@ -33,7 +33,6 @@ $('#nuevoComentario').on("click",function(){
 function guardarComentario(data){
   var urlGuardar = 'http://localhost/maquinarias/api/comentario/';
   $.post( urlGuardar,data, function(result){
-
       setTimeout(function(){
           listarComentarios();
           var msj =  Mustache.render(mensaje,{msj:'Comentario creado correctamente'});
@@ -42,7 +41,6 @@ function guardarComentario(data){
            $(window).scrollTop(scrollPos);
           setTimeout(function(){$(".alert").hide(800);}, 2000);
        }, 2000);
-
    });
 }
 

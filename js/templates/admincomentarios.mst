@@ -1,11 +1,11 @@
 {{#comentarios}}
    {{#com_mensaje}}
-   <li class="list-group-item col-md-3 unidad">
+   <li class="sin_vinieta col-md-3 unidad">
      <h5>Producto: <a href="#" title="{$item.user_name}" >{{prod_nombre}}</a></h5>
      <p>Usuario: <a href="#" title="{$item.user_name}" >{{user_name}}</a></p>
-     <p>Cometario: <i>{{com_mensaje}}</i></p>
+     <p class="comentarioDiv">Cometario: <i>{{com_mensaje}}</i></p>
      <p>Puntuacion: <i>{{com_puntuacion}}</i></p>
-     <p>Fecha: <times>{{fecha}}</times></p>
+     <p>Fecha: <time>{{fecha}}</time></p>
      <p>
        <a role="button" id="{{id_comentario}}" class="btn btn-danger jsEliminarComentario">Eliminar</a>
      </p>

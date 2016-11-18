@@ -25,6 +25,7 @@ function listarComentarios(){
     success: function(resultData){
       var rendered = Mustache.render(template,{comentarios:resultData});
       $('#jsComentarios').html(rendered);
+
       $('.jsEliminarComentario').click(function(){
          var idPro=$(this).attr('id');
          urlLista=urlLista+idPro;
@@ -35,10 +36,12 @@ function listarComentarios(){
              contentType: 'JSON',
              success: function(resultData){
                 console.log(resultData);
-                var msj =  Mustache.render(mensaje,{msj:resultData.success});
+                var msj =  Mustache.render(mensaje,{msj:"Comentario eliminado correctamente"});
                 $(".alert").html(msj);
                 $(".alert").show(800);
+                $('#jsComentarios').html(reload);
                 listarComentarios();
+                setTimeout(function(){$(".alert").hide(800);}, 2000);
             },
             error: function(){
               var msj =  Mustache.render(mensaje,{msj:'Error al eliminar el cometanrios'});
@@ -47,6 +50,7 @@ function listarComentarios(){
             }
            });
       });
+
     },
     error: function(){
       var msj =  Mustache.render(mensaje,{msj:'Error al listar cometanrios'});

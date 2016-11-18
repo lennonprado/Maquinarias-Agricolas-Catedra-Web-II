@@ -15,7 +15,13 @@ Autores: Eduardo Bravo, Marcelo Prado
 .unidad{
 	border: 1px solid;
 	border-color: #ccc;
-  border-radius: 25px;
-	padding: 20px;
-	margin: 10px;
+   border-radius: 20px;
+	padding: 10px;
+	margin: 5px;
+}
+.oculto{ display: none;}
+.sin_vinieta{ list-style: none;}
+.comentarioDiv{
+	height: 35px; 
+	overflow:auto;
 }

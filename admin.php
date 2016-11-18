@@ -7,6 +7,7 @@ require('controllers/AdminComentarioController.php');
 
 require ('config/ConfigApp.php');
 
+//controlo si esta logeado
 if(!isset($_SESSION["user_name"])){
    $usuarioController = new AdminUsuarioController();
    if($_REQUEST['action']=='registrar')
@@ -18,6 +19,7 @@ if(!isset($_SESSION["user_name"])){
    die;
 }
 else{
+   //controlo el tipo de usuario
    if($_SESSION['user_permisos']=='Usuario')
    {
       //session_destroy();

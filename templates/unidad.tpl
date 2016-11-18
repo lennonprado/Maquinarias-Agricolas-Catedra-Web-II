@@ -61,7 +61,7 @@
          <h4>Comentarios</h4>
          <div id="jsComentarios" ></div>
          <input type="hidden" value="{$unidad.id_producto}" name="com_id_producto" id="com_id_producto" />
-         <div class="alert"></div>
+         <div class="oculto alert"></div>
          {if $usuario}
             <form class="form-horizontal" >
                <div class="form-group">

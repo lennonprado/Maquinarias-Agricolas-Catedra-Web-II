@@ -2,7 +2,7 @@
 <section class="container">
   <div class="row">
     <h4>Listado de Comentarios</h4>
-    <div class="alert" role="alert"></div>
+    <div class="oculto alert" role="alert"></div>
     <div class="row" >
       <ul class="list-group" id="jsComentarios">
       </ul>
