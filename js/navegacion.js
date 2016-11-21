@@ -8,6 +8,22 @@ $.ajax({ url: 'js/templates/cargando.mst',
    success: function(templateReceived){reload = templateReceived;}
 });
 
+function filtrar(ruta,tipo,filtro){
+   $.post(ruta, {tipo: tipo, filtro:filtro}, function(result){
+      setTimeout(function(){
+         $('main').html(result);
+         $(".jsUnidad").on("click",function(event){
+           var seccion = 'unidad';
+           var id = $(this).attr("id_producto");
+           var sec = seccion + '/' + id;
+           navegacion(sec);
+           event.preventDefault();
+         });
+         $("html, body").animate({ scrollTop: 0 }, "slow");
+       }, 1200);
+    });
+}
+
 function navegacion(seccion){
   $("html, body").animate({ scrollTop: 0 }, "slow");
   $('main').html(reload);
@@ -34,19 +50,7 @@ function navegacion(seccion){
            var ruta = "http://localhost/maquinarias/listado";
            var tipo = $(this).attr('tipo');
            var filtro = $(this).attr('filtro');
-           $.post(ruta, {tipo: tipo, filtro:filtro}, function(result){
-              setTimeout(function(){
-                 $('main').html(result);
-                 $(".jsUnidad").on("click",function(event){
-                   var seccion = 'unidad';
-                   var id = $(this).attr("id_producto");
-                   var sec = seccion + '/' + id;
-                   navegacion(sec);
-                   event.preventDefault();
-                 });
-                 $("html, body").animate({ scrollTop: 0 }, "slow");
-               }, 1200);
-            });
+           filtrar(ruta,tipo,filtro);
         });
       }, 1200);
     },

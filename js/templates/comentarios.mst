@@ -5,7 +5,7 @@
       <div class="panel-body">
          Comentario: {{com_mensaje}} <br/>
          Puntuacion: {{com_puntuacion}} <br/>
-         Fecha: <time>{{fecha}}</time>
+         <time>Fecha: {{fecha}}</time>
       </div>
    </div>
    {{/com_mensaje}}

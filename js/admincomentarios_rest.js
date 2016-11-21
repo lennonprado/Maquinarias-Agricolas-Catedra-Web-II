@@ -15,6 +15,28 @@ $.ajax({ url: 'http://localhost/maquinarias/js/templates/admincomentarios.mst',
    success: function(templateReceived){template = templateReceived;}
 });
 
+function eliminarComentario(idPro,urlLista){
+   $.ajax({
+      url: urlLista,
+      type: 'DELETE',
+      data: idPro,
+      contentType: 'JSON',
+      success: function(resultData){
+          console.log(resultData);
+          var msj =  Mustache.render(mensaje,{msj:"Comentario eliminado correctamente"});
+          $(".alert").html(msj);
+          $(".alert").show(800);
+          $('#jsComentarios').html(reload);
+          listarComentarios();
+          setTimeout(function(){$(".alert").hide(800);}, 2000);
+      },
+      error: function(){
+        var msj =  Mustache.render(mensaje,{msj:'Error al eliminar el cometanrios'});
+        $(".alert").html(msj);
+        $(".alert").show(800);
+      }
+     });
+}
 
 function listarComentarios(){
    var urlLista='http://localhost/maquinarias/api/comentario/';
@@ -29,28 +51,9 @@ function listarComentarios(){
       $('.jsEliminarComentario').click(function(){
          var idPro=$(this).attr('id');
          urlLista=urlLista+idPro;
-         $.ajax({
-             url: urlLista,
-             type: 'DELETE',
-             data: idPro,
-             contentType: 'JSON',
-             success: function(resultData){
-                console.log(resultData);
-                var msj =  Mustache.render(mensaje,{msj:"Comentario eliminado correctamente"});
-                $(".alert").html(msj);
-                $(".alert").show(800);
-                $('#jsComentarios').html(reload);
-                listarComentarios();
-                setTimeout(function(){$(".alert").hide(800);}, 2000);
-            },
-            error: function(){
-              var msj =  Mustache.render(mensaje,{msj:'Error al eliminar el cometanrios'});
-              $(".alert").html(msj);
-              $(".alert").show(800);
-            }
-           });
+         eliminarComentario(idPro,urlLista);
       });
-
+      
     },
     error: function(){
       var msj =  Mustache.render(mensaje,{msj:'Error al listar cometanrios'});

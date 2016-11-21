@@ -5,7 +5,7 @@
      <p>Usuario: <a href="#" title="{$item.user_name}" >{{user_name}}</a></p>
      <p class="comentarioDiv">Cometario: <i>{{com_mensaje}}</i></p>
      <p>Puntuacion: <i>{{com_puntuacion}}</i></p>
-     <p>Fecha: <time>{{fecha}}</time></p>
+     <p><time>Fecha: {{fecha}}</time></p>
      <p>
        <a role="button" id="{{id_comentario}}" class="btn btn-danger jsEliminarComentario">Eliminar</a>
      </p>
