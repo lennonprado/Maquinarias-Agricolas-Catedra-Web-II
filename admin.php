@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 require('controllers/AdminProductoController.php');
 require('controllers/AdminMarcaController.php');
 require('controllers/AdminUsuarioController.php');
@@ -8,29 +8,8 @@ require('controllers/AdminComentarioController.php');
 require ('config/ConfigApp.php');
 
 //controlo si esta logeado
-if(!isset($_SESSION["user_name"])){
-   $usuarioController = new AdminUsuarioController();
-   if($_REQUEST['action']=='registrar')
-      {
-         $_POST['user_permisos']='Usuario';
-         $usuarioController->agregarUsuariosWeb();
-      }
-   $usuarioController->login();
-   die;
-}
-else{
-   //controlo el tipo de usuario
-   if($_SESSION['user_permisos']=='Usuario')
-   {
-      //session_destroy();
-      if($_REQUEST['action']=='salir')
-         {session_destroy();
-          $location='Location: http://localhost/maquinarias/';
-         }
-      header('Location: http://localhost/maquinarias/');
-      die;
-   }
-}
+$usuarioController = new AdminUsuarioController();
+$usuarioController->chekLogin();
 
 if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
   $productoController = new AdminProductoController();

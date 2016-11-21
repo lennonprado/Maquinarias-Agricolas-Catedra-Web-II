@@ -22,6 +22,12 @@ Autores: Eduardo Bravo, Marcelo Prado
 .oculto{ display: none;}
 .sin_vinieta{ list-style: none;}
 .comentarioDiv{
-	height: 35px; 
+	height: 35px;
 	overflow:auto;
 }
+
+#onload{
+	height: 280px;
+	text-align: center;
+	padding: 100px;
+} 

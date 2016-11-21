@@ -1,6 +1,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.3/mustache.js"></script>
 <section class="container">
-  <div class="row">
+  <div class="row"> 
     <h4>Listado de Comentarios</h4>
     <div class="oculto alert" role="alert"></div>
     <div class="row" >

@@ -54,6 +54,7 @@ class UsuarioModel
        $sentencia->execute(array($id_usuario));
        return $sentencia->rowCount();
      }
+     
 }
 
 ?>

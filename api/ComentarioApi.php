@@ -1,6 +1,7 @@
 <?php
-require 'api.php';
-require '../models/ComentarioModel.php';
+require_once ('api.php');
+require_once ('../models/ComentarioModel.php');
+//require_once ('../controllers/AdminUsuarioController.php');
 
 class ComentarioApi extends Api
 {
@@ -8,23 +9,30 @@ class ComentarioApi extends Api
 
   public function __construct($request)
  {
+    //$usuarioController = new AdminUsuarioController();
+    //$usuarioController->chekLogin();
     parent::__construct($request);
     $this->model = new ComentarioModel();
+
   }
 
   protected function comentario($argumentos){
     switch ($this->method) {
-
       case 'GET':
-          if((count($argumentos)>0) && ($argumentos[0])){
-            $comentario = $this->model->getComentariosProducto($argumentos[0]);
-            $error['Error'] = "No hay comentarios";
-            return ($comentario) ? $comentario : $error;
-          }else{
-            $comentario = $this->model->getComentarios();
-            $error['Error'] = "No hay comentarios";
-            return ($comentario) ? $comentario : $error;
-          }
+          //if($usuarioController->getUserLogin()){
+            if((count($argumentos)>0) && ($argumentos[0])){
+               $comentario = $this->model->getComentariosProducto($argumentos[0]);
+               $error['Error'] = "No hay comentarios";
+               return ($comentario) ? $comentario : $error;
+            }else{
+               $comentario = $this->model->getComentarios();
+               $error['Error'] = "No hay comentarios";
+               return ($comentario) ? $comentario : $error;
+            }
+      //   }
+      //else {
+      //   return $error['Error'] = "Error: Usuario No Logeado";
+      //}
       break;
 
       case 'DELETE':

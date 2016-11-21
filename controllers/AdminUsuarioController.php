@@ -91,6 +91,47 @@ class AdminUsuarioController
    }
   }
 
+function getUserLogin(){
+   if(isset($_SESSION['user_name']))
+      return $_SESSION['user_name'];
+   else
+      return false;
+}
+
+function getPermisoLogin(){
+   if(isset($_SESSION['user_permisos']))
+      return $_SESSION['user_permisos'];
+   else
+      return false;
+}
+
+
+function chekLogin(){
+   session_start();
+   if(!$this->getUserLogin()){
+      if($_REQUEST['action']=='registrar')
+         {
+            $_POST['user_permisos']='Usuario';
+            $this->agregarUsuariosWeb();
+         }
+      $this->login();
+      die;
+   }
+   else{
+      //controlo el tipo de usuario
+      if($this->getPermisoLogin()=='Usuario')
+      {
+         //session_destroy();
+         if($_REQUEST['action']=='salir')
+            {session_destroy();
+             $location='Location: http://localhost/maquinarias/';
+            }
+         header('Location: http://localhost/maquinarias/');
+         die;
+      }
+   }
+}
+
 function salir(){
    session_start();
    session_destroy();
