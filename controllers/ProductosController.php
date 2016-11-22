@@ -13,6 +13,7 @@ class ProductosController
 
   function __construct()
   {
+    //$this->controlSmarty();
     $this->productoModelo = new ProductoModel();
     $this->marcaModelo = new MarcaModel();
     $this->categoriaModelo = new CategoriaModel();
@@ -126,7 +127,13 @@ class ProductosController
     return preg_match('/podria/',$tarea);
   }
 
-
+  function controlSmarty(){
+    $ruta = dirname(__DIR__) . '/templates_c';
+      if(!file_exists($ruta) || !is_writable($ruta) ){
+          chmod(dirname(__DIR__), 0777);
+          mkdir($ruta, 0777, true);
+          chmod(dirname(__DIR__), 0775);
+      }
+  }
 }
-
- ?>
+?>

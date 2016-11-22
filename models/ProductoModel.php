@@ -7,7 +7,20 @@ class ProductoModel
 
   function __construct()
   {
-    $this->db = new PDO('mysql:host=localhost;dbname=maquinarias;charset=utf8', 'root', '');
+      try
+      {
+        $this->db = new PDO('mysql:host=localhost;dbname=maquinarias;charset=utf8', 'root', '');
+      }
+      catch (PDOException $e)
+      {
+          if($e->getcode() == 1049){ //
+            $rutaArchivoSql =  dirname(__DIR__) . '/sql/maquinarias.sql';
+            $consultas = file_get_contents($rutaArchivoSql);
+            $this->db = new PDO('mysql:host=localhost;charset=utf8', 'root', '');
+            $sentencia = $this->db->prepare($consultas);
+            $sentencia->execute();
+          }
+      }
   }
 
   function getProductos($tipo=NULL,$limit=NULL,$categoria=NULL,$marca=NULL){
