@@ -1,5 +1,5 @@
 <?php
-require_once('libs/Smarty.class.php');
+require_once(dirname(__DIR__) . '/libs/Smarty.class.php');
 
 class AdminUsuarioView
 {
@@ -31,7 +31,7 @@ class AdminUsuarioView
   function modificarUsuarios($usuario){
     $this->smarty->assign('user_name',$usuario["user_name"]);
     $this->smarty->assign('user_pass',$usuario["user_pass"]);
-    $this->smarty->assign('user_permisos',$usuario["user_permisos"]);    
+    $this->smarty->assign('user_permisos',$usuario["user_permisos"]);
     $this->smarty->display('adminModificarUsuario.tpl');
   }
 

@@ -1,6 +1,6 @@
 <?php
-require_once('view/AdminUsuarioView.php');
-require_once('models/UsuarioModel.php');
+require_once(dirname(__DIR__) . '/view/AdminUsuarioView.php');
+require_once(dirname(__DIR__) . '/models/UsuarioModel.php');
 
 class AdminUsuarioController
 {
