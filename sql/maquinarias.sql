@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-11-2016 a las 12:05:57
+-- Tiempo de generación: 23-11-2016 a las 13:14:42
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -99,7 +99,8 @@ CREATE TABLE `comentarios` (
   `com_id_producto` int(11) NOT NULL,
   `com_id_usuario` int(11) NOT NULL,
   `com_mensaje` text NOT NULL,
-  `com_puntuacion` int(11) NOT NULL
+  `com_puntuacion` int(11) NOT NULL,
+  `com_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -141,7 +142,7 @@ INSERT INTO `imágenes` (`id_imagen`, `img_producto`, `img_descripcion`, `img_ur
 (36, 11, '', 'images/5807a08fceeb5_14606446331713399153_300x200.jpg', '', 0, 1),
 (37, 11, '', 'images/5807a08fcf1f7_14607233461695415642_300x200.jpg', '', 0, 1),
 (38, 11, '', 'images/5807a08fcf66f_14608122721950416615_300x200.jpg', '', 0, 1),
-(44, 12, '', 'images/5807a372abe36_14608170881842605740_300x200.jpg', '', 0, 1),
+(44, 12, '', 'images/5807a372abe36_14608170881842605740_300x200.jpg', '', 1, 1),
 (57, 19, '', 'images/5807dd9ba84de_5807a08fceeb5_14606446331713399153_300x200.jpg', '', 1, 1),
 (60, 12, '', 'images/582370f6c2aed_58078ddb009e9_1411672801837801533_300x200.jpg', '', 0, 1),
 (61, 12, '', 'images/582370f6c4f79_580797fe16178_1417262481566743770_300x200.jpg', '', 0, 1),
@@ -149,7 +150,7 @@ INSERT INTO `imágenes` (`id_imagen`, `img_producto`, `img_descripcion`, `img_ur
 (76, 15, '', 'images/58237286ad026_5807a08fcf1f7_14607233461695415642_300x200.jpg', '', 0, 1),
 (78, 15, '', 'images/58237286b2b4e_5807a08fcf66f_14608122721950416615_300x200.jpg', '', 0, 1),
 (82, 15, '', 'images/582372e4b39be_13982033061840700110_300x200.jpg', '', 0, 1),
-(87, 15, '', 'images/582372e4c7bcf_14375809701926290309_300x200.jpg', '', 0, 1),
+(87, 15, '', 'images/582372e4c7bcf_14375809701926290309_300x200.jpg', '', 1, 1),
 (88, 7, '', 'images/5835779bb999f_1458563537735625864_300x200.jpg', '', 1, 1),
 (89, 7, '', 'images/5835779bb9c39_1458564687731411752_300x200.jpg', '', 0, 1),
 (90, 7, '', 'images/5835779bb9e14_1458566978275271020_300x200.jpg', '', 0, 1),
@@ -305,7 +306,8 @@ ALTER TABLE `productos`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD UNIQUE KEY `user_name` (`user_name`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -325,7 +327,7 @@ ALTER TABLE `categorías`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `imágenes`
 --
@@ -345,7 +347,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --
