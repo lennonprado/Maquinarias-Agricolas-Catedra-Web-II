@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 14-11-2016 a las 20:08:07
+-- Tiempo de generación: 23-11-2016 a las 12:05:57
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -137,7 +137,6 @@ INSERT INTO `imágenes` (`id_imagen`, `img_producto`, `img_descripcion`, `img_ur
 (1, 1, 'imagen', 'images/140680976926367715_300x200.jpg', '', 1, 1),
 (2, 1, 'imagen', 'images/1448111173684775796_300x200.jpg', '', 0, 1),
 (10, 1, '', 'images/58078ddb009e9_1411672801837801533_300x200.jpg', '', 0, 0),
-(13, 7, '', 'images/5807973ce50e2_1406810280478763949_300x200.jpg', '', 1, 0),
 (35, 11, '', 'images/5807a08fc513b_14606435931001989488_300x200.jpg', '', 1, 1),
 (36, 11, '', 'images/5807a08fceeb5_14606446331713399153_300x200.jpg', '', 0, 1),
 (37, 11, '', 'images/5807a08fcf1f7_14607233461695415642_300x200.jpg', '', 0, 1),
@@ -150,7 +149,11 @@ INSERT INTO `imágenes` (`id_imagen`, `img_producto`, `img_descripcion`, `img_ur
 (76, 15, '', 'images/58237286ad026_5807a08fcf1f7_14607233461695415642_300x200.jpg', '', 0, 1),
 (78, 15, '', 'images/58237286b2b4e_5807a08fcf66f_14608122721950416615_300x200.jpg', '', 0, 1),
 (82, 15, '', 'images/582372e4b39be_13982033061840700110_300x200.jpg', '', 0, 1),
-(87, 15, '', 'images/582372e4c7bcf_14375809701926290309_300x200.jpg', '', 0, 1);
+(87, 15, '', 'images/582372e4c7bcf_14375809701926290309_300x200.jpg', '', 0, 1),
+(88, 7, '', 'images/5835779bb999f_1458563537735625864_300x200.jpg', '', 1, 1),
+(89, 7, '', 'images/5835779bb9c39_1458564687731411752_300x200.jpg', '', 0, 1),
+(90, 7, '', 'images/5835779bb9e14_1458566978275271020_300x200.jpg', '', 0, 1),
+(91, 7, '', 'images/5835779bb9fde_1460558901756931870_300x200.jpg', '', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -327,7 +330,7 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de la tabla `imágenes`
 --
 ALTER TABLE `imágenes`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --

@@ -13,6 +13,11 @@ $.ajax({ url: 'http://localhost/maquinarias/js/templates/admincomentarios.mst',
    success: function(templateReceived){template = templateReceived;}
 });
 
+var sinComentarios;
+$.ajax({ url: 'http://localhost/maquinarias/js/templates/sincomentarios.mst',
+   success: function(templateReceived){sinComentarios = templateReceived;}
+});
+
 function eliminarComentario(idPro,urlLista){
    $.ajax({
       url: urlLista,
@@ -42,16 +47,22 @@ function listarComentarios(){
 		type: 'GET',
 		dataType: 'JSON',
     success: function(resultData){
-      $('#jsComentarios').html(reload);
-      setTimeout(function(){
 
-         var rendered = Mustache.render(template,{comentarios:resultData});
-         $('#jsComentarios').html(rendered);
-         $('.jsEliminarComentario').click(function(){
-            var idPro=$(this).attr('id');
-            urlLista=urlLista+idPro;
-            eliminarComentario(idPro,urlLista);
-         });
+      $('#jsComentarios').html(reload);
+
+      setTimeout(function(){
+         if(!resultData.Error){
+            var rendered = Mustache.render(template,{comentarios:resultData});
+            $('#jsComentarios').html(rendered);
+            $('.jsEliminarComentario').click(function(){
+               var idPro=$(this).attr('id');
+               urlLista=urlLista+idPro;
+               eliminarComentario(idPro,urlLista);
+            });
+            }
+         else{            
+            $('#jsComentarios').html(sinComentarios);
+         }
 
       }, 2000);
 
